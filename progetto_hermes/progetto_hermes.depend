@@ -1,0 +1,81 @@
+# depslib dependency file v1.0
+1604836996 source:c:\users\letiz\documents\università\programmazione\programmi codeblocks\progetto_hermes\src\livello.cpp
+	"campo.h"
+	"Livello.h"
+	<time.h>
+	<iostream>
+
+1604837010 c:\users\letiz\documents\università\programmazione\programmi codeblocks\progetto_hermes\include\livello.h
+	"OtherFunctions.h"
+
+1604446406 source:c:\users\letiz\documents\università\programmazione\programmi codeblocks\progetto_hermes\src\ostacolo.cpp
+	"Ostacolo.h"
+	<iostream>
+
+1604450090 c:\users\letiz\documents\università\programmazione\programmi codeblocks\progetto_hermes\include\ostacolo.h
+	<Entita.h>
+
+1604449905 c:\users\letiz\documents\università\programmazione\programmi codeblocks\progetto_hermes\include\entita.h
+	"OtherFunctions.h"
+	<windows.h>
+
+1604446397 source:c:\users\letiz\documents\università\programmazione\programmi codeblocks\progetto_hermes\src\tanica.cpp
+	"Tanica.h"
+	<iostream>
+
+1604450364 c:\users\letiz\documents\università\programmazione\programmi codeblocks\progetto_hermes\include\tanica.h
+	<Entita.h>
+
+1604838630 source:c:\users\letiz\documents\università\programmazione\programmi codeblocks\progetto_hermes\main.cpp
+	<conio.h>
+	<iostream>
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<cstdlib>
+	<math.h>
+	<ctime>
+	<windows.h>
+	"OtherFunctions.h"
+	"Entita.h"
+	"Livello.h"
+	"Macchina.h"
+	"Ostacolo.h"
+	"Tabellone.h"
+	"Tanica.h"
+	"campo.h"
+
+1604450066 c:\users\letiz\documents\università\programmazione\programmi codeblocks\progetto_hermes\include\macchina.h
+	<Entita.h>
+
+1604796883 c:\users\letiz\documents\università\programmazione\programmi codeblocks\progetto_hermes\include\tabellone.h
+	"OtherFunctions.h"
+
+1604836027 c:\users\letiz\documents\università\programmazione\programmi codeblocks\progetto_hermes\include\campo.h
+	"Livello.h"
+	"Macchina.h"
+	"Tabellone.h"
+
+1604450449 c:\users\letiz\documents\università\programmazione\programmi codeblocks\progetto_hermes\include\otherfunctions.h
+
+1604834663 source:c:\users\letiz\documents\università\programmazione\programmi codeblocks\progetto_hermes\src\tabellone.cpp
+	"Tabellone.h"
+	<iostream>
+
+1604835872 source:c:\users\letiz\documents\università\programmazione\programmi codeblocks\progetto_hermes\src\otherfunctions.cpp
+	<OtherFunctions.h>
+	<iostream>
+	<windows.h>
+
+1604446743 source:c:\users\letiz\documents\università\programmazione\programmi codeblocks\progetto_hermes\src\entita.cpp
+	"Entita.h"
+	<iostream>
+
+1604836328 source:c:\users\letiz\documents\università\programmazione\programmi codeblocks\progetto_hermes\src\campo.cpp
+	"Campo.h"
+	<iostream>
+
+1604448307 source:c:\users\letiz\documents\università\programmazione\programmi codeblocks\progetto_hermes\src\macchina.cpp
+	"Macchina.h"
+	<iostream>
+
