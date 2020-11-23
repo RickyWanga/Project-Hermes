@@ -34,25 +34,6 @@ using namespace std;
             }
         }
 
-        void Campo::refresh(){  //ti stampa la matrice dove non e' vuota
-            for (int i=0;i<=altezza;i++)
-                for (int j=1;j<larghezza;j++)
-                    if (m[i][j]=='+'){
-                        gotoxy(j,-(i));
-                        cout<<"+";
-                    }
-                    else
-                        if (m[i][j]=='*'){
-                            gotoxy(j,-(i));
-                            cout<<"*";
-                        }
-                        else
-                            if(m[i][j]=='|'){
-                                gotoxy(j,-(i));
-                                cout<<"|";
-                            }
-        }
-
         void Campo::scroll(){   //sposta tutti gli elementi della matrice di uno in basso
 
             for (int k=1;k<larghezza;k++){m[0][k]=' ';}//prima nuova riga tutta vuota
@@ -141,6 +122,12 @@ using namespace std;
             m[y+2][x+1]=' ';
         }
 
+         int Campo::control_collision(int x, int y){/*funzione che data la posizione (x,y) della macchina ti restituisce:
+                -0 non ho sbattuto da nessuna parte
+                -ritorna il valore di cosa ho beccato */
+
+
+         }
 
         int Campo::move_car_dx(Macchina car, Livello level){
          /*controllo cosa è successo con la macchina spostata di una posizione a dx:
@@ -195,6 +182,8 @@ using namespace std;
         }
 
 
+        int Campo::move_car_wx(Macchina car, Livello level){
 
+        }
 
 

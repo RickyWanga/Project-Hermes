@@ -21,7 +21,6 @@ class Campo
         virtual ~Campo();   //distruttore
 
         void stampa();      //stampa il campo da gioco da capo
-        void refresh();     //ti ti stampa la matrice dove non e' vuota
         void scroll();      //sposta tutti gli elementi della matrice di uno in basso
         void gameover(Tabellone tab);    //stampa "game over" al centro
 
@@ -35,6 +34,9 @@ class Campo
         void ins_car(int x, int y );    //inserisco la macchina nel campo con (x,y) come coordinate dell' angolo sinisro in alto
         void del_car(int x, int y ); //cancello la macchina nel campo con (x,y) come coordinate dell' angolo sinisro in alto
 
+        int control_collision(int x, int y); /*funzione che data la posizione (x,y) della macchina ti restituisce:
+                -0 non ho sbattuto da nessuna parte
+                -ritorna il valore di cosa ho beccato */
 
         int move_car_dx(Macchina car, Livello level); /*controllo cosa è successo con la macchina spostata di una posizione a dx:
                 -se non urto niente, ne' i lati del campo da gioco, ne' ostacoli vari-> ritorna 0
@@ -47,6 +49,8 @@ class Campo
                 -se utro la barriera-> ritorna il valore della barriera ovvero level.get_p_bar()
                 -se urto un ostacolo-> ritorna il valore dell'ostacolo ovvero level.get_p_ost()
                 -se urto una tanica bonus-> ritorna il valore della tanica bonus ovvero level.get_p_tan() */
+
+        int move_car_wx(Macchina car, Livello level);/*funzione che scolla tutto il campo*/
 };
 
 #endif // CAMPO_H

@@ -49,7 +49,7 @@ int main()
     camp.stampa();  //stampo il campo
     car.stampa_car();//stampo la macchina del giocatore
 
-    while (cmd!='q'&&cmd!='Q'){    //se comando è diverso da q (ovvero "quit")
+    while ((cmd!='q'&&cmd!='Q'&&cmd=='d')||(cmd!='q'&&cmd!='Q'&&cmd=='s')|| _kbhit()==0)){    //se comando è diverso da q (ovvero "quit")
         //leggo comando
         cmd=getch();
         stop(level.get_vel());//mano a mano che aumentano i livelli va sempre più veloce
@@ -95,18 +95,20 @@ int main()
 
                 //in caso di urto con la barriera "contengo" la macchina per non farla uscire dal campo annullando l'ultimo spostamento
                 if (control_value==level.get_p_bar()){car.dec_x();}
-            }
+            }else{
+                    if (cmd=='a'||cmd=='A'){//se è 'a' va a sinistra
+                    //sposto la macchina a sx
+                    car.dec_x();
 
-            if (cmd=='a'||cmd=='A'){//se è 'a' va a sinistra
-                //sposto la macchina a sx
-                car.dec_x();
-
-                //salvo il valore di ritorno, in base ad esso capisco se e cosa ha urtato, visionare la funzione per info
-                control_value=camp.move_car_sx(car,level);
-
-                //in caso di urto con la barriera "contengo" la macchina per non farla uscire dal campo annullando l'ultimo spostamento
-                if (control_value==level.get_p_bar()){car.inc_x();}
-            }
+                    //salvo il valore di ritorno, in base ad esso capisco se e cosa ha urtato, visionare la funzione per info
+                    control_value=camp.move_car_sx(car,level);
+                    //in caso di urto con la barriera "contengo" la macchina per non farla uscire dal campo annullando l'ultimo spostamento
+                    if (control_value==level.get_p_bar()){car.inc_x();}
+                    }else{
+                        //chiamo funzione che semplicemente scolla tutto il campo
+                        control_value=camp.move_car_wx(car,level);
+                    }
+             }
 
             //aggiorno tabellone
             if((tab.get_punt()+control_value)<0)
@@ -191,7 +193,7 @@ void agg_ost_or_tan(Campo camp, bool *ost_or_tan, int *position_x, int *length_o
         *ost_or_tan=true;
     else
     {
-        *position_x=*position_x-3;
+        *position_x=*position_x-*length_ost;
         *ost_or_tan=false;
     }
 
