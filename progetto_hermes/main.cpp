@@ -49,9 +49,12 @@ int main()
     camp.stampa();  //stampo il campo
     car.stampa_car();//stampo la macchina del giocatore
 
-    while ((cmd!='q'&&cmd!='Q'&&cmd=='d')||(cmd!='q'&&cmd!='Q'&&cmd=='s')|| _kbhit()==0)){    //se comando è diverso da q (ovvero "quit")
-        //leggo comando
-        cmd=getch();
+    while (cmd!='q'&&cmd!='Q' ){    //se comando è diverso da q (ovvero "quit")
+        //se non premo nulla pongo il comando a w= vai avanti
+        if (_kbhit()==0){cmd='w';}
+        else{   //altrimenti leggo comando
+                cmd=getch();}
+
         stop(level.get_vel());//mano a mano che aumentano i livelli va sempre più veloce
 
         //dopo 5 sec dall'avanzamento o decremento del livello faccio sparire il riquadro
@@ -137,8 +140,6 @@ int main()
             if (cmd!='q')//se non devo uscire
                 car.stampa_car(); //ristampo la macchina aggiornata
         }
-
-
     }
 
     while (cmd!=''){cmd=getch();}

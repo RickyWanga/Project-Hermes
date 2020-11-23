@@ -125,7 +125,7 @@ using namespace std;
          int Campo::control_collision(int x, int y){/*funzione che data la posizione (x,y) della macchina ti restituisce:
                 -0 non ho sbattuto da nessuna parte
                 -ritorna il valore di cosa ho beccato */
-
+                return 0;
 
          }
 
@@ -183,7 +183,7 @@ using namespace std;
 
 
         int Campo::move_car_wx(Macchina car, Livello level){
-
+            return 0;
         }
 
 
