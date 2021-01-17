@@ -1,0 +1,6 @@
+cose da implementre:
+- aggiungere la macchina come ostacolo
+- modificare metodi move_dx e move_sx in modo da riconoscere se urto una macchina nemica
+- implementare il fatto che anche se non premo nulla la macchina continua ad andare avanti e quindi ancge il metodo move_wx già abbozzato
+- creare una funzione che mi cancelli dalla matrice (e dallo schermo) un ostacolo/macchina nemica/ tanica urtata
+- modificare i metodi "di spostamento" (move_dx & move_sx & move_wx) in modo che cancellino l'entità urtata con la funzione creata in precedenza

@@ -11,6 +11,7 @@ using namespace std;
         p_ost=-10;
         p_tan=10;
         p_bar=-15;
+        p_car=-20;
         intervallo=10;
     }
 
@@ -26,6 +27,7 @@ using namespace std;
         vel++;
         p_ost=p_ost-5;
         p_bar=p_bar-5;
+        p_car=p_car-5;
     }
 
     void Livello::downlevel()
@@ -35,6 +37,7 @@ using namespace std;
         vel--;
         p_ost=p_ost+5;
         p_bar=p_bar+5;
+        p_car=p_car-5;
     }
 
     int Livello::get_intervallo(){return intervallo;}
@@ -43,3 +46,4 @@ using namespace std;
     int Livello::get_p_ost(){return p_ost;}
     int Livello::get_p_tan(){return p_tan;}
     int Livello::get_p_bar(){return p_bar;}
+    int Livello::get_p_car(){return p_car;}

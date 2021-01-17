@@ -13,6 +13,7 @@ class Livello
         int p_ost;  //quanti punti vale prendere l'ostacolo (valore in negativo)
         int p_tan;  //quanti punti vale prendere la tanica (valore in positivo)
         int p_bar;  //quanti punti vale prendere la barriera (valore in negativo)
+        int p_car;  //quanti punti vale prendere un'altrea car (valore in negativo)
         int prob;   //probabilità che esca una nuova entità
 
     public:
@@ -28,7 +29,7 @@ class Livello
         int get_p_ost();    //ritorna valore ostacolo
         int get_p_tan();    //...tanica
         int get_p_bar();    //...barriera
-
+        int get_p_car();    //...car
 };
 
 #endif // LIVELLO_H

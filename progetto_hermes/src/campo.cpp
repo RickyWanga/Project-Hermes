@@ -59,9 +59,11 @@ using namespace std;
             system("CLS");//pulisco tutto lo schermo
             gotoxy((larghezza/2)-5, (altezza/2));
             cout<<"!GAME OVER!";
-            gotoxy((larghezza/2)-5, (altezza/2)+3);
-            cout<<"Your time:"<<tab.get_tempo();
+            gotoxy((larghezza/2)-10, (altezza/2)+3);
+            cout<<"You survived for:";
             gotoxy((larghezza/2)-10, (altezza/2)+4);
+            cout<<tab.get_tempo()<<"sec";
+            gotoxy((larghezza/2)-10, (altezza/2)+5);
             cout<<"Premi 'ESC' per uscire";
             gotoxy(0, 30);
         }
@@ -183,6 +185,38 @@ using namespace std;
 
 
         int Campo::move_car_wx(Macchina car, Livello level){
+
+            int temp_return_value=0; //variabile temporanea impostata a 0, se non urterò nulla ritornando questa variabile la funzione tornerà 0, altrimenti ritornerà il valore dell'oggetto urtato
+            int x_temp_car=car.get_posx(), y_temp_car=car.get_posy();   //creo variabili temporanee con il valore rispettivamente di car.position.X e car.position.Y per non dover chiamare sempre la car.get_pos_...
+
+            if(m[y_temp_car][x_temp_car]=='|' && m[y_temp_car][x_temp_car+2]=='|')
+                temp_return_value=temp_return_value+level.get_p_ost();/*ho un ostacolo sopra la macchina, 2 casi:  |*   o   *|
+                                                                               (ho comunque al max 1 ostacolo)     0 0     0 0
+                                                                                                                    H       H          */
+            else if(m[y_temp_car][x_temp_car+1]==' ')
+                    temp_return_value=temp_return_value+2*level.get_p_ost();//ho 2 ostacoli sopra la macchina,  *| |*
+                                                                            //                                   0 0
+
+            if(m[y_temp_car][x_temp_car+1]=='+')
+                if(m[y_temp_car][x_temp_car]=='+' && m[y_temp_car][x_temp_car+2]=='+')
+                     temp_return_value=temp_return_value+2*level.get_p_tan();//ho 2 taniche       ++++      ++++
+                                                                            //sopra la macchina    0 0  o   0 0
+                else
+                    temp_return_value=temp_return_value+level.get_p_tan();//sopra la macchina al centro ho una tanica
+
+
+            if(m[y_temp_car][x_temp_car]=='0' || m[y_temp_car][x_temp_car+2]=='0')
+                if(m[y_temp_car-1][x_temp_car+1]=='H')
+                    temp_return_value=temp_return_value+level.get_p_car();/*ho un'altra macchina      H         H
+                                                                            sopra la mia, 2 casi:    0     o     0
+                                                                                                     0 0       0 0
+                                                                                                      H         H           */
+                else if(m[y_temp_car-1][x_temp_car+1]==' ')
+                    temp_return_value=temp_return_value+2*level.get_p_car();/*ho altre 2 macchine     H   H
+                                                                            sopra la mia           0 0 0 0
+                                                                                                     0 0
+                                                                                                      H               */
+
             return 0;
         }
 
