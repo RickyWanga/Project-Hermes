@@ -95,11 +95,11 @@ int main()
         }
         else{
             cmd='w';
-            control_value=camp.move_car_wx(car,level);
+           /* control_value=camp.move_car_wx(car,level);
             Sleep(250);
             car.canc_car();
             camp.scroll();
-            car.stampa_car();
+            car.stampa_car();*/
         }
 
         //in base al comando scelgo uno dei 3 casi
@@ -129,6 +129,14 @@ int main()
 
                 //salvo il valore di ritorno, in base ad esso capisco se e cosa ha urtato, visionare la funzione per info
                 control_value=camp.move_car_sx(car,level);
+                //in caso di urto con la barriera "contengo" la macchina per non farla uscire dal campo annullando l'ultimo spostamento
+                if (control_value==level.get_p_bar()){car.inc_x();}
+            }
+
+            if (cmd=='w'||cmd=='W'){//se � 'w' va avanti
+
+                //salvo il valore di ritorno, in base ad esso capisco se e cosa ha urtato, visionare la funzione per info
+                control_value=camp.move_car_wx(car,level);
                 //in caso di urto con la barriera "contengo" la macchina per non farla uscire dal campo annullando l'ultimo spostamento
                 if (control_value==level.get_p_bar()){car.inc_x();}
             }
