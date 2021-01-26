@@ -60,8 +60,8 @@ int main()
     bool type_obj;
     int x;
     int len;
-    int t_uplev=0, t_downlev=0; //variabili che mi dicono l'ultimo istante in cui c'è stato un uplevel o un downlevel
-    int control_value; // variabile di controllo che mi denota di quanto cambia il punteggio in base se prendo una tanica o un ostacolo, se non prendo nulla è 0
+    int t_uplev=0, t_downlev=0; //variabili che mi dicono l'ultimo istante in cui c'ï¿½ stato un uplevel o un downlevel
+    int control_value; // variabile di controllo che mi denota di quanto cambia il punteggio in base se prendo una tanica o un ostacolo, se non prendo nulla ï¿½ 0
 
 
     Campo camp;  //inizializzo il mio campo quindi la mia matrice
@@ -72,27 +72,35 @@ int main()
     camp.stampa();  //stampo il campo
     car.stampa_car();//stampo la macchina del giocatore
 
-    while ( cmd!='q' && cmd!='Q' ){    //se comando è diverso da q (ovvero "quit")
+    while ( cmd!='q' && cmd!='Q' ){    //se comando ï¿½ diverso da q (ovvero "quit")
+        stop(level.get_vel());//mano a mano che aumentano i livelli va sempre piï¿½ veloce
 
-        stop(level.get_vel());//mano a mano che aumentano i livelli va sempre più veloce
-
-        //dopo 10 sec dall'avanzamento o decremento del livello faccio sparire il riquadro (dove c'è scritto uplevel e downlevel)
+        //dopo 10 sec dall'avanzamento o decremento del livello faccio sparire il riquadro (dove c'ï¿½ scritto uplevel e downlevel)
         if(tab.get_tempo()==t_uplev+10||tab.get_tempo()==t_downlev+10)
             canc_upEdown_level(camp.get_larghezza(), camp.get_altezza());
 
-        //ogni (level.get_intervallo)sec nuovo oggetto, che può essere un ostacolo o una tanica
+        //ogni (level.get_intervallo)sec nuovo oggetto, che puï¿½ essere un ostacolo o una tanica
         if(tab.get_tempo()%level.get_intervallo()==0)
-        {   //per scegliere leggo il booleano "type_obj", se esso è 0->nuovo ostacolo di lunghezza "len"; se è 1->nuova tanica
-            //in ogni caso la posizione di partenza è m[1][x]
+        {   //per scegliere leggo il booleano "type_obj", se esso ï¿½ 0->nuovo ostacolo di lunghezza "len"; se ï¿½ 1->nuova tanica
+            //in ogni caso la posizione di partenza ï¿½ m[1][x]
             agg_ost_or_tan(camp, &type_obj, &x, &len);
             if (type_obj)
                 camp.ins_tan(x);
             else
                 camp.ins_ost(x, len);
         }
-
         //leggo comando
-        cmd=getch();
+        if(kbhit()){
+            cmd=getch();
+        }
+        else{
+            cmd='w';
+            control_value=camp.move_car_wx(car,level);
+            Sleep(250);
+            car.canc_car();
+            camp.scroll();
+            car.stampa_car();
+        }
 
         //in base al comando scelgo uno dei 3 casi
         if (cmd==''){//se voglio uscire
@@ -105,24 +113,24 @@ int main()
             //faccio scorrere il campo da gioco
             camp.scroll();
 
-            if (cmd=='d'||cmd=='D'){  //se è 'd' va a destra
+            if (cmd=='d'||cmd=='D'){  //se ï¿½ 'd' va a destra
                 //sposto la macchina a dx
                 car.inc_x();
 
                 //salvo il valore di ritorno, in base ad esso capisco se e cosa ha urtato, visionare la funzione per info
                 control_value=camp.move_car_dx(car,level); // ogni volta che sposto la macchina devo sempre aggiornare la control_value
-
+                control_value=camp.move_car_wx(car,level);
                 //in caso di urto con la barriera "contengo" la macchina per non farla uscire dal campo annullando l'ultimo spostamento
                 if (control_value==level.get_p_bar()){car.dec_x();}
             }
 
-            if (cmd=='a'||cmd=='A'){//se è 'a' va a sinistra
+            if (cmd=='a'||cmd=='A'){//se ï¿½ 'a' va a sinistra
                 //sposto la macchina a sx
-                car.dec_x();// è una matrice
+                car.dec_x();// ï¿½ una matrice
 
                 //salvo il valore di ritorno, in base ad esso capisco se e cosa ha urtato, visionare la funzione per info
                 control_value=camp.move_car_sx(car,level);
-
+                control_value=camp.move_car_wx(car,level);
                 //in caso di urto con la barriera "contengo" la macchina per non farla uscire dal campo annullando l'ultimo spostamento
                 if (control_value==level.get_p_bar()){car.inc_x();}
             }
@@ -142,13 +150,13 @@ int main()
             tab.aggiorna(control_value);//altrimenti aggiorna tabellone(aggiorno il punteggio, aumento secondi e stampo tabellone)
 
         //aggiorno livelli
-        if(tab.get_punt()>(level.get_level()*100)) //se punteggio attuale è maggiore di numero del livello attuale*100
+        if(tab.get_punt()>(level.get_level()*100)) //se punteggio attuale ï¿½ maggiore di numero del livello attuale*100
         {
             level.uplevel();    //aumento di livello
             print_uplevel(camp.get_larghezza(), camp.get_altezza());
             t_uplev=tab.get_tempo();// ci salviamo l'istante in cui passiamo di livello per far sparire il riquadro uplevel
         }
-        if(tab.get_punt()<(level.get_level()-1)*100)//se punteggio attuale è minore di (numero del livello attuale-1)*100
+        if(tab.get_punt()<(level.get_level()-1)*100)//se punteggio attuale ï¿½ minore di (numero del livello attuale-1)*100
         {
             level.downlevel();  //regredisci al livello precedente
             print_downlevel(camp.get_larghezza(), camp.get_altezza());
@@ -163,8 +171,8 @@ int main()
 void agg_ost_or_tan(Campo camp, bool *ost_or_tan, int *position_x, int *length_ost){
 
     srand(time(0));
-    *position_x=3+rand()%(GMAX-2); //la posizione può andare nel range [2,99], percgè a m[:][1] e m[:][100] abbiamo i bordi del campo
-    *length_ost=3+rand()%5;//calcolo una lunghezza per l'ostacolo che può andare da 3 ad 8
+    *position_x=3+rand()%(GMAX-2); //la posizione puï¿½ andare nel range [2,99], percgï¿½ a m[:][1] e m[:][100] abbiamo i bordi del campo
+    *length_ost=3+rand()%5;//calcolo una lunghezza per l'ostacolo che puï¿½ andare da 3 ad 8
 
     //attraverso un numero random scelgo se creare una tanica o un ostacolo
     if ((rand()%100)%2)

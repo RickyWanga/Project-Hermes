@@ -9,6 +9,7 @@ using namespace std;
     void Macchina::inc_x(){position.X++;}
     void Macchina::dec_x(){position.X--;}
     void Macchina::inc_y(){position.Y++;}
+    void Macchina::dec_y(){position.Y--;}
 
     void Macchina::stampa_car()
     {
