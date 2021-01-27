@@ -95,11 +95,11 @@ int main()
         }
         else{
             cmd='w';
-           /* control_value=camp.move_car_wx(car,level);
+           control_value=camp.move_car_wx(car,level);
             Sleep(250);
             car.canc_car();
             camp.scroll();
-            car.stampa_car();*/
+            car.stampa_car();
         }
 
         //in base al comando scelgo uno dei 3 casi

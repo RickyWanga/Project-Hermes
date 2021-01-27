@@ -217,7 +217,7 @@ using namespace std;
                                                                                                      0 0
                                                                                                       H               */
 
-            return temp_return_value;
+            return 0;
         }
 
 
