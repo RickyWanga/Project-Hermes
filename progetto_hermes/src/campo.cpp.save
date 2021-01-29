@@ -64,8 +64,10 @@ using namespace std;
             cout<<"You survived for:";
             gotoxy( (larghezza/ 2) -10, (altezza/ 2) +4 );
             cout<<tab.get_tempo()<<"sec";
+            
             int tmp=tab.stampa_lista((larghezza/ 2) -10, (altezza/ 2) +5);
-            gotoxy( (larghezza/ 2) -10, tmp-- );
+            
+            gotoxy( (larghezza/ 2) -);
             cout<<"Premi 'ESC' per uscire";
             gotoxy(0, 30);
         }

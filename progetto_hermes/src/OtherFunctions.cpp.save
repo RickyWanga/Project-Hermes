@@ -4,6 +4,16 @@
 #include <ctime>
 using namespace std;
 
+
+typedef struct nodo{
+int value;
+int livello;
+nodo*next;
+}
+typedef nodo*ptr_list;
+
+
+
 void gotoxy(int x, int y)
 {
     COORD co;
@@ -53,7 +63,7 @@ void stampa_info(){
     cout<<"\n\n->Tanica di benzina:\n++\n++\n"<<endl;
     cout<<"\n\n->Esempio ostacolo:\n|***|\n"<<endl;
    cout<<"Cerca di prendere più taniche possibili e di eivtare gli ostacoli perchè se il punteggio dovesse andare sotto 0 perderai!!\n!Premi qualsiasi tasto per cominciare!"<<endl;
-   system("pause");
+
 }
 
 

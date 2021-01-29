@@ -322,3 +322,165 @@
 	"Tanica.h"
 	<iostream>
 
+1611760155 source:c:\users\letiz\desktop\ce la afro\project-hermes\progetto_hermes\main.cpp
+	"OtherFunctions.h"
+	"Entita.h"
+	"Livello.h"
+	"Macchina.h"
+	"Ostacolo.h"
+	"Tabellone.h"
+	"Tanica.h"
+	"campo.h"
+	<conio.h>
+	<iostream>
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<cstdlib>
+	<math.h>
+	<ctime>
+	<windows.h>
+
+1611667542 c:\users\letiz\desktop\ce la afro\project-hermes\progetto_hermes\include\otherfunctions.h
+
+1611667542 c:\users\letiz\desktop\ce la afro\project-hermes\progetto_hermes\include\entita.h
+	"OtherFunctions.h"
+	<windows.h>
+
+1611667542 c:\users\letiz\desktop\ce la afro\project-hermes\progetto_hermes\include\livello.h
+	"OtherFunctions.h"
+
+1611667542 c:\users\letiz\desktop\ce la afro\project-hermes\progetto_hermes\include\macchina.h
+	<Entita.h>
+
+1611667542 c:\users\letiz\desktop\ce la afro\project-hermes\progetto_hermes\include\ostacolo.h
+	<Entita.h>
+
+1611667542 c:\users\letiz\desktop\ce la afro\project-hermes\progetto_hermes\include\tabellone.h
+	"OtherFunctions.h"
+
+1611667542 c:\users\letiz\desktop\ce la afro\project-hermes\progetto_hermes\include\tanica.h
+	<Entita.h>
+
+1611757795 c:\users\letiz\desktop\ce la afro\project-hermes\progetto_hermes\include\campo.h
+	"Livello.h"
+	"Macchina.h"
+	"Tabellone.h"
+
+1611862913 source:c:\users\letiz\desktop\ce la afro\project-hermes\progetto_hermes\src\campo.cpp
+	"Campo.h"
+	<iostream>
+
+1611667542 source:c:\users\letiz\desktop\ce la afro\project-hermes\progetto_hermes\src\entita.cpp
+	"Entita.h"
+	<iostream>
+
+1611757007 source:c:\users\letiz\desktop\ce la afro\project-hermes\progetto_hermes\src\livello.cpp
+	"campo.h"
+	"Livello.h"
+	<time.h>
+	<iostream>
+
+1611667542 source:c:\users\letiz\desktop\ce la afro\project-hermes\progetto_hermes\src\macchina.cpp
+	"Macchina.h"
+	<iostream>
+
+1611667542 source:c:\users\letiz\desktop\ce la afro\project-hermes\progetto_hermes\src\ostacolo.cpp
+	"Ostacolo.h"
+	<iostream>
+
+1611667542 source:c:\users\letiz\desktop\ce la afro\project-hermes\progetto_hermes\src\otherfunctions.cpp
+	<OtherFunctions.h>
+	<iostream>
+	<windows.h>
+	<ctime>
+
+1611667542 source:c:\users\letiz\desktop\ce la afro\project-hermes\progetto_hermes\src\tabellone.cpp
+	"Tabellone.h"
+	<iostream>
+
+1611667542 source:c:\users\letiz\desktop\ce la afro\project-hermes\progetto_hermes\src\tanica.cpp
+	"Tanica.h"
+	<iostream>
+
+1611944784 source:c:\users\acer\downloads\pojecthermes\progetto_hermes\main.cpp
+	<conio.h>
+	<iostream>
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<cstdlib>
+	<math.h>
+	<ctime>
+	<windows.h>
+	"OtherFunctions.h"
+	"Entita.h"
+	"Livello.h"
+	"Macchina.h"
+	"Ostacolo.h"
+	"Tabellone.h"
+	"Tanica.h"
+	"campo.h"
+
+1611863916 c:\users\acer\downloads\pojecthermes\progetto_hermes\include\otherfunctions.h
+
+1611863916 c:\users\acer\downloads\pojecthermes\progetto_hermes\include\entita.h
+	"OtherFunctions.h"
+	<windows.h>
+
+1611863916 c:\users\acer\downloads\pojecthermes\progetto_hermes\include\livello.h
+	"OtherFunctions.h"
+
+1611863916 c:\users\acer\downloads\pojecthermes\progetto_hermes\include\macchina.h
+	<Entita.h>
+
+1611863916 c:\users\acer\downloads\pojecthermes\progetto_hermes\include\ostacolo.h
+	<Entita.h>
+
+1611945489 c:\users\acer\downloads\pojecthermes\progetto_hermes\include\tabellone.h
+	"OtherFunctions.h"
+
+1611863916 c:\users\acer\downloads\pojecthermes\progetto_hermes\include\tanica.h
+	<Entita.h>
+
+1611863916 c:\users\acer\downloads\pojecthermes\progetto_hermes\include\campo.h
+	"Livello.h"
+	"Macchina.h"
+	"Tabellone.h"
+
+1611943915 source:c:\users\acer\downloads\pojecthermes\progetto_hermes\src\campo.cpp
+	"Campo.h"
+	<iostream>
+
+1611863916 source:c:\users\acer\downloads\pojecthermes\progetto_hermes\src\entita.cpp
+	"Entita.h"
+	<iostream>
+
+1611863916 source:c:\users\acer\downloads\pojecthermes\progetto_hermes\src\livello.cpp
+	"campo.h"
+	"Livello.h"
+	<time.h>
+	<iostream>
+
+1611863916 source:c:\users\acer\downloads\pojecthermes\progetto_hermes\src\macchina.cpp
+	"Macchina.h"
+	<iostream>
+
+1611863916 source:c:\users\acer\downloads\pojecthermes\progetto_hermes\src\ostacolo.cpp
+	"Ostacolo.h"
+	<iostream>
+
+1611954765 source:c:\users\acer\downloads\pojecthermes\progetto_hermes\src\otherfunctions.cpp
+	<OtherFunctions.h>
+	<iostream>
+	<windows.h>
+	<ctime>
+
+1611945517 source:c:\users\acer\downloads\pojecthermes\progetto_hermes\src\tabellone.cpp
+	"Tabellone.h"
+	<iostream>
+
+1611863916 source:c:\users\acer\downloads\pojecthermes\progetto_hermes\src\tanica.cpp
+	"Tanica.h"
+	<iostream>
+
