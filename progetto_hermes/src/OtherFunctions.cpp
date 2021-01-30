@@ -2,6 +2,7 @@
 #include <iostream>
 #include <windows.h>
 #include <ctime>
+
 using namespace std;
 
 void gotoxy(int x, int y)
@@ -11,12 +12,6 @@ void gotoxy(int x, int y)
     co.Y=y;
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), co);
 }
-void stop(int t)
-{
-    int x=(100/t)*1000000;
-    while(x!=0){x--;}
-}
-
 
 void caricamento(){
     srand(time(0));
@@ -39,46 +34,42 @@ void caricamento(){
         else if(i>97&& i!= 99){
             Sleep(2000);
         }
-
-
     }
     cout<<endl<<endl<<"caricamento completato";
-
-    }
-
-
-void stampa_info(){
-    cout<<" \nRegole: \nPremi 'a' per andare a sinistra, \nPremi 'd' per andare a destra, \nPremi 'w' per andare su, \nPremi 'ESC' per uscire dal gioco.\n\n";
-    cout<<endl<<"->Questa e' la tua macchina:\n0-0\n H\n0-0\n"<<endl;
-    cout<<"\n\n->Tanica di benzina:\n++\n++\n"<<endl;
-    cout<<"\n\n->Esempio ostacolo:\n|***|\n"<<endl;
-   cout<<"Cerca di prendere più taniche possibili e di eivtare gli ostacoli perchè se il punteggio dovesse andare sotto 0 perderai!!\n!Premi qualsiasi tasto per cominciare!"<<endl;
-   system("pause");
 }
 
+void stampa_info(){
+    system("CLS");
+    cout<<" \nRegole: \nPremi 'a' per andare a sinistra, \nPremi 'd' per andare a destra, \nPremi 'w' per andare su, \nPremi 'ESC' per uscire dal gioco.\n\n";
+    cout<<endl<<"->Questa e' la tua macchina:\n0-0\n H\n0-0"<<endl;
+    cout<<"\n->Macchina nemica:\n0-0\n @\n0-0"<<endl;
+    cout<<"\n->Tanica di benzina:\n++\n++"<<endl;
+    cout<<"\n->Esempio ostacolo:\n|***|"<<endl;
+    cout<<"\nCerca di prendere piu' taniche possibili e di eivtare gli ostacoli\nRicorda che se il punteggio dovesse scendere sotto 0 perderai!!"<<endl;
+    system("pause");
+}
 
 void stampa_menu(){
     system("CLS");
-    cout<<"\n!!HERMES GAME!! \n 0)INIZIA IL GIOCO\n 1) STAMPA INFO\n 2) ESCI ";
-
+    cout<<"\n!!HERMES GAME!! \n -->INIZIA IL GIOCO\n -->STAMPA INFO\n -->ESCI ";
 }
 
-void print_uplevel(int larghezza, int altezza){
+void print_uplevel(int larghezza, int altezza, int lev){
         gotoxy((larghezza/2)-5, (altezza/2));
-        cout<<"!!!!!!!!!!!!!";
+        cout<<"-------------";
         gotoxy((larghezza/2)-5, (altezza/2)+1);
-        cout<<"!!!UpLevel!!!";
+        cout<<"|  Level "<<lev<<"  |";
         gotoxy((larghezza/2)-5, (altezza/2)+2);
-        cout<<"!!!!!!!!!!!!!";
+        cout<<"-------------";
 }
 
-void print_downlevel(int larghezza, int altezza){
+void print_downlevel(int larghezza, int altezza, int lev){
         gotoxy((larghezza/2)-5, (altezza/2));
-        cout<<"!!!!!!!!!!!!!";
+        cout<<"-------------";
         gotoxy((larghezza/2)-5, (altezza/2)+1);
-        cout<<"!!DownLevel!!";
+        cout<<"|  Level "<<lev<<"  |";
         gotoxy((larghezza/2)-5, (altezza/2)+2);
-        cout<<"!!!!!!!!!!!!!";
+        cout<<"-------------";
 }
 
 void canc_upEdown_level(int larghezza, int altezza){

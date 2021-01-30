@@ -6,7 +6,7 @@ using namespace std;
 
     Livello::Livello()
     {
-        vel= 250;
+        vel= 200;
         num_livello= 1;
         p_ost= -10;
         p_tan= 10;

@@ -3,9 +3,7 @@
 
 #include <Entita.h>
 
-
-class Macchina : public Entita
-{
+class Macchina : public Entita{
     public:
         Macchina(int x, int y); //costruttore che setta la macchina nella posizione (x,y)
         virtual ~Macchina();    //distruttore

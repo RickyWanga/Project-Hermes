@@ -1,12 +1,4 @@
-#include <conio.h>
-#include <iostream>
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
-#include <cstdlib>
-#include <math.h>
-#include <ctime>
-#include <windows.h>
+
 #include "OtherFunctions.h"
 #include "Entita.h"
 #include "Livello.h"
@@ -16,87 +8,80 @@
 #include "Tanica.h"
 #include "campo.h"
 
-
+#include <conio.h>
+#include <iostream>
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include <cstdlib>
+#include <math.h>
+#include <ctime>
+#include <windows.h>
 
 using namespace std;
 
 void start_game();
-void agg_entita(Campo* camp, int *length_ost);
+void agg_entita(Campo* camp);
 
 int main()
 {
-   /* stampo nome del gioco
-    dopo tot secondi stampo il caricamento e poi il menu
-    leggo la scelta
-    esegui
-    */
-
+    //facciamo stampare il caricamento del gioco
     caricamento();
-    stop(1);
+
+    //attendiamo un secondo per non far scomparire subito il caricamento
+    Sleep(250);
+
+    //inizializzo la variabile che userò per leggere i comandi
     int x;
     COORD co;
     co.Y=0;
-while(co.Y!=4){
-    x=0;
-    co.X=20;
-    co.Y=7;
-    stampa_menu();
-    co.X=co.X+1;
-    co.Y=2;
 
-while(x!= 13){
-     gotoxy(co.X,co.Y);
-     cout<<"<---";
-     x=getch();
-     gotoxy(co.X,co.Y);
-     cout<<"                        ";
-     if(x=='s'||x=='S'){
+    //entro nel loop per far stampare il menù
+    while(co.Y!=4){ // se co.Y==4 significa che ho scelto l'opzione "Esci"
+        //reimposto la variabile per leggere il comando a qualcosa che non fa nulla, ovvero che non mi fa uscire dal gioco e che non mi fa camminare le frecce
+        x='m';
+        //setto le coordinate dalle quali stampare il menù e lo stampo
+        /*co.X=20;
+        co.Y=7;*/
+        stampa_menu();
+        co.X=21;
+        co.Y=2;
 
-        if(co.Y==4)
-            co.Y=2;
-         else
-             co.Y++;
+        while(x!= 13) //quando x==13 significa che ho premuto invio
+        {
+            gotoxy(co.X,co.Y);
+            cout<<"<---";
+            x=getch();
+            gotoxy(co.X,co.Y);
+            cout<<"                        ";
+
+            if(x=='s'||x=='S') //se la freccia deve andare giù
+            {
+                if(co.Y==4) {co.Y=2;}
+                else {co.Y++;}
+            }
+
+            if(x=='w'||x=='W') //se la freccia deve andare su
+            {
+                if(co.Y==2) {co.Y=4;}
+                else {co.Y--;}
+            }
         }
-
-      if(x=='w'||x=='W')  {
-
-        if(co.Y==2)
-            co.Y=4;
-        else
-            co.Y--;
-
+        //in base a dove ho premuto invio faccio il comando correlato
+        if(co.Y==2) {start_game();}
+        if(co.Y==3) {stampa_info();}
     }
 
+    return 0;
 }
-
-
- if(co.Y==2)
-        start_game();
-
- if(co.Y==3)
-
-        stampa_info();
-
-
-}
- return 0;
-}
-
-
 
 void start_game(){
 
     char cmd= 'w';//inizializzo la variabile cmd (del comando) ad un valore diverso da q (ovvero quello di uscita)
-
-    //inizializzo variabili necessarie per la creazione di ostacoli e taniche con la funzione agg_ost_or_tan(...)
-    int type_obj;
-    int x;
-    int len;
     int t_uplev= 0, t_downlev= 0; //variabili che mi dicono l'ultimo istante in cui c'� stato un uplevel o un downlevel
     int control_value; // variabile di controllo che mi denota di quanto cambia il punteggio in base se prendo una tanica o un ostacolo, se non prendo nulla � 0
 
-
-    Campo camp;  //inizializzo il mio campo quindi la mia matrice
+    Campo camp= Campo(30, 70);  //inizializzo il mio campo quindi la mia matrice
     Macchina car= Macchina(48, 26);//inizializzo la macchina
     Livello level= Livello();
     Tabellone tab= Tabellone();
@@ -114,24 +99,17 @@ void start_game(){
         /*ogni (level.get_intervallo)sec nuovo oggetto, che puo' essere
             un ostacolo, una macchina nemica o una tanica*/
         if( ( tab.get_tempo()% level.get_intervallo() ) == 0 )
-        {   /*  per scegliere leggo la variabile "type_obj",
-                se=0 nuova tanica,
-                se essa=1 nuovo ostacolo di lunghezza "len",
-                se essa=2 nuova macchina
-                in ogni caso la posizione di partenza sara' m[1][x]
-            */
-            agg_entita(&camp, &len);
+        {
+            /*funzione che mi aggiunge un entità random nella matrice*/
+            camp.agg_entita();
         }
 
         //controllo se e' stato premuto un tasto
-        if(kbhit())
-            cmd=getch(); //leggo comando
-        else
-            cmd='w';
+        if(kbhit()) cmd=getch(); //leggo comando
+        else cmd='w'; //imposto che vada avanti
 
         //in base al comando scelgo uno dei 4 casi
-        if (cmd=='')//se voglio uscire
-            cmd='q';  //imposto cmd=q per uscire dal ciclo
+        if (cmd=='') cmd='q';  //se voglio uscire imposto cmd=q per uscire dal ciclo
         else
         {   //cancello la macchina dallo schermo ( cancello la macchina dallo schermo per poi farla ricomparire spostata)
             car.canc_car();
@@ -153,60 +131,32 @@ void start_game(){
                 control_value= camp.move_car_wx( &car, level );
             }
 
-            if (cmd!= 'q')//se non devo uscire
-                    car.stampa_car(); //ristampo la macchina aggiornata
-            }
+            if (cmd!= 'q') car.stampa_car(); //se non devo uscire ristampo la macchina aggiornata
+        }
 
         //aggiorno tabellone
-        if( (tab.get_punt()+ control_value) < 0)
-        {//se il punteggio aggiornato con il nuovo spostamento scende sotto 0 perdo
+        if( (tab.get_punt()+ control_value) < 0) //se il punteggio aggiornato con il nuovo spostamento scende sotto 0 perdo
+        {
             camp.gameover(tab);// stampa GAMEOVER
             cmd= 'q'; //faccio uscire dal ciclo while
         }
-        else
-            tab.aggiorna(control_value);//altrimenti aggiorna tabellone(aggiorno il punteggio, aumento secondi e stampo tabellone)
+        else tab.aggiorna(control_value);//altrimenti aggiorna tabellone(aggiorno il punteggio, aumento secondi e stampo tabellone)
 
         //aggiorno livelli
         if( tab.get_punt() > (level.get_level()* 100) ) //se punteggio attuale � maggiore di numero del livello attuale*100
         {
             level.uplevel();    //aumento di livello
-            print_uplevel(camp.get_larghezza(), camp.get_altezza());
+            print_uplevel(camp.get_larghezza(), camp.get_altezza(), level.get_level());
             t_uplev= tab.get_tempo();// ci salviamo l'istante in cui passiamo di livello per far sparire il riquadro uplevel
             tab.t_insert(t_uplev,level.get_level());
         }
         if(tab.get_punt() < (level.get_level()-1)* 100)//se punteggio attuale � minore di (numero del livello attuale-1)*100
         {
             level.downlevel();  //regredisci al livello precedente
-            print_downlevel(camp.get_larghezza(), camp.get_altezza());
+            print_downlevel(camp.get_larghezza(), camp.get_altezza(), level.get_level());
             t_downlev= tab.get_tempo();
         }
     }
 
-    while (cmd != ''){ cmd= getch(); }
-
-}
-
-void agg_entita(Campo* camp, int *length_ost){
-
-    srand(time(0));
-    int x= 2+ rand()% (GMAX-3); //la posizione puo' andare nel range [2,99], perche' a m[:][1] e m[:][100] abbiamo i bordi del campo
-    *length_ost= 3+ rand()% 5; //calcolo una lunghezza per l'ostacolo che pu� andare da 3 ad 8
-
-    //attraverso un numero random scelgo se creare una tanica o un ostacolo
-    int type_obj= rand()% 3;
-
-    if(type_obj == 0){ //nuova tanica
-        if ( x > GMAX- 3 ) x-= 3; //se la nuova entità andrebbe a finore sul bordo destro la sposto
-        camp->ins_tan(x);
-    }
-
-   if(type_obj == 1){ //nuovo ostacolo
-        if ( x > ( GMAX- *length_ost+ 1 ) ) x= x- *length_ost- 2; //se la nuova entità andrebbe a finore sul bordo destro la sposto
-        camp->ins_ost(x, *length_ost);
-    }
-
-   if(type_obj == 2){ //nuova macchina nemica
-        if ( x > GMAX -4 ) x-= 4; //se la nuova entità andrebbe a finore sul bordo destro la sposto
-        camp->ins_car(x);
-    }
+    while (cmd != ''){ cmd= getch(); } //quando premo esc esco dal gioco e torno al menù
 }

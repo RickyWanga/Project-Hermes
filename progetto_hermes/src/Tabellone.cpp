@@ -36,22 +36,24 @@ using namespace std;
         Tabellone::stampa_tab();
     }
 
-     void Tabellone::t_insert(int value,int livello){   // t_insert fa parte di tabellone e la lista è l'attributo di tabellone
-     ptr_list tmp=new nodo;
-     tmp->value=value;
-     tmp->livello=livello;
-     tmp->next=head;
-     head=tmp;
+     void Tabellone::t_insert(int value,int livello)
+     {   // t_insert fa parte di tabellone e la lista è l'attributo di tabellone
+         ptr_list tmp=new nodo;
+         tmp->value=value;
+         tmp->livello=livello;
+         tmp->next=head;
+         head=tmp;
      }
 
 
-    int Tabellone::stampa_lista(int x,int y){
-    ptr_list tmp=head;
-    while(tmp!=NULL){
-    gotoxy(x,y);
-    cout<<"sei salito al livello "<<tmp->livello<< " dopo "<<tmp->value<<" secondi";
-    tmp=tmp->next;
-    y--;
-    }
-    return y; // ritorna la prima riga libera dopo la stampa della lista
+    int Tabellone::stampa_lista(int x,int y)
+    {
+        ptr_list tmp=head;
+        while(tmp!=NULL){
+            gotoxy(x,y);
+            cout<<"sei salito al livello "<<tmp->livello<< " dopo "<<tmp->value<<" secondi";
+            tmp=tmp->next;
+            y--;
+        }
+        return y; // ritorna la prima riga libera dopo la stampa della lista
     }

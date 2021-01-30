@@ -4,10 +4,10 @@
 #include "OtherFunctions.h"
 
 
-   typedef struct nodo{
-   int value;
-   int livello;
-   nodo*next;
+   struct nodo{
+       int value;
+       int livello;
+       nodo* next;
    };
    typedef nodo*ptr_list;
 
