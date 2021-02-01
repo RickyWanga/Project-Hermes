@@ -47,6 +47,9 @@ using namespace std;
                     {
                         gotoxy(j, i-1);
                         cout<<" ";
+                        if (m[i][j] == '|' || m[i][j] == '*') setColor('b');
+                        if (m[i][j] == '+') setColor('g');
+                        if (m[i][j] == '0' || m[i][j] == '@' || m[i][j] == '-') setColor('r');
                         gotoxy(j, i);
                         cout<<m[i][j];
                     }
@@ -61,13 +64,18 @@ using namespace std;
         void Campo::gameover(Tabellone tab){//stampa "game over" al centro
             system("CLS");//pulisco tutto lo schermo
             gotoxy( (larghezza/ 2) -5, (altezza/ 2) );
+            setColor('r');
             cout<<"!GAME OVER!";
             gotoxy( (larghezza/ 2) -10, (altezza/ 2) +3 );
+            setColor('w');
             cout<<"You survived for:";
             gotoxy( (larghezza/ 2) -10, (altezza/ 2) +4 );
             cout<<tab.get_tempo()<<"sec";
-            int tmp=tab.stampa_lista((larghezza/ 2) -15, (altezza/ 2) +5);
-            gotoxy( (larghezza/ 2) -10, tmp-- );
+
+            int tmp=tab.stampa_lista((larghezza/ 2) -10, (altezza/ 2) +5);
+
+            gotoxy( (larghezza/ 2) -10, tmp++ );
+            setColor('w');
             cout<<"Premi 'ESC' per uscire";
             gotoxy(0, 30);
         }
@@ -155,67 +163,65 @@ using namespace std;
         }
 
         int Campo::control_collision( Livello level, int x, int y){
-            int tmp= 0;
+            int tmp = 0;
+            int xTrue = x, yTrue = y;
+
+            /*caso in cui prendo la barriera    :
+                                                x
+                                                :                   */
             if ( m[y][x] == ':' )
-                    tmp= level.get_p_ost();
-            else if ( m[y][x] == '|' ){ //abbiamo 2 casi |*|
-                    if( m[y][x+1] == '*' ){ //caso 1 m[y][x] è l'angolo sx dell'ostacolo
-                        del_ost(x,y);
-                        tmp= level.get_p_ost();
-                    }else{                //caso 2 m[y][x] è l'angolo dx dell'ostacolo
-                        while( m[y][x] != '|' ){x--;}
-                        del_ost(x,y);
-                        tmp= level.get_p_ost();
-                    }
-                }else if( m[y][x] == '*' ){ //un altro caso se xy è *
-                    while( m[y][x] != '|' ){x--;} //decremento x fino a quando non mi ritrovo nell'angolo sx dell'entità
-                    del_ost(x,y);
-                    tmp= level.get_p_ost();
+                    tmp = tmp + level.get_p_ost();
+
+            /*caso in cui prendo inizio/o fine ostacolo (si divide in altri 2 casi)  x***|   |***x                  */
+            if ( m[y][x] == '|' ){
+                //caso 1: m[y][x] è gia' l'angolo sx dell'ostacolo, non devo far nulla
+                //caso 2: m[y][x] è l'angolo dx dell'ostacolo, devo risalire al sinistro
+                if( m[y][x-1] == '*' ){
+                    x--;//decremento di 1 la x perche' altrimenti m[y][x]=|
+                    while( m[y][x] != '|' ){x--;} //decremento finche' non trovo l'angolo sx dell'ostacolo
                 }
-                else if ( m[y][x] == '+' ){ //4 casi dato che le taniche sono 2x2 di +
-                    if( m[y][x+1] == '+' ){    //caso 1 e 2 a dx di xy c'è un +
-                        if( m[y-1][x+1] == '+' ){ //caso 1 xy è l'angolo basso sx
-                            del_tan(x,y-1);
-                            tmp= level.get_p_tan();
-                        }
-                        if( m[y+1][x+1] == '+' ){ //caso 2 xy è l'angolo alto sx
-                            del_tan(x,y);
-                            tmp= level.get_p_tan();
-                        }
-                    }
-                    else if( m[y][x-1] == '+' ){ //caso 3 e 4 a sx di xy c'è un +
-                            if( m[y-1][x-1] == '+' ){ //caso 3 xy è l'angolo in basso a dx
-                                del_tan(x-1,y-1);
-                                tmp= level.get_p_tan();
-                            }
-                            if( m[y+1][x-1] == '+' ){  //caso 4 xy è l'angolo alto a dx
-                                del_tan(x-1,y);
-                                tmp= level.get_p_tan();
-                            }
-                        }
+                del_ost(x, y);
+                tmp = tmp + level.get_p_ost();
+            }
+
+            /*caso in cui prendiamo l'ostacolo al centro    |**x**|             */
+            x=xTrue;
+            y=yTrue;
+            if( m[y][x] == '*' ){
+                while( m[y][x] != '|' ){x--;} //decremento x fino a quando non mi ritrovo nell'angolo sx dell'ostacolo
+                del_ost(x, y);
+                tmp = tmp + level.get_p_ost();
+            }
+
+            /*casi in cui prendiamo le taniche   ++  ++  +x  x+
+                                                 +x  x+  ++  ++   */
+            x=xTrue;
+            y=yTrue;
+            if ( m[y][x] == '+' ){
+                if(m[y-1][x] == '+' ){y--;} //se sono sulla riga piu' in basso incremento (=alzo) la y
+                if(m[y][x-1] == '+' ){x--;} //se sono sull'angolo in alto dx decremento di 1 la x
+                del_tan(x, y);
+                tmp = tmp + level.get_p_tan();
+            }
+
+            /*casi in cui prendiamo le macchine    @     @     @     x    x-0   0-x
+                                                  0-x   0x0   x-0   0-0    @     @         */
+            x=xTrue;
+            y=yTrue;
+            if (m[y][x] == '0'){
+                if(m[y][x-1] == '-'){ //caso in cui sono su una ruota dx
+                    if(m[y+2][x] == '0'){x = x - 2;}//ruota dx in alto
+                    else{//ruota dx in basso
+                        x = x - 2;
+                        y = y - 2;}
+                }else{ //caso in cui sono sulla ruota a sx
+                    if(m[y+2][x]!='0') //ruota sx in basso
+                        y = y - 2;
+                    // altrimenti sono gia' sulla ruota sx in alto
                 }
-                else if ( m[y][x] == '0' ){
-                    if( m[y][x-1] == '-' ){         //xy è una ruota a dx
-                        if( m[y+2][x] == '0' ){      //xy è in alto a dx
-                            del_car(x-2,y);
-                            tmp= level.get_p_car();
-                        }
-                        else{                    //xy è in basso a dx
-                            del_car(x-2,y-2);
-                            tmp= level.get_p_car();
-                        }
-                    }
-                    else{                       //xy è una ruota a sx
-                        if( m[y+2][x] == '0' ){      //xy è in alto a sx
-                            del_car(x,y);
-                            tmp= level.get_p_car();
-                        }
-                        else{                    //xy è in basso a sx
-                            del_car(x,y-2);
-                            tmp= level.get_p_car();
-                        }
-                    }
-                }
+                del_car(x, y);
+                tmp = tmp + level.get_p_car();
+            }
 
             return tmp;
         }
@@ -223,12 +229,13 @@ using namespace std;
         int Campo::control_collision_car( Livello level, int x, int y){
             int tmp= 0;
             tmp+= control_collision(level, x, y);
-            tmp+= control_collision(level, x+1, y);
-            tmp+= control_collision(level, x+2, y);
-            tmp+= control_collision(level, x+1, y+1);
+            tmp+= control_collision(level, x, y+1);
             tmp+= control_collision(level, x, y+2);
-            tmp+= control_collision(level, x+1, y+2);
+            tmp+= control_collision(level, x+2, y);
             tmp+= control_collision(level, x+2, y+2);
+            tmp+= control_collision(level, x+1, y);
+            tmp+= control_collision(level, x+1, y+1);
+            tmp+= control_collision(level, x+1, y+2);
             return tmp;
         }
 

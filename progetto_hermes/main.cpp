@@ -1,13 +1,3 @@
-
-#include "OtherFunctions.h"
-#include "Entita.h"
-#include "Livello.h"
-#include "Macchina.h"
-#include "Ostacolo.h"
-#include "Tabellone.h"
-#include "Tanica.h"
-#include "campo.h"
-
 #include <conio.h>
 #include <iostream>
 #include <stdlib.h>
@@ -18,6 +8,15 @@
 #include <ctime>
 #include <windows.h>
 
+#include "OtherFunctions.h"
+#include "Entita.h"
+#include "Livello.h"
+#include "Macchina.h"
+#include "Ostacolo.h"
+#include "Tabellone.h"
+#include "Tanica.h"
+#include "campo.h"
+
 using namespace std;
 
 void start_game();
@@ -25,6 +24,8 @@ void agg_entita(Campo* camp);
 
 int main()
 {
+    ShowConsoleCursor(false);
+
     //facciamo stampare il caricamento del gioco
     caricamento();
 
@@ -50,6 +51,7 @@ int main()
         while(x!= 13) //quando x==13 significa che ho premuto invio
         {
             gotoxy(co.X,co.Y);
+            setColor('b');
             cout<<"<---";
             x=getch();
             gotoxy(co.X,co.Y);
@@ -71,7 +73,6 @@ int main()
         if(co.Y==2) {start_game();}
         if(co.Y==3) {stampa_info();}
     }
-
     return 0;
 }
 
@@ -81,19 +82,21 @@ void start_game(){
     int t_uplev= 0, t_downlev= 0; //variabili che mi dicono l'ultimo istante in cui c'� stato un uplevel o un downlevel
     int control_value; // variabile di controllo che mi denota di quanto cambia il punteggio in base se prendo una tanica o un ostacolo, se non prendo nulla � 0
 
-    Campo camp= Campo(30, 70);  //inizializzo il mio campo quindi la mia matrice
-    Macchina car= Macchina(48, 26);//inizializzo la macchina
+    Campo camp= Campo(30, 70);  //inizializzo il mio campo quindi la mia matrice  di larghezza 70 e altezza 30
+    Macchina car= Macchina(camp.get_larghezza()/2, camp.get_altezza()-4);//inizializzo la macchina al centro del campo giu' in basso
     Livello level= Livello();
     Tabellone tab= Tabellone();
 
+    setColor('w');
     camp.stampa();  //stampo il campo
+    setColor('p');
     car.stampa_car();//stampo la macchina del giocatore
 
     while ( cmd != 'q' && cmd != 'Q' ){    //se comando � diverso da q (ovvero "quit")
         Sleep(level.get_vel());//mano a mano che aumentano i livelli va sempre pi� veloce
 
         //dopo 10 sec dall'avanzamento o decremento del livello faccio sparire il riquadro (dove c'� scritto uplevel e downlevel)
-        if( tab.get_tempo() == t_uplev+ 10 || tab.get_tempo() == t_downlev+ 10 )
+        if( tab.get_tempo() == t_uplev + 10 || tab.get_tempo() == t_downlev + 10 )
             canc_upEdown_level(camp.get_larghezza(), camp.get_altezza());
 
         /*ogni (level.get_intervallo)sec nuovo oggetto, che puo' essere
@@ -111,49 +114,61 @@ void start_game(){
         //in base al comando scelgo uno dei 4 casi
         if (cmd=='') cmd='q';  //se voglio uscire imposto cmd=q per uscire dal ciclo
         else
-        {   //cancello la macchina dallo schermo ( cancello la macchina dallo schermo per poi farla ricomparire spostata)
-            car.canc_car();
+        {   /*//cancello la macchina dallo schermo ( cancello la macchina dallo schermo per poi farla ricomparire spostata)
+            car.canc_car();*/
+
             //faccio scorrere il campo da gioco
             camp.scroll();
 
             if (cmd== 'd' || cmd== 'D'){  //se e' 'd' va a destra
+                //cancello la macchina dallo schermo ( cancello la macchina dallo schermo per poi farla ricomparire spostata)
+                car.canc_car();
                 //salvo il valore di ritorno in control_value, in base ad esso capisco se e cosa ha urtato, visionare la funzione per info
                 control_value= camp.move_car_dx( &car, level );
-            }
+                setColor('p');
+                car.stampa_car(); //se non devo uscire ristampo la macchina aggiornata
 
-            if (cmd== 'a'|| cmd== 'A'){//se e' 'a' va a sinistra
-                //salvo il valore di ritorno in control_value, in base ad esso capisco se e cosa ha urtato, visionare la funzione per info
-                control_value= camp.move_car_sx( &car, level );
-            }
+            }else if (cmd== 'a'|| cmd== 'A'){//se e' 'a' va a sinistra
+                        //cancello la macchina dallo schermo ( cancello la macchina dallo schermo per poi farla ricomparire spostata)
+                        car.canc_car();
+                        //salvo il valore di ritorno in control_value, in base ad esso capisco se e cosa ha urtato, visionare la funzione per info
+                        control_value= camp.move_car_sx( &car, level );
+                        setColor('p');
+                        car.stampa_car(); //se non devo uscire ristampo la macchina aggiornata
+                    }else {//se e' 'w' va avanti
+                            //salvo il valore di ritorno in control_value, in base ad esso capisco se e cosa ha urtato, visionare la funzione per info
+                            control_value= camp.move_car_wx( &car, level );
+                            setColor('p');
+                            car.stampa_car(); //se non devo uscire ristampo la macchina aggiornata
+                        }
 
-            if (cmd== 'w' || cmd== 'W'){//se e' 'w' va avanti
-                //salvo il valore di ritorno in control_value, in base ad esso capisco se e cosa ha urtato, visionare la funzione per info
-                control_value= camp.move_car_wx( &car, level );
+            if(cmd == 'q')
+            {
+                //cancello la macchina dallo schermo ( cancello la macchina dallo schermo per poi farla ricomparire spostata)
+                car.canc_car();
             }
-
-            if (cmd!= 'q') car.stampa_car(); //se non devo uscire ristampo la macchina aggiornata
         }
 
         //aggiorno tabellone
-        if( (tab.get_punt()+ control_value) < 0) //se il punteggio aggiornato con il nuovo spostamento scende sotto 0 perdo
+        if( (tab.get_punt() + control_value) < 0) //se il punteggio aggiornato con il nuovo spostamento scende sotto 0 perdo
         {
             camp.gameover(tab);// stampa GAMEOVER
             cmd= 'q'; //faccio uscire dal ciclo while
         }
-        else tab.aggiorna(control_value);//altrimenti aggiorna tabellone(aggiorno il punteggio, aumento secondi e stampo tabellone)
+        else tab.aggiorna(control_value, camp.get_larghezza());//altrimenti aggiorna tabellone(aggiorno il punteggio, aumento secondi e stampo tabellone)
 
         //aggiorno livelli
         if( tab.get_punt() > (level.get_level()* 100) ) //se punteggio attuale � maggiore di numero del livello attuale*100
         {
             level.uplevel();    //aumento di livello
-            print_uplevel(camp.get_larghezza(), camp.get_altezza(), level.get_level());
+            print_uplevel(camp.get_larghezza(), level.get_level());
             t_uplev= tab.get_tempo();// ci salviamo l'istante in cui passiamo di livello per far sparire il riquadro uplevel
             tab.t_insert(t_uplev,level.get_level());
         }
         if(tab.get_punt() < (level.get_level()-1)* 100)//se punteggio attuale � minore di (numero del livello attuale-1)*100
         {
             level.downlevel();  //regredisci al livello precedente
-            print_downlevel(camp.get_larghezza(), camp.get_altezza(), level.get_level());
+            print_downlevel(camp.get_larghezza(), level.get_level());
             t_downlev= tab.get_tempo();
         }
     }

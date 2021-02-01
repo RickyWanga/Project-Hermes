@@ -21,19 +21,28 @@ using namespace std;
     int Tabellone::get_punt(){return punteggio;}
     ptr_list Tabellone::get_list(){return head;}
 
-    void Tabellone::stampa_tab()//stampa tabellone
+    void Tabellone::stampa_tab(int x)//stampa tabellone
     {
-        gotoxy(0,1);
-        cout<<"\t                 \t                   ";
-        gotoxy(0,1);
-        cout<<"\tTIME:\t"<<tempo<<"\tSCORE:\t"<<punteggio;
+        gotoxy(x, 3);
+        cout<<"\t\t                 ";
+        gotoxy(x, 4);
+        cout<<"\t\t                 ";
+
+
+        setColor('y');
+        gotoxy(x, 2);
+        cout<<"\t\t!!INFO GIOCO!!";
+        gotoxy(x, 3);
+        cout<<"\t\t  TIME:  "<<tempo;
+        gotoxy(x, 4);
+        cout<<"\t\t  SCORE:  "<<punteggio;
     }
 
-    void Tabellone::aggiorna(int score)//incrementa il punteggio di "score", aumenta il tempo di uno e stampa tabellone
+    void Tabellone::aggiorna(int score, int x)//incrementa il punteggio di "score", aumenta il tempo di uno e stampa tabellone
     {
         punteggio=punteggio+score;
         tempo++;
-        Tabellone::stampa_tab();
+        Tabellone::stampa_tab(x);
     }
 
      void Tabellone::t_insert(int value,int livello)
@@ -51,9 +60,10 @@ using namespace std;
         ptr_list tmp=head;
         while(tmp!=NULL){
             gotoxy(x,y);
-            cout<<"sei salito al livello "<<tmp->livello<< " dopo "<<tmp->value<<" secondi";
+            setColor('g');
+            cout<<"Sei salito al livello "<<tmp->livello<< " dopo "<<tmp->value<<" secondi";
             tmp=tmp->next;
-            y--;
+            y++;
         }
         return y; // ritorna la prima riga libera dopo la stampa della lista
     }

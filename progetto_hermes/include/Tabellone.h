@@ -32,8 +32,8 @@ class Tabellone
         int get_punt(); //ritorna il punteggio al quale sono arrivato fino ad ora
         ptr_list get_list();
 
-        void stampa_tab();          //stampa tabellone
-        void aggiorna(int score);   //incrementa il punteggio di "score", aumenta il tempo di uno e stampa tabellone
+        void stampa_tab(int x);          //stampa tabellone
+        void aggiorna(int score, int x);   //incrementa il punteggio di "score", aumenta il tempo di uno e stampa tabellone
         void t_insert(int value,int livello);
         int stampa_lista(int x,int y);
 

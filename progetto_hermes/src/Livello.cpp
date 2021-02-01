@@ -12,7 +12,7 @@ using namespace std;
         p_tan= 10;
         p_bar= -15;
         p_car= -20;
-        intervallo= 10;
+        intervallo= 7;
     }
 
     Livello::~Livello(){}
@@ -20,11 +20,15 @@ using namespace std;
     void Livello::uplevel()
     {   /*per aumentare livello e quindi incrementare la difficoltà:
             -aumento velocità
-            -aumento i punti che ti vengono tolti quando urti gli ostacoli o la barriera
+            -aumento i punti che ti vengono tolti quando urti gli ostacoli o la barriera o la macchina nemica
             -diminuisco intervallo di creazione degli ostacoli e delle taniche(le creo più spesso)*/
+        if(intervallo > 2 && vel > 20)
+        {
+            intervallo--;
+            vel-= 15;
+        }
+
         num_livello++;
-        intervallo--;
-        vel-= 15;
         p_ost-= 5;
         p_bar-= 5;
         p_car-= 5;
