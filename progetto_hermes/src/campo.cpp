@@ -68,9 +68,7 @@ using namespace std;
             cout<<"!GAME OVER!";
             gotoxy( (larghezza/ 2) -10, (altezza/ 2) +3 );
             setColor('w');
-            cout<<"You survived for:";
-            gotoxy( (larghezza/ 2) -10, (altezza/ 2) +4 );
-            cout<<tab.get_tempo()<<"sec";
+            cout<<"You survived for: "<<tab.get_tempo()<<" sec";
 
             int tmp=tab.stampa_lista((larghezza/ 2) -10, (altezza/ 2) +5);
 

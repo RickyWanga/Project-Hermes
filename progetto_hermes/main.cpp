@@ -155,8 +155,10 @@ void start_game(){
             camp.gameover(tab);// stampa GAMEOVER
             cmd= 'q'; //faccio uscire dal ciclo while
         }
-        else tab.aggiorna(control_value, camp.get_larghezza());//altrimenti aggiorna tabellone(aggiorno il punteggio, aumento secondi e stampo tabellone)
-
+        else {
+            tab.aggiorna(control_value, camp.get_larghezza());//altrimenti aggiorna tabellone(aggiorno il punteggio, aumento secondi e stampo tabellone)
+            level.info_lev(camp.get_larghezza()+5);
+        }
         //aggiorno livelli
         if( tab.get_punt() > (level.get_level()* 100) ) //se punteggio attuale � maggiore di numero del livello attuale*100
         {
@@ -170,6 +172,7 @@ void start_game(){
             level.downlevel();  //regredisci al livello precedente
             print_downlevel(camp.get_larghezza(), level.get_level());
             t_downlev= tab.get_tempo();
+            tab.t_insert(t_downlev,level.get_level());
         }
     }
 

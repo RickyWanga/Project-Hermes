@@ -46,23 +46,40 @@ using namespace std;
     }
 
      void Tabellone::t_insert(int value,int livello)
-     {   // t_insert fa parte di tabellone e la lista è l'attributo di tabellone
-         ptr_list tmp=new nodo;
-         tmp->value=value;
-         tmp->livello=livello;
-         tmp->next=head;
-         head=tmp;
+     {  // t_insert fa parte di tabellone e la lista è l'attributo di tabellone
+        ptr_list tmp = head ;
+        //nuovo elemento
+        ptr_list tail = new nodo;
+        tail->value = value;
+        tail->livello = livello;
+        tail->next = NULL;
+
+        if(tmp == NULL){head = tail;}
+        else {
+            while(tmp->next != NULL) { tmp = tmp->next; } //scorriamo la lista finche' non arriviamo all' ultimo elemento
+            //inseriamo il nuovo elemento in coda
+            tmp->next = tail;
+        }
      }
 
 
     int Tabellone::stampa_lista(int x,int y)
     {
-        ptr_list tmp=head;
-        while(tmp!=NULL){
-            gotoxy(x,y);
-            setColor('g');
-            cout<<"Sei salito al livello "<<tmp->livello<< " dopo "<<tmp->value<<" secondi";
-            tmp=tmp->next;
+        ptr_list tmp = head;
+        int oldlev = 0;
+
+        while(tmp != NULL){
+            gotoxy(x, y);
+            if( oldlev < tmp->livello ){
+                setColor('w');
+                cout<<"Sei salito al livello "<<tmp->livello<< " dopo "<<tmp->value<<" secondi";
+            }else{
+                setColor('r');
+                cout<<"Sei sceso al livello "<<tmp->livello<< " dopo "<<tmp->value<<" secondi";
+
+            }
+            oldlev = tmp->livello;
+            tmp = tmp->next;
             y++;
         }
         return y; // ritorna la prima riga libera dopo la stampa della lista
