@@ -1,14 +1,12 @@
 
 #include "Campo.h"
 #include <iostream>
-#include <ctime>
-
 using namespace std;
 
-        Campo::Campo(int h, int l)//costruttore che setta il campo da gioco vuoto con larghezza "GMAX" e altezza "HMAX"
+        Campo::Campo()//costruttore che setta il campo da gioco vuoto con larghezza "GMAX" e altezza "HMAX"
         {
-            larghezza= l;
-            altezza= h;
+            larghezza= GMAX;
+            altezza= HMAX;
             bordo= ':';
 
             //creo il campo
@@ -47,9 +45,6 @@ using namespace std;
                     {
                         gotoxy(j, i-1);
                         cout<<" ";
-                        if (m[i][j] == '|' || m[i][j] == '*') setColor('b');
-                        if (m[i][j] == '+') setColor('g');
-                        if (m[i][j] == '0' || m[i][j] == '@' || m[i][j] == '-') setColor('r');
                         gotoxy(j, i);
                         cout<<m[i][j];
                     }
@@ -64,18 +59,15 @@ using namespace std;
         void Campo::gameover(Tabellone tab){//stampa "game over" al centro
             system("CLS");//pulisco tutto lo schermo
             gotoxy( (larghezza/ 2) -5, (altezza/ 2) );
-            setColor('r');
             cout<<"!GAME OVER!";
             gotoxy( (larghezza/ 2) -10, (altezza/ 2) +3 );
-            setColor('w');
             cout<<"You survived for:";
             gotoxy( (larghezza/ 2) -10, (altezza/ 2) +4 );
             cout<<tab.get_tempo()<<"sec";
-
+            
             int tmp=tab.stampa_lista((larghezza/ 2) -10, (altezza/ 2) +5);
-
-            gotoxy( (larghezza/ 2) -10, tmp++ );
-            setColor('w');
+            
+            gotoxy( (larghezza/ 2) -);
             cout<<"Premi 'ESC' per uscire";
             gotoxy(0, 30);
         }
@@ -152,76 +144,68 @@ using namespace std;
             m[3][x+2]= '0';
         }
 
-        void Campo::ins_enemy_car(int x){//inserisco la macchina nemica nel campo con (x,y) come coordinate dell' angolo sinisro in alto
-            m[1][x]= '0';
-            m[1][x+1]='-';
-            m[1][x+2]='0';
-            m[2][x+1]='@';
-            m[3][x]= '0';
-            m[3][x+1]='-';
-            m[3][x+2]= '0';
-        }
-
         int Campo::control_collision( Livello level, int x, int y){
-            int tmp = 0;
-            int xTrue = x, yTrue = y;
-
-            /*caso in cui prendo la barriera    :
-                                                x
-                                                :                   */
+            int tmp= 0;
             if ( m[y][x] == ':' )
-                    tmp = tmp + level.get_p_ost();
-
-            /*caso in cui prendo inizio/o fine ostacolo (si divide in altri 2 casi)  x***|   |***x                  */
-            if ( m[y][x] == '|' ){
-                //caso 1: m[y][x] √® gia' l'angolo sx dell'ostacolo, non devo far nulla
-                //caso 2: m[y][x] √® l'angolo dx dell'ostacolo, devo risalire al sinistro
-                if( m[y][x-1] == '*' ){
-                    x--;//decremento di 1 la x perche' altrimenti m[y][x]=|
-                    while( m[y][x] != '|' ){x--;} //decremento finche' non trovo l'angolo sx dell'ostacolo
+                    tmp= level.get_p_ost();
+            else if ( m[y][x] == '|' ){ //abbiamo 2 casi |*|
+                    if( m[y][x+1] == '*' ){ //caso 1 m[y][x] Ë l'angolo sx dell'ostacolo
+                        del_ost(x,y);
+                        tmp= level.get_p_ost();
+                    }else{                //caso 2 m[y][x] Ë l'angolo dx dell'ostacolo
+                        while( m[y][x] != '|' ){x--;}
+                        del_ost(x,y);
+                        tmp= level.get_p_ost();
+                    }
+                }else if( m[y][x] == '*' ){ //un altro caso se xy Ë *
+                    while( m[y][x] != '|' ){x--;} //decremento x fino a quando non mi ritrovo nell'angolo sx dell'entit‡
+                    del_ost(x,y);
+                    tmp= level.get_p_ost();
                 }
-                del_ost(x, y);
-                tmp = tmp + level.get_p_ost();
-            }
-
-            /*caso in cui prendiamo l'ostacolo al centro    |**x**|             */
-            x=xTrue;
-            y=yTrue;
-            if( m[y][x] == '*' ){
-                while( m[y][x] != '|' ){x--;} //decremento x fino a quando non mi ritrovo nell'angolo sx dell'ostacolo
-                del_ost(x, y);
-                tmp = tmp + level.get_p_ost();
-            }
-
-            /*casi in cui prendiamo le taniche   ++  ++  +x  x+
-                                                 +x  x+  ++  ++   */
-            x=xTrue;
-            y=yTrue;
-            if ( m[y][x] == '+' ){
-                if(m[y-1][x] == '+' ){y--;} //se sono sulla riga piu' in basso incremento (=alzo) la y
-                if(m[y][x-1] == '+' ){x--;} //se sono sull'angolo in alto dx decremento di 1 la x
-                del_tan(x, y);
-                tmp = tmp + level.get_p_tan();
-            }
-
-            /*casi in cui prendiamo le macchine    @     @     @     x    x-0   0-x
-                                                  0-x   0x0   x-0   0-0    @     @         */
-            x=xTrue;
-            y=yTrue;
-            if (m[y][x] == '0'){
-                if(m[y][x-1] == '-'){ //caso in cui sono su una ruota dx
-                    if(m[y+2][x] == '0'){x = x - 2;}//ruota dx in alto
-                    else{//ruota dx in basso
-                        x = x - 2;
-                        y = y - 2;}
-                }else{ //caso in cui sono sulla ruota a sx
-                    if(m[y+2][x]!='0') //ruota sx in basso
-                        y = y - 2;
-                    // altrimenti sono gia' sulla ruota sx in alto
+                else if ( m[y][x] == '+' ){ //4 casi dato che le taniche sono 2x2 di +
+                    if( m[y][x+1] == '+' ){    //caso 1 e 2 a dx di xy c'Ë un +
+                        if( m[y-1][x+1] == '+' ){ //caso 1 xy Ë l'angolo basso sx
+                            del_tan(x,y-1);
+                            tmp= level.get_p_tan();
+                        }
+                        if( m[y+1][x+1] == '+' ){ //caso 2 xy Ë l'angolo alto sx
+                            del_tan(x,y);
+                            tmp= level.get_p_tan();
+                        }
+                    }
+                    else if( m[y][x-1] == '+' ){ //caso 3 e 4 a sx di xy c'Ë un +
+                            if( m[y-1][x-1] == '+' ){ //caso 3 xy Ë l'angolo in basso a dx
+                                del_tan(x-1,y-1);
+                                tmp= level.get_p_tan();
+                            }
+                            if( m[y+1][x-1] == '+' ){  //caso 4 xy Ë l'angolo alto a dx
+                                del_tan(x-1,y);
+                                tmp= level.get_p_tan();
+                            }
+                        }
                 }
-                del_car(x, y);
-                tmp = tmp + level.get_p_car();
-            }
+                else if ( m[y][x] == '0' ){
+                    if( m[y][x-1] == '-' ){         //xy Ë una ruota a dx
+                        if( m[y+2][x] == '0' ){      //xy Ë in alto a dx
+                            del_car(x-2,y);
+                            tmp= level.get_p_car();
+                        }
+                        else{                    //xy Ë in basso a dx
+                            del_car(x-2,y-2);
+                            tmp= level.get_p_car();
+                        }
+                    }
+                    else{                       //xy Ë una ruota a sx
+                        if( m[y+2][x] == '0' ){      //xy Ë in alto a sx
+                            del_car(x,y);
+                            tmp= level.get_p_car();
+                        }
+                        else{                    //xy Ë in basso a sx
+                            del_car(x,y-2);
+                            tmp= level.get_p_car();
+                        }
+                    }
+                }
 
             return tmp;
         }
@@ -229,18 +213,17 @@ using namespace std;
         int Campo::control_collision_car( Livello level, int x, int y){
             int tmp= 0;
             tmp+= control_collision(level, x, y);
-            tmp+= control_collision(level, x, y+1);
-            tmp+= control_collision(level, x, y+2);
-            tmp+= control_collision(level, x+2, y);
-            tmp+= control_collision(level, x+2, y+2);
             tmp+= control_collision(level, x+1, y);
+            tmp+= control_collision(level, x+2, y);
             tmp+= control_collision(level, x+1, y+1);
+            tmp+= control_collision(level, x, y+2);
             tmp+= control_collision(level, x+1, y+2);
+            tmp+= control_collision(level, x+2, y+2);
             return tmp;
         }
 
         int Campo::move_car_dx(Macchina* car, Livello level){
-         /*controllo cosa √® successo con la macchina spostata di una posizione a dx con il metodo control_collision_cas che :
+         /*controllo cosa Ë successo con la macchina spostata di una posizione a dx con il metodo control_collision_cas che :
                 -se non urto niente, ne' i lati del campo da gioco, ne' ostacoli vari-> ritorna 0
                 -se utro la barriera-> ritorna il valore della barriera ovvero level.get_p_bar()
                 -se urto un ostacolo-> ritorna il valore dell'ostacolo ovvero level.get_p_ost()
@@ -259,7 +242,7 @@ using namespace std;
         }
 
         int Campo::move_car_sx(Macchina* car, Livello level){
-            /*controllo cosa √® successo con la macchina spostata di una posizione a sx:
+            /*controllo cosa Ë successo con la macchina spostata di una posizione a sx:
                 -se non urto niente, ne' i lati del campo da gioco, ne' ostacoli vari-> ritorna 0
                 -se utro la barriera-> ritorna il valore della barriera ovvero level.get_p_bar()
                 -se urto un ostacolo-> ritorna il valore dell'ostacolo ovvero level.get_p_ost()
@@ -278,44 +261,13 @@ using namespace std;
 
 
         int Campo::move_car_wx(Macchina* car, Livello level){
-            /*controllo cosa √® successo con la macchina ferma:
+            /*controllo cosa Ë successo con la macchina ferma:
                 -se non urto niente, ne' i lati del campo da gioco, ne' ostacoli vari-> ritorna 0
                 -se utro la barriera-> ritorna il valore della barriera ovvero level.get_p_bar()
                 -se urto un ostacolo-> ritorna il valore dell'ostacolo ovvero level.get_p_ost()
                 -se urto una tanica bonus-> ritorna il valore della tanica bonus ovvero level.get_p_tan() */
 
             return  control_collision_car(level, car->get_posx(), car->get_posy());
-        }
-
-        void Campo::agg_entita(){
-            /*  in base ad un numero randomico che pu√≤ essere 0, 1 , 2 scelgo che entit√† aggiungere",
-                se=0 nuova tanica,
-                se essa=1 nuovo ostacolo di lunghezza "len",
-                se essa=2 nuova macchina
-                in ogni caso la posizione di partenza sara' m[1][x]
-            */
-
-            srand(time(0));
-            int x = 2 + rand()% (larghezza - 3);    //la posizione puo' andare nel range [2,99], perche' a m[:][1] e m[:][100] abbiamo i bordi del campo
-            int length_ost = 3 + rand()% 5;              //calcolo una lunghezza per l'ostacolo che puÔøΩ andare da 3 ad 8
-
-            //attraverso un numero random scelgo se creare una tanica o un ostacolo
-            int type_obj = rand()% 3;
-
-            if(type_obj == 0){ //nuova tanica
-                if ( x >= larghezza - 3 ) {x = x - 4;} //se la nuova entit√† andrebbe a finore sul bordo destro la sposto
-                ins_tan(x);
-            }
-
-           if(type_obj == 1){ //nuovo ostacolo
-                if( x > (larghezza - length_ost - 1) ) {x = x - length_ost - 2;} //se la nuova entit√† andrebbe a finore sul bordo destro la sposto
-                ins_ost(x, length_ost);
-            }
-
-           if(type_obj == 2){ //nuova macchina nemica
-                if( x > larghezza - 4 ) {x = x - 5;} //se la nuova entit√† andrebbe a finore sul bordo destro la sposto
-                ins_enemy_car(x);
-            }
         }
 
 
