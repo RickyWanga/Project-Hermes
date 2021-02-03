@@ -23,5 +23,5 @@ La classe contiene le seguenti funzioni pubbliche:
  - **ins_car(int x)** : inserisco la macchina nel campo con (x,y) come coordinate dell' angolo sinisro in alto
  - **ins_enemy_car(int x)** : inserisco la macchina nemica nel campo con (x,y) come coordinate dell' angolo sinisro in alto
  - **control_collision(Livello level, int x, int y)** : funzione che data la posizione (x,y) della macchina ti restituisce:
-                - 0 non ho sbattuto da nessuna parte
-                - ritorna il valore di cosa ho beccato
+                - ***0 non ho sbattuto da nessuna parte***
+                - ***ritorna il valore di cosa ho beccato***
