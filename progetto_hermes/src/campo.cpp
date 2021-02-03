@@ -5,20 +5,20 @@
 
 using namespace std;
 
-        Campo::Campo(int h, int l)//costruttore che setta il campo da gioco vuoto con larghezza "GMAX" e altezza "HMAX"
+        Campo::Campo(int h, int l)//costruttore che setta il campo da gioco vuoto con larghezza "l" e altezza "h"
         {
-            larghezza= l;
-            altezza= h;
-            bordo= ':';
+            larghezza = l;
+            altezza = h;
+            bordo = ':';
 
             //creo il campo
-            for (int j=0; j<altezza; j++)
+            for (int j = 0; j < altezza; j++)
             {
-                for (int i=1; i<larghezza-1; i++)
-                    m[j][i]= ' ';
+                for (int i = 1; i < larghezza - 1; i++)
+                    m[j][i] = ' ';
 
-                m[j][0]= bordo;
-                m[j][larghezza -1]= bordo;
+                m[j][0] = bordo;
+                m[j][larghezza - 1] = bordo;
             }
         }
 
@@ -37,12 +37,13 @@ using namespace std;
 
         void Campo::scroll(){   //sposta tutti gli elementi della matrice di uno in basso
 
-            for (int k=1; k<larghezza; k++ ){m[0][k]= ' ';}//prima nuova riga tutta vuota
+            for (int k = 1; k < larghezza; k++ ){m[0][k]= ' ';}//prima nuova riga tutta vuota
 
-            for (int i=altezza; i>0; i--)
-                for (int j=larghezza-2; j>0; j--)
+            for (int i = altezza; i > 0; i--)
+            {
+                for (int j = larghezza - 2; j > 0; j--)
                 {
-                    m[i][j]= m[i-1][j];
+                    m[i][j] = m[i-1][j];
                     if (m[i][j] != ' ')
                     {
                         gotoxy(j, i-1);
@@ -54,10 +55,11 @@ using namespace std;
                         cout<<m[i][j];
                     }
                 }
+            }
 
-            gotoxy(0, 29);
+            gotoxy(0, altezza - 1);
             cout<<"                                                                                                                        ";
-            gotoxy(0,30);
+            gotoxy(0, altezza);
             cout<<"                                                                                                                        ";
         }
 
@@ -68,98 +70,96 @@ using namespace std;
             cout<<"!GAME OVER!";
             gotoxy( (larghezza/ 2) -10, (altezza/ 2) +3 );
             setColor('w');
-            cout<<"You survived for:";
-            gotoxy( (larghezza/ 2) -10, (altezza/ 2) +4 );
-            cout<<tab.get_tempo()<<"sec";
+            cout<<"You survived for: "<<tab.get_tempo()<<" sec";
 
             int tmp=tab.stampa_lista((larghezza/ 2) -10, (altezza/ 2) +5);
 
             gotoxy( (larghezza/ 2) -10, tmp++ );
             setColor('w');
-            cout<<"Premi 'ESC' per uscire";
-            gotoxy(0, 30);
+            cout<<"Premi 'ESC' per tornare al menu'.";
+            gotoxy(0, altezza);
         }
 
         int Campo::get_larghezza(){return larghezza;}//ritorna la larghezza del campo
         int Campo::get_altezza(){return altezza;}//ritorna l'altezza del campo
 
          void Campo::del_tan (int x, int y){ //cancella la tanica di benziona con estremo sinistro in alto (x,y)
-            m[y][x]=' ';
-            m[y][x+1]=' ';
-            gotoxy(x,y);
+            m[y][x] = ' ';
+            m[y][x+1] = ' ';
+            gotoxy(x, y);
             cout << "  ";
-            m[y+1][x]=' ';
-            m[y+1][x+1]=' ';
-            gotoxy(x,y+1);
+            m[y+1][x] = ' ';
+            m[y+1][x+1] = ' ';
+            gotoxy(x, y + 1);
             cout << "  ";
         }
 
         void Campo::del_ost(int x, int y){//cancella l ostacolo con estremo sinistro in alto (x,y)
-            int i=1;
-            m[y][x]=' ';
-            gotoxy(x,y);
+            int i = 1;
+            m[y][x] = ' ';
+            gotoxy(x, y);
             cout << "  ";
-            while (m[y][x+i]!='|')
+            while (m[y][x+i] != '|')
             {
                 m[y][x+i]=' ';
-                gotoxy(x+i,y);
+                gotoxy(x+i, y);
                 cout << " ";
                 i++;
             }
-            m[y][x+i]=' ';
-            gotoxy(x+i,y);
+            m[y][x+i] = ' ';
+            gotoxy(x+i, y);
             cout << " ";
         }
 
         void Campo::ins_tan(int x){//inserisco una tanica nel campo con (x,1) come coordinate dell' angolo sinisro in alto
-           m[1][x]= '+';
-           m[1][x+1]= '+';
-           m[2][x]= '+';
-           m[2][x+1]= '+';
+           m[1][x] = '+';
+           m[1][x+1] = '+';
+           m[2][x] = '+';
+           m[2][x+1] = '+';
         }
 
         void Campo::del_car(int x, int y ){//rimuovo la macchina dal campo con (x,y) come coordinate dell' angolo sinisro in alto
-            m[y][x]=' ';
-            m[y+2][x]=' ';
-            m[y+2][x+2]=' ';
-            m[y][x+2]=' ';
-            m[y+1][x+1]=' ';
-            m[y][x+1]=' ';
-            m[y+2][x+1]=' ';
-            gotoxy(x,y);
+            m[y][x] = ' ';
+            m[y+2][x] = ' ';
+            m[y+2][x+2] = ' ';
+            m[y][x+2] = ' ';
+            m[y+1][x+1] = ' ';
+            m[y][x+1] = ' ';
+            m[y+2][x+1] = ' ';
+            gotoxy(x, y);
             cout << "   ";
-            gotoxy(x,y+1);
+            gotoxy(x, y+1);
             cout << "   ";
-            gotoxy(x,y+2);
+            gotoxy(x, y+2);
             cout << "   ";
         }
 
         void Campo::ins_ost(int x, int len){//inserisco un ostacolo di lunghezza l nel campo con (x,y) come coordinate dell' angolo sinisro in alto
-            m[1][x]= '|';
-            m[1][x+ len-1]= '|';
+            m[1][x] = '|';
+            m[1][x + len - 1] = '|';
 
-            for (int i=1; i<len-1; i++)
-                m[1][x+ i]= '*';
+            for (int i = 1; i < len - 1; i++)
+                m[1][x+i] = '*';
         }
 
         void Campo::ins_car(int x){//inserisco la macchina nel campo con (x,y) come coordinate dell' angolo sinisro in alto
-            m[1][x]= '0';
-            m[1][x+1]='-';
-            m[1][x+2]='0';
-            m[2][x+1]='H';
-            m[3][x]= '0';
-            m[3][x+1]='-';
-            m[3][x+2]= '0';
+            m[1][x] = '0';
+            m[1][x+1] = '-';
+            m[1][x+2] = '0';
+            m[2][x+1] = 'H';
+            m[3][x] = '0';
+            m[3][x+1] = '-';
+            m[3][x+2] = '0';
         }
 
         void Campo::ins_enemy_car(int x){//inserisco la macchina nemica nel campo con (x,y) come coordinate dell' angolo sinisro in alto
-            m[1][x]= '0';
-            m[1][x+1]='-';
-            m[1][x+2]='0';
-            m[2][x+1]='@';
-            m[3][x]= '0';
-            m[3][x+1]='-';
-            m[3][x+2]= '0';
+            m[1][x] = '0';
+            m[1][x+1] = '-';
+            m[1][x+2] = '0';
+            m[2][x+1] = '@';
+            m[3][x] = '0';
+            m[3][x+1] = '-';
+            m[3][x+2] = '0';
         }
 
         int Campo::control_collision( Livello level, int x, int y){
@@ -185,8 +185,8 @@ using namespace std;
             }
 
             /*caso in cui prendiamo l'ostacolo al centro    |**x**|             */
-            x=xTrue;
-            y=yTrue;
+            x = xTrue;
+            y = yTrue;
             if( m[y][x] == '*' ){
                 while( m[y][x] != '|' ){x--;} //decremento x fino a quando non mi ritrovo nell'angolo sx dell'ostacolo
                 del_ost(x, y);
@@ -195,19 +195,19 @@ using namespace std;
 
             /*casi in cui prendiamo le taniche   ++  ++  +x  x+
                                                  +x  x+  ++  ++   */
-            x=xTrue;
-            y=yTrue;
+            x = xTrue;
+            y = yTrue;
             if ( m[y][x] == '+' ){
                 if(m[y-1][x] == '+' ){y--;} //se sono sulla riga piu' in basso incremento (=alzo) la y
-                if(m[y][x-1] == '+' ){x--;} //se sono sull'angolo in alto dx decremento di 1 la x
+                if(m[y][x-1] == '+' && m[y][x] == '+' ){x--;} //se sono sull'angolo in alto dx decremento di 1 la x
                 del_tan(x, y);
                 tmp = tmp + level.get_p_tan();
             }
 
             /*casi in cui prendiamo le macchine    @     @     @     x    x-0   0-x
                                                   0-x   0x0   x-0   0-0    @     @         */
-            x=xTrue;
-            y=yTrue;
+            x = xTrue;
+            y = yTrue;
             if (m[y][x] == '0'){
                 if(m[y][x-1] == '-'){ //caso in cui sono su una ruota dx
                     if(m[y+2][x] == '0'){x = x - 2;}//ruota dx in alto
@@ -227,7 +227,7 @@ using namespace std;
         }
 
         int Campo::control_collision_car( Livello level, int x, int y){
-            int tmp= 0;
+            int tmp = 0;
             tmp+= control_collision(level, x, y);
             tmp+= control_collision(level, x, y+1);
             tmp+= control_collision(level, x, y+2);
@@ -249,7 +249,7 @@ using namespace std;
 
                 //sposto la macchina a dx
                 car->inc_x();
-                int tmp= control_collision_car(level, car->get_posx(), car->get_posy());
+                int tmp = control_collision_car(level, car->get_posx(), car->get_posy());
 
                 //in caso di urto con la barriera "contengo" la macchina per non farla uscire dal campo
                 if ( larghezza-3 == car->get_posx() )
@@ -267,7 +267,7 @@ using namespace std;
 
               //sposto la macchina a dx
                 car->dec_x();
-                int tmp= control_collision_car(level, car->get_posx(), car->get_posy());
+                int tmp = control_collision_car(level, car->get_posx(), car->get_posy());
 
                 //in caso di urto con la barriera "contengo" la macchina per non farla uscire dal campo
                 if ( 0 == car->get_posx() )
@@ -291,11 +291,10 @@ using namespace std;
             /*  in base ad un numero randomico che può essere 0, 1 , 2 scelgo che entità aggiungere",
                 se=0 nuova tanica,
                 se essa=1 nuovo ostacolo di lunghezza "len",
-                se essa=2 nuova macchina
+                se essa=2 nuova macchina nemica
                 in ogni caso la posizione di partenza sara' m[1][x]
             */
 
-            srand(time(0));
             int x = 2 + rand()% (larghezza - 3);    //la posizione puo' andare nel range [2,99], perche' a m[:][1] e m[:][100] abbiamo i bordi del campo
             int length_ost = 3 + rand()% 5;              //calcolo una lunghezza per l'ostacolo che pu� andare da 3 ad 8
 

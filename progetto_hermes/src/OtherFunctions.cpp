@@ -1,4 +1,5 @@
-#include <OtherFunctions.h>
+#include "OtherFunctions.h"
+
 #include <iostream>
 #include <windows.h>
 #include <ctime>
@@ -20,9 +21,9 @@ void ShowConsoleCursor(bool Show)
     _CONSOLE_CURSOR_INFO CurInfo; //Define the cursor size
 
     if (Size<=0)
-    Size=1;
+    Size = 1;
     if (Size>100)
-    Size=100;
+    Size = 100;
 
     CurInfo.dwSize = Size; //Define the visibility of the cursor
     CurInfo.bVisible = Show;
@@ -34,23 +35,23 @@ void ShowConsoleCursor(bool Show)
 void caricamento(){
     setColor('g');
     srand(time(0));
-    int x=0;
-    for(int i=0; i<100; i++){
+    int x = 0;
+    for(int i = 0; i < 100; i++){
 
-        int r= rand()%1000;
+        int r = rand()%1000;
         x++;
-        cout<<"\r"<<x<<"%"<< '|'<<flush;
-        cout<<string(x,'°')<<flush;
+        cout<< "\r" << x << "%" << '|' <<flush;
+        cout<<string(x, '°')<<flush;
         if(i<43){
             Sleep(r/6);
         }
-        else if(i>43 && i<74){
+        else if(i > 43 && i < 74){
             Sleep(r/7);
         }
-        else if(i<98){
+        else if(i < 98){
             Sleep(r/5);
         }
-        else if(i>97&& i!= 99){
+        else if(i > 97 && i != 99){
             Sleep(2000);
         }
     }
@@ -97,38 +98,45 @@ void stampa_menu(){
 
 
 void print_uplevel(int larghezza, int lev){
-    setColor('g');
+    setColor('G');
     gotoxy(larghezza, 7 );
-    cout<<"\t\t-------------";
+    cout<<"\t\t---------------";
     gotoxy(larghezza, 8 );
-    cout<<"\t\t|  UPLEVEL  |";
+    cout<<"\t\t  ! UPLEVEL !  ";
     gotoxy(larghezza, 9 );
-    cout<<"\t\t|  Level "<<lev<<"  |";
+    cout<<"\t\t               ";
+    gotoxy(larghezza, 9 );
+    cout<<"\t\t   Level "<<lev;
     gotoxy(larghezza, 10 );
-    cout<<"\t\t-------------";
+    cout<<"\t\t---------------";
+    setColor('w');
 }
 
 void print_downlevel(int larghezza, int lev){
-    setColor('r');
+    setColor('R');
     gotoxy(larghezza, 7 );
-    cout<<"\t\t-------------";
+    cout<<"\t\t---------------";
     gotoxy(larghezza, 8 );
-    cout<<"\t\t| DOWNLEVEL |";
+    cout<<"\t\t ! DOWNLEVEL ! ";
     gotoxy(larghezza, 9 );
-    cout<<"\t\t|  Level "<<lev<<"  |";
+    cout<<"\t\t               ";
+    gotoxy(larghezza, 9 );
+    cout<<"\t\t   Level "<<lev;
     gotoxy(larghezza, 10 );
-    cout<<"\t\t-------------";
+    cout<<"\t\t---------------";
+    setColor('w');
 }
 
 void canc_upEdown_level(int larghezza, int altezza){
+    setColor('w');
     gotoxy(larghezza, 7 );
-    cout<<"\t\t             ";
+    cout<<"\t\t                    ";
     gotoxy(larghezza, 8 );
-    cout<<"\t\t             ";
+    cout<<"\t\t                    ";
     gotoxy(larghezza, 9 );
-    cout<<"\t\t             ";
+    cout<<"\t\t                    ";
     gotoxy(larghezza, 10 );
-    cout<<"\t\t             ";
+    cout<<"\t\t                    ";
 }
 
 void setColor( char color){
@@ -144,5 +152,12 @@ void setColor( char color){
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 13);
     if (color == 'w') //white
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+    if (color == 'G') //nero su verde
+        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 160);
+    if (color == 'R') //bianco su rosso
+        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 199);
+    if (color == 'Y') //black on white
+        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 224);
+
 }
 

@@ -2,6 +2,7 @@
 #define ENTITA_H
 
 #include "OtherFunctions.h"
+
 #include <windows.h>
 
 class Entita

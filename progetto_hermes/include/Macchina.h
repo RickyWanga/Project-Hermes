@@ -1,7 +1,7 @@
 #ifndef MACCHINA_H
 #define MACCHINA_H
 
-#include <Entita.h>
+#include "Entita.h"
 
 class Macchina : public Entita{
     public:

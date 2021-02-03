@@ -37,19 +37,15 @@
 		<Unit filename="include/Entita.h" />
 		<Unit filename="include/Livello.h" />
 		<Unit filename="include/Macchina.h" />
-		<Unit filename="include/Ostacolo.h" />
 		<Unit filename="include/OtherFunctions.h" />
 		<Unit filename="include/Tabellone.h" />
-		<Unit filename="include/Tanica.h" />
 		<Unit filename="include/campo.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Entita.cpp" />
 		<Unit filename="src/Livello.cpp" />
 		<Unit filename="src/Macchina.cpp" />
-		<Unit filename="src/Ostacolo.cpp" />
 		<Unit filename="src/OtherFunctions.cpp" />
 		<Unit filename="src/Tabellone.cpp" />
-		<Unit filename="src/Tanica.cpp" />
 		<Unit filename="src/campo.cpp" />
 		<Extensions>
 			<code_completion />

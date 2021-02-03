@@ -14,7 +14,7 @@ class Livello
         int p_tan;  //quanti punti vale prendere la tanica (valore in positivo)
         int p_bar;  //quanti punti vale prendere la barriera (valore in negativo)
         int p_car;  //quanti punti vale prendere un'altrea car (valore in negativo)
-        int prob;   //probabilità che esca una nuova entità
+        int levelBlocked;  //indica il numero del livello dal quale la velocita' e' bloccata, ovvero non aumentera' piu'
 
     public:
         Livello();          //inizializza un'istanza della classe livello con num_livello=1
@@ -30,6 +30,8 @@ class Livello
         int get_p_tan();    //...tanica
         int get_p_bar();    //...barriera
         int get_p_car();    //...car
+
+         void info_lev ( int x);
 };
 
 #endif // LIVELLO_H
