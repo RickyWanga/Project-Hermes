@@ -1,4 +1,3 @@
-
 #include "Campo.h"
 #include <iostream>
 #include <ctime>
