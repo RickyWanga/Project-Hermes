@@ -11,7 +11,7 @@ using namespace std;
         vel = 200;
         num_livello = 1;
         p_ost = -10;
-        p_tan = 60;
+        p_tan = 20;
         p_bar = -15;
         p_car = -20;
         intervallo = 10;
