@@ -1,14 +1,15 @@
-
 #include "Entita.h"
+
 #include <iostream>
+
 using namespace std;
 
     Entita::Entita(int x, int y, int width, int height)
     {
-        position.X=x;
-        position.Y=y;
-        larghezza=width;
-        altezza=height;
+        position.X = x;
+        position.Y = y;
+        larghezza = width;
+        altezza = height;
     }
 
     Entita::~Entita(){}
@@ -21,6 +22,6 @@ using namespace std;
 
     void Entita::set_coo(int x, int y)
      {
-         position.X=x;
-         position.Y=y;
+         position.X = x;
+         position.Y = y;
      }

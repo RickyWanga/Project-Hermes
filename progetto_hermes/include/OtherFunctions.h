@@ -13,4 +13,5 @@ void print_uplevel(int larghezza, int lev);
 void print_downlevel(int larghezza, int lev);
 void canc_upEdown_level(int larghezza, int altezza);
 void setColor( char color);
+
 #endif // OTHERFUNCTIONS_H_INCLUDED

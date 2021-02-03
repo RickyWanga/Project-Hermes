@@ -1,4 +1,5 @@
-#include <OtherFunctions.h>
+#include "OtherFunctions.h"
+
 #include <iostream>
 #include <windows.h>
 #include <ctime>
@@ -20,9 +21,9 @@ void ShowConsoleCursor(bool Show)
     _CONSOLE_CURSOR_INFO CurInfo; //Define the cursor size
 
     if (Size<=0)
-    Size=1;
+    Size = 1;
     if (Size>100)
-    Size=100;
+    Size = 100;
 
     CurInfo.dwSize = Size; //Define the visibility of the cursor
     CurInfo.bVisible = Show;
@@ -35,11 +36,11 @@ void caricamento(){
     setColor('g');
     srand(time(0));
     int x = 0;
-    for(int i=0 ; i<100 ; i++){
+    for(int i = 0; i < 100; i++){
 
-        int r= rand()%1000;
+        int r = rand()%1000;
         x++;
-        cout<<"\r"<<x<<"%"<< '|' <<flush;
+        cout<< "\r" << x << "%" << '|' <<flush;
         cout<<string(x, '°')<<flush;
         if(i<43){
             Sleep(r/6);

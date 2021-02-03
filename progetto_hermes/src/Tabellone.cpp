@@ -1,20 +1,21 @@
-
 #include "Tabellone.h"
+
 #include <iostream>
+
 using namespace std;
 
     Tabellone::Tabellone()
     {
-        tempo=0;
-        punteggio=0;
-        head=NULL;
+        tempo = 0;
+        punteggio = 0;
+        head = NULL;
     }
 
     Tabellone::~Tabellone(){}
 
-    void Tabellone::set_tempo(int time){tempo=time;}
+    void Tabellone::set_tempo(int time){tempo = time;}
 
-    void Tabellone::inc_punt(int score){punteggio=punteggio+score;}
+    void Tabellone::inc_punt(int score){punteggio = punteggio + score;}
     void Tabellone::inc_tempo(){tempo++;}
 
     int Tabellone::get_tempo(){return tempo;}
@@ -33,22 +34,23 @@ using namespace std;
         gotoxy(x, 2);
         cout<<"\t\t!!INFO GIOCO!!";
         gotoxy(x, 3);
-        cout<<"\t\t  TIME:  "<<tempo;
+        cout<<"\t\t  TIME:  "<< tempo;
         gotoxy(x, 4);
-        cout<<"\t\t  SCORE:  "<<punteggio;
+        cout<<"\t\t  SCORE:  "<< punteggio;
     }
 
     void Tabellone::aggiorna(int score, int x)//incrementa il punteggio di "score", aumenta il tempo di uno e stampa tabellone
     {
-        punteggio=punteggio+score;
+        punteggio = punteggio + score;
         tempo++;
         Tabellone::stampa_tab(x);
     }
 
-     void Tabellone::t_insert(int value,int livello)
-     {  // t_insert fa parte di tabellone e la lista è l'attributo di tabellone
+     void Tabellone::t_insert(int value,int livello)// t_insert inserisce in codo un nuovo nodo alla lista "head"
+     {
         ptr_list tmp = head ;
-        //nuovo elemento
+
+        //creo nuovo elemento
         ptr_list tail = new nodo;
         tail->value = value;
         tail->livello = livello;

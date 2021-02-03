@@ -1,19 +1,21 @@
 #include "campo.h"
 #include "Livello.h"
+
 #include <time.h>
 #include <iostream>
+
 using namespace std;
 
     Livello::Livello()
     {
-        vel= 200;
-        num_livello= 1;
-        p_ost= -10;
-        p_tan= 90;
-        p_bar= -15;
-        p_car= -20;
-        intervallo= 7;
-        levelBlocked= -1;
+        vel = 200;
+        num_livello = 1;
+        p_ost = -10;
+        p_tan = 20;
+        p_bar = -15;
+        p_car = -20;
+        intervallo = 7;
+        levelBlocked = -1;
     }
 
     Livello::~Livello(){}
