@@ -16,8 +16,6 @@ class Entita
         Entita(int x, int y, int width, int height);    //costruttore, creo nuova istanza e gli assegn come posizione (x,y) e lunghezza ed altezza passata
         virtual ~Entita();  //distruttore
 
-        int get_larghezza();    //ritorna larghezza entita'
-        int get_altezza();      //rirorna altezza entita'
         int get_posx();         //ritorna posizione x
         int get_posy();         //ritona posizione y
 

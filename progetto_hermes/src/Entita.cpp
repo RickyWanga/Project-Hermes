@@ -14,9 +14,6 @@ using namespace std;
 
     Entita::~Entita(){}
 
-    int Entita::get_larghezza(){return larghezza;}
-    int Entita::get_altezza(){return altezza;}
-
     int Entita::get_posx(){return position.X;}
     int Entita::get_posy(){return position.Y;}
 

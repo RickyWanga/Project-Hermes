@@ -38,28 +38,28 @@ class Campo
 
         int control_collision_car( Livello level, int x, int y);
 
-        int move_car_dx(Macchina* car, Livello level); /*controllo cosa ï¿½ successo con la macchina spostata di una posizione a dx:
+        int move_car_dx(Macchina* car, Livello level); /*controllo cosa è successo con la macchina spostata di una posizione a dx:
                 -se non urto niente, ne' i lati del campo da gioco, ne' ostacoli vari-> ritorna 0
                 -se utro la barriera-> ritorna il valore della barriera ovvero level.get_p_bar()
                 -se urto un ostacolo-> ritorna il valore dell'ostacolo ovvero level.get_p_ost()
                 -se urto una macchina nemica-> ritorna il valore della macchina nemica ovvero level.get_p_car()
                 -se urto una tanica bonus-> ritorna il valore della tanica bonus ovvero level.get_p_tan() */
 
-        int move_car_sx(Macchina* car, Livello level); /*controllo cosa ï¿½ successo con la macchina spostata di una posizione a sx:
+        int move_car_sx(Macchina* car, Livello level); /*controllo cosa è successo con la macchina spostata di una posizione a sx:
                 -se non urto niente, ne' i lati del campo da gioco, ne' ostacoli vari-> ritorna 0
                 -se utro la barriera-> ritorna il valore della barriera ovvero level.get_p_bar()
                 -se urto un ostacolo-> ritorna il valore dell'ostacolo ovvero level.get_p_ost()
                 -se urto una macchina nemica-> ritorna il valore della macchina nemica ovvero level.get_p_car()
                 -se urto una tanica bonus-> ritorna il valore della tanica bonus ovvero level.get_p_tan() */
 
-        int move_car_wx(Macchina* car, Livello level);/*controllo cosa ï¿½ successo con la macchina che va solo avanti:
+        int move_car_wx(Macchina* car, Livello level);/*controllo cosa è successo con la macchina che va solo avanti:
                 -se non urto niente, ne' i lati del campo da gioco, ne' ostacoli vari-> ritorna 0
                 -se utro la barriera-> ritorna il valore della barriera ovvero level.get_p_bar()
                 -se urto un ostacolo-> ritorna il valore dell'ostacolo ovvero level.get_p_ost()
                 -se urto una macchina nemica-> ritorna il valore della macchina nemica ovvero level.get_p_car()
                 -se urto una tanica bonus-> ritorna il valore della tanica bonus ovvero level.get_p_tan() */
 
-        void agg_entita();/*  in base ad un numero randomico che puï¿½ essere 0, 1 , 2 scelgo che entitï¿½ aggiungere",
+        void agg_entita();/*  in base ad un numero randomico che può essere 0, 1 , 2 scelgo che entità aggiungere",
                                 se=0 nuova tanica,
                                 se essa=1 nuovo ostacolo di lunghezza "len",
                                 se essa=2 nuova macchina nemica
