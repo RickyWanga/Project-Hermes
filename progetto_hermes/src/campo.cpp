@@ -1,3 +1,4 @@
+
 #include "Campo.h"
 #include <iostream>
 #include <ctime>
@@ -246,13 +247,22 @@ using namespace std;
                 -se urto una macchina nemica-> ritorna il valore della macchina ovvero level.get_p_car()
                 -se urto una tanica bonus-> ritorna il valore della tanica bonus ovvero level.get_p_tan() */
 
-                //sposto la macchina a dx
-                car->inc_x();
-                int tmp = control_collision_car(level, car->get_posx(), car->get_posy());
 
-                //in caso di urto con la barriera "contengo" la macchina per non farla uscire dal campo
-                if ( larghezza-3 == car->get_posx() )
-                    car->set_coo(larghezza-5, car->get_posy());
+
+            //cancello la macchina dallo schermo per poi farla ricomparire spostata
+            car->canc_car();
+
+            //sposto la macchina a dx
+            car->inc_x();
+            int tmp = control_collision_car(level, car->get_posx(), car->get_posy());
+
+            //in caso di urto con la barriera "contengo" la macchina per non farla uscire dal campo
+            if ( larghezza-3 == car->get_posx() )
+                car->set_coo(larghezza-5, car->get_posy());
+
+            //ristampo la macchina spostata a dx di rosa
+            setColor('p');
+            car->stampa_car();
 
             return tmp;
         }
@@ -264,13 +274,20 @@ using namespace std;
                 -se urto un ostacolo-> ritorna il valore dell'ostacolo ovvero level.get_p_ost()
                 -se urto una tanica bonus-> ritorna il valore della tanica bonus ovvero level.get_p_tan() */
 
-              //sposto la macchina a dx
-                car->dec_x();
-                int tmp = control_collision_car(level, car->get_posx(), car->get_posy());
+            //cancello la macchina dallo schermo per poi farla ricomparire spostata
+            car->canc_car();
 
-                //in caso di urto con la barriera "contengo" la macchina per non farla uscire dal campo
-                if ( 0 == car->get_posx() )
-                    car->set_coo(2, car->get_posy());
+            //sposto la macchina a dx
+            car->dec_x();
+            int tmp = control_collision_car(level, car->get_posx(), car->get_posy());
+
+            //in caso di urto con la barriera "contengo" la macchina per non farla uscire dal campo
+            if ( 0 == car->get_posx() )
+                car->set_coo(2, car->get_posy());
+
+            //ristampo la macchina spostata a sx di rosa
+            setColor('p');
+            car->stampa_car();
 
             return tmp;
         }
@@ -283,7 +300,13 @@ using namespace std;
                 -se urto un ostacolo-> ritorna il valore dell'ostacolo ovvero level.get_p_ost()
                 -se urto una tanica bonus-> ritorna il valore della tanica bonus ovvero level.get_p_tan() */
 
-            return  control_collision_car(level, car->get_posx(), car->get_posy());
+            int tmp = control_collision_car(level, car->get_posx(), car->get_posy());
+
+            //ristampo la macchina di rosa
+            setColor('p');
+            car->stampa_car();
+
+            return tmp;
         }
 
         void Campo::agg_entita(){

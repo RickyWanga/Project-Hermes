@@ -20,11 +20,6 @@ void ShowConsoleCursor(bool Show)
     //The Size = the cursor height, by default 25. Size range: 1 - 100
     _CONSOLE_CURSOR_INFO CurInfo; //Define the cursor size
 
-    if (Size<=0)
-    Size = 1;
-    if (Size>100)
-    Size = 100;
-
     CurInfo.dwSize = Size; //Define the visibility of the cursor
     CurInfo.bVisible = Show;
 
@@ -91,7 +86,7 @@ void stampa_menu(){
     setColor('g');
     cout<<"\n -->INIZIA IL GIOCO";
     setColor('y');
-    cout<<"\n -->STAMPA INFO";
+    cout<<"\n -->INFORMAZIONI";
     setColor('r');
     cout<<"\n -->ESCI ";
 }

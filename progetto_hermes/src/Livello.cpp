@@ -14,7 +14,7 @@ using namespace std;
         p_tan = 20;
         p_bar = -15;
         p_car = -20;
-        intervallo = 7;
+        intervallo = 10;
         levelBlocked = -1;
     }
 
@@ -29,7 +29,7 @@ using namespace std;
             if(intervallo > 3 && vel > 20)
             {
                 intervallo--;
-                vel-= 15;
+                vel-= 20;
             }else levelBlocked = num_livello;
         }
 
@@ -48,12 +48,12 @@ using namespace std;
             if(num_livello == levelBlocked)
             {
                 intervallo ++;
-                vel+= 15;
+                vel+= 20;
                 levelBlocked = -1;
             }
         }else {
             intervallo ++;
-            vel+= 15;
+            vel+= 20;
         }
 
         num_livello --;
@@ -73,34 +73,34 @@ using namespace std;
 
     void Livello::info_lev ( int x){
         gotoxy(x, 20);
-        cout<< "\t   !!INFO LIVELLO!!   ";
+        cout<< "\t\t   !!INFO LIVELLO!!   ";
         gotoxy(x, 21);
-        cout<< "\t                      ";
+        cout<< "\t\t                      ";
         gotoxy(x, 21);
-        cout<<"\tLivello: "<< num_livello;
+        cout<<"\t\tLivello: "<< num_livello;
         gotoxy(x, 22);
-        cout<< "\t                      ";
+        cout<< "\t\t                      ";
         gotoxy(x, 22);
-        cout <<"\tVelocita': "<< vel;
+        cout <<"\t\tVelocita': "<< 250 - vel;
         gotoxy(x, 23);
-        cout<< "\t                      ";
+        cout<< "\t\t                      ";
         gotoxy(x, 23);
-        cout<<"\tIntervallo: "<<intervallo;
+        cout<<"\t\tIntervallo: "<<intervallo;
         gotoxy(x, 24);
-        cout<< "\t                      ";
+        cout<< "\t\t                      ";
         gotoxy(x, 24);
-        cout<<"\tPunti tanica: "<<p_tan;
+        cout<<"\t\tPunti tanica: "<<p_tan;
         gotoxy(x, 25);
-        cout<< "\t                      ";
+        cout<< "\t\t                      ";
         gotoxy(x, 25);
-        cout<<"\tPunti ostacolo: "<<p_ost;
+        cout<<"\t\tPunti ostacolo: "<<p_ost;
         gotoxy(x, 26);
-        cout<< "\t                      ";
+        cout<< "\t\t                      ";
         gotoxy(x, 26);
-        cout<<"\tPunti car: "<<p_car;
+        cout<<"\t\tPunti car: "<<p_car;
         gotoxy(x, 27);
-        cout<< "\t                      ";
+        cout<< "\t\t                      ";
         gotoxy(x, 27);
-        cout<<"\tPunti barriera: "<<p_bar;
+        cout<<"\t\tPunti barriera: "<<p_bar;
 
     }
