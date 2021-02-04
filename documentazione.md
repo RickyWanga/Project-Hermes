@@ -46,9 +46,28 @@ La classe contiene le seguenti funzioni pubbliche:
         </ul>
 - **move_car_wx(Macchina* car, Livello level)** : controllo cosa è successo con la macchina che va solo avanti:
         <ul>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
+            <li>se non urto niente, ne' i lati del campo da gioco, ne' ostacoli vari-> ritorna 0</li>
+            <li>se urto la barriera-> ritorna il valore della barriera ovvero level.get_p_bar()</li>
+            <li>se urto un ostacolo-> ritorna il valore dell'ostacolo ovvero level.get_p_ost()</li>
+            <li>se urto una macchina nemica-> ritorna il valore della macchina nemica ovvero level.get_p_car()</li>
+            <li>se urto una tanica bonus-> ritorna il valore della tanica bonus ovvero level.get_p_tan()</li>
         </ul>
+- **agg_entita()** : in base ad un numero randomico che può essere 0, 1 , 2 scelgo che entità aggiungere":
+        <ul>
+                <li>se=0 nuova tanica</li>
+                <li>se essa=1 nuovo ostacolo di lunghezza "len"</li>
+                <li>se essa=2 nuova macchina nemica</li>
+                <li>in ogni caso la posizione di partenza sarà m[1][x]</li>
+        </ul>
+
+<a name="Entità"></a>
+## Entità.cpp
+Descrizione del funzionamento della Classe
+
+La classe contiene le seguenti funzioni pubbliche:
+
+- **Entita(int x, int y, int width, int height)** : costruttore, creo nuova istanza e gli assegn come posizione (x,y) e lunghezza ed altezza passata
+- **~Entita()** : distruttore della classe
+- **get_posx()** : ritorna posizione x
+- **get_posy()** : ritorna posizione y
+- **set_coo(int x, int y)** : imposta le coordinate dell'entità a position.X=x e position.Y=y
