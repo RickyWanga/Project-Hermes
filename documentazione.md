@@ -141,8 +141,8 @@ La classe contiene le seguenti funzioni pubbliche:
 - **t_insert(int value,int livello)** : inserisce i valori value e livello nella lista
 - **stampa_lista(int x,int y)** : stampa la lista
 
-<a name="Tabellone"></a>
-## Tabellone.cpp
+<a name="Otherfunctions"></a>
+## Otherfunctions.cpp
 Descrizione del funzionamento della Classe
 
 La classe contiene le seguenti funzioni pubbliche:
