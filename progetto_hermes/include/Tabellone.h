@@ -28,8 +28,8 @@ class Tabellone
         void inc_punt(int score);   //aumento il punteggio del valore "score" che puo' essere anche negativo
         void inc_tempo();           //aumento di uno il contatore dei secondi
 
-        int get_tempo();            //ritorna il secondo di giioco al quale sono arrivato fino ad ora
-        int get_punt(); //ritorna il punteggio al quale sono arrivato fino ad ora
+        int get_tempo();            //ritorna il secondo di gioco al quale sono arrivato fino ad ora
+        int get_punt();             //ritorna il punteggio al quale sono arrivato fino ad ora
         ptr_list get_list();
 
         void stampa_tab(int x);          //stampa tabellone

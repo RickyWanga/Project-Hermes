@@ -70,4 +70,89 @@ La classe contiene le seguenti funzioni pubbliche:
 - **~Entita()** : distruttore della classe
 - **get_posx()** : ritorna posizione x
 - **get_posy()** : ritorna posizione y
-- **set_coo(int x, int y)** : imposta le coordinate dell'entità a position.X=x e position.Y=y   
+- **set_coo(int x, int y)** : imposta le coordinate dell'entità a position.X=x e position.Y=y
+
+<a name="Livello"></a>
+## Livello.cpp
+Descrizione del funzionamento della Classe
+
+La classe contiene le seguenti funzioni pubbliche:
+
+- **Livello()** : inizializza un'istanza della classe livello con num_livello=1
+- **~Livello()** : distruttore della Classe
+- **uplevel()** : aumenta di un livello quindi aumenta la difficoltà
+- **downlevel()** : diminuisce di un livello quindi diminuisce la difficoltà
+- **get_intervallo()** : ritorna il valore di "intervallo"
+- **get_level()** : ritorna il numero del livello attuale
+- **get_vel()** : ritorna la velocità attuale
+- **get_p_ost()** : ritorna valore ostacolo
+- **get_p_tan()** : ritorna valore tanica
+- **get_p_bar()** : ritorna valore barriera
+- **get_p_car()** : ritorna valore macchina
+- **info_lev(int x)** : 
+
+<a name="Macchina"></a>
+## Macchina.cpp
+Descrizione del funzionamento della Classe
+
+La classe contiene le seguenti funzioni pubbliche:
+
+- **Macchina(int x, int y)** : costruttore che setta la macchina nella posizione (x,y)
+- **~Macchina()** : distruttore della classe
+- **inc_x()** : incremento di uno la position.X
+- **dec_x()** : decremento di uno la position.X
+- **stampa_car()** : stampo la macchina sullo schermo con angolo sinistro in alto in posizione "position"
+- **canc_car()** : cancello la macchina dallo schermo con angolo sinistro in alto in posizione "position"
+
+<a name="Ostacolo"></a>
+## Ostacolo.cpp
+Descrizione del funzionamento della Classe
+
+La classe contiene le seguenti funzioni pubbliche:
+
+- **Ostacolo(int x, int y, int larghezza)** : //Costruttore della classe Ostacolo che setta l'ostacolo nella posizione (x, y) 
+- **~Ostacolo()** : distruttore della classe
+
+<a name="Tanica"></a>
+## Tanica.cpp
+Descrizione del funzionamento della Classe
+
+La classe contiene le seguenti funzioni pubbliche:
+
+- **Tanica(int x, int y)** : costruttore della classe Tanica che setta la tanica nella posizione (x, y)
+- **~Tanica()** : distruttore della classe
+
+<a name="Tabellone"></a>
+## Tabellone.cpp
+Descrizione del funzionamento della Classe
+
+La classe contiene le seguenti funzioni pubbliche:
+
+- **Tabellone()** : costruttore della classe
+- **~Tabellone()** : distruttore della classe
+- **set_tempo(int time)** : modifico la variabile tempo sostituendola con temp
+- **inc_punt(int score)** : aumento il punteggio del valore "score" che può essere anche negativo
+- **inc_tempo()** : aumento di uno il contatore dei secondi
+- **get_tempo()** : ritorna il secondo di gioco al quale sono arrivato fino ad ora
+- **get_punt()** : ritorna il punteggio al quale sono arrivato fino ad ora
+- **get_list()** : ritorna la lista dei punteggi
+- **stampa_tab(int x)** : stampa tabellone
+- **aggiorna(int score, int x)** : incrementa il punteggio di "score", aumenta il tempo di uno e stampa tabellone
+- **t_insert(int value,int livello)** : inserisce i valori value e livello nella lista
+- **stampa_lista(int x,int y)** : stampa la lista
+
+<a name="Tabellone"></a>
+## Tabellone.cpp
+Descrizione del funzionamento della Classe
+
+La classe contiene le seguenti funzioni pubbliche:
+
+- **gotoxy(int x, int y)** : 
+- **ShowConsoleCursor(bool Show)** : 
+- **caricamento()** : stampa la barra di caricamento
+- **stampa_info()** : stampa le informazioni relative alle regole e istruzioni di gioco
+- **stampa_menu()** : stampa il menu principale
+- **print_uplevel(int larghezza, int lev)** : stampa la notifica di aumento di livello
+- **print_downlevel(int larghezza, int lev)** : stampa la notifica di diminuzione di livello
+- **anc_upEdown_level(int larghezza, int altezza)** : cancella la notifica di aumento/dimuzione livello
+- **setColor(char color)** : setta il colore del carattere da stampare

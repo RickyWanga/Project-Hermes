@@ -6,7 +6,7 @@
 class Livello
 {
     protected:
-        int vel;//velocità
+        int vel;//velocitï¿½
         int num_livello;
         int intervallo;//contiene il valore durante ogni quale deve essere creato un nuovo ostacolo o tanica
 
@@ -31,7 +31,7 @@ class Livello
         int get_p_bar();    //...barriera
         int get_p_car();    //...car
 
-         void info_lev ( int x);
+        void info_lev(int x);
 };
 
 #endif // LIVELLO_H
