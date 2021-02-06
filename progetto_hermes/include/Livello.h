@@ -14,7 +14,8 @@ class Livello
         int p_tan;  //quanti punti vale prendere la tanica (valore in positivo)
         int p_bar;  //quanti punti vale prendere la barriera (valore in negativo)
         int p_car;  //quanti punti vale prendere un'altrea car (valore in negativo)
-        int levelBlocked;  //indica il numero del livello dal quale la velocita' e' bloccata, ovvero non aumentera' piu'
+        int levelBlocked;  //indica il numero del livello dal quale l'intervallo e' bloccato, ovvero non aumentera' piu'
+        int velBlocked;   //indica il numero del livello dal quale la velocita' e' bloccata, ovvero non aumentera' piu'
 
     public:
         Livello();          //inizializza un'istanza della classe livello con num_livello=1

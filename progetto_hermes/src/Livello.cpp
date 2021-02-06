@@ -16,6 +16,7 @@ using namespace std;
         p_car = -20;
         intervallo = 10;
         levelBlocked = -1;
+        velBlocked = -1;
     }
 
     Livello::~Livello(){}
@@ -26,11 +27,17 @@ using namespace std;
             -aumento i punti che ti vengono tolti quando urti gli ostacoli o la barriera o la macchina nemica
             -diminuisco intervallo di creazione degli ostacoli e delle taniche(le creo più spesso)*/
         if(levelBlocked == -1){
-            if(intervallo > 3 && vel > 20)
+            if(intervallo > 3)
             {
                 intervallo--;
-                vel-= 20;
             }else levelBlocked = num_livello;
+        }
+
+        if(velBlocked == -1){
+            if(vel > 20)
+            {
+                vel-= 20;
+            }else velBlocked = num_livello;
         }
 
         num_livello++;
@@ -48,11 +55,20 @@ using namespace std;
             if(num_livello == levelBlocked)
             {
                 intervallo ++;
-                vel+= 20;
                 levelBlocked = -1;
             }
         }else {
             intervallo ++;
+        }
+
+        if(velBlocked != -1){
+
+            if(num_livello == velBlocked)
+            {
+                vel+= 20;
+                velBlocked = -1;
+            }
+        }else {
             vel+= 20;
         }
 

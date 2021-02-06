@@ -646,7 +646,7 @@
 	"Tabellone.h"
 	"campo.h"
 
-1612365864 source:c:\users\letiz\desktop\nuova cartella\project-hermes\progetto_hermes\main.cpp
+1612636373 source:c:\users\letiz\desktop\nuova cartella\project-hermes\progetto_hermes\main.cpp
 	<conio.h>
 	<iostream>
 	<stdlib.h>
@@ -663,52 +663,184 @@
 	"Tabellone.h"
 	"campo.h"
 
-1612363112 c:\users\letiz\desktop\nuova cartella\project-hermes\progetto_hermes\include\otherfunctions.h
+1612636373 c:\users\letiz\desktop\nuova cartella\project-hermes\progetto_hermes\include\otherfunctions.h
 
-1612363424 c:\users\letiz\desktop\nuova cartella\project-hermes\progetto_hermes\include\entita.h
+1612636373 c:\users\letiz\desktop\nuova cartella\project-hermes\progetto_hermes\include\entita.h
 	"OtherFunctions.h"
 	<windows.h>
 
-1612363112 c:\users\letiz\desktop\nuova cartella\project-hermes\progetto_hermes\include\livello.h
+1612636664 c:\users\letiz\desktop\nuova cartella\project-hermes\progetto_hermes\include\livello.h
 	"OtherFunctions.h"
 
-1612363478 c:\users\letiz\desktop\nuova cartella\project-hermes\progetto_hermes\include\macchina.h
+1612636373 c:\users\letiz\desktop\nuova cartella\project-hermes\progetto_hermes\include\macchina.h
 	"Entita.h"
 
-1612363112 c:\users\letiz\desktop\nuova cartella\project-hermes\progetto_hermes\include\tabellone.h
+1612636373 c:\users\letiz\desktop\nuova cartella\project-hermes\progetto_hermes\include\tabellone.h
 	"OtherFunctions.h"
 
-1612363112 c:\users\letiz\desktop\nuova cartella\project-hermes\progetto_hermes\include\campo.h
+1612636373 c:\users\letiz\desktop\nuova cartella\project-hermes\progetto_hermes\include\campo.h
 	"Livello.h"
 	"Macchina.h"
 	"Tabellone.h"
 
-1612365825 source:c:\users\letiz\desktop\nuova cartella\project-hermes\progetto_hermes\src\campo.cpp
+1612636373 source:c:\users\letiz\desktop\nuova cartella\project-hermes\progetto_hermes\src\campo.cpp
 	"Campo.h"
 	<iostream>
 	<ctime>
 
-1612365078 source:c:\users\letiz\desktop\nuova cartella\project-hermes\progetto_hermes\src\livello.cpp
+1612636373 source:c:\users\letiz\desktop\nuova cartella\project-hermes\progetto_hermes\src\livello.cpp
 	"campo.h"
 	"Livello.h"
 	<time.h>
 	<iostream>
 
-1612363852 source:c:\users\letiz\desktop\nuova cartella\project-hermes\progetto_hermes\src\otherfunctions.cpp
+1612636373 source:c:\users\letiz\desktop\nuova cartella\project-hermes\progetto_hermes\src\otherfunctions.cpp
 	"OtherFunctions.h"
 	<iostream>
 	<windows.h>
 	<ctime>
 
-1612363112 source:c:\users\letiz\desktop\nuova cartella\project-hermes\progetto_hermes\src\tabellone.cpp
+1612636373 source:c:\users\letiz\desktop\nuova cartella\project-hermes\progetto_hermes\src\tabellone.cpp
 	"Tabellone.h"
 	<iostream>
 
-1612363416 source:c:\users\letiz\desktop\nuova cartella\project-hermes\progetto_hermes\src\entita.cpp
+1612636373 source:c:\users\letiz\desktop\nuova cartella\project-hermes\progetto_hermes\src\entita.cpp
 	"Entita.h"
 	<iostream>
 
-1612363486 source:c:\users\letiz\desktop\nuova cartella\project-hermes\progetto_hermes\src\macchina.cpp
+1612636373 source:c:\users\letiz\desktop\nuova cartella\project-hermes\progetto_hermes\src\macchina.cpp
 	"Macchina.h"
+	<iostream>
+
+1612636373 source:c:\users\letiz\desktop\progetto programm\progetto_hermes\main.cpp
+	<conio.h>
+	<iostream>
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<cstdlib>
+	<math.h>
+	<ctime>
+	<windows.h>
+	"OtherFunctions.h"
+	"Entita.h"
+	"Livello.h"
+	"Macchina.h"
+	"Tabellone.h"
+	"campo.h"
+
+1612636373 c:\users\letiz\desktop\progetto programm\progetto_hermes\include\otherfunctions.h
+
+1612636373 c:\users\letiz\desktop\progetto programm\progetto_hermes\include\entita.h
+	"OtherFunctions.h"
+	<windows.h>
+
+1612637271 c:\users\letiz\desktop\progetto programm\progetto_hermes\include\livello.h
+	"OtherFunctions.h"
+
+1612636373 c:\users\letiz\desktop\progetto programm\progetto_hermes\include\macchina.h
+	"Entita.h"
+
+1612636373 c:\users\letiz\desktop\progetto programm\progetto_hermes\include\tabellone.h
+	"OtherFunctions.h"
+
+1612636373 c:\users\letiz\desktop\progetto programm\progetto_hermes\include\campo.h
+	"Livello.h"
+	"Macchina.h"
+	"Tabellone.h"
+
+1612636373 source:c:\users\letiz\desktop\progetto programm\progetto_hermes\src\campo.cpp
+	"Campo.h"
+	<iostream>
+	<ctime>
+
+1612636373 source:c:\users\letiz\desktop\progetto programm\progetto_hermes\src\entita.cpp
+	"Entita.h"
+	<iostream>
+
+1612636543 source:c:\users\letiz\desktop\progetto programm\progetto_hermes\src\livello.cpp
+	"campo.h"
+	"Livello.h"
+	<time.h>
+	<iostream>
+
+1612636373 source:c:\users\letiz\desktop\progetto programm\progetto_hermes\src\macchina.cpp
+	"Macchina.h"
+	<iostream>
+
+1612636373 source:c:\users\letiz\desktop\progetto programm\progetto_hermes\src\otherfunctions.cpp
+	"OtherFunctions.h"
+	<iostream>
+	<windows.h>
+	<ctime>
+
+1612636373 source:c:\users\letiz\desktop\progetto programm\progetto_hermes\src\tabellone.cpp
+	"Tabellone.h"
+	<iostream>
+
+1612636373 source:c:\users\letiz\desktop\progetto programm\game_hermes\main.cpp
+	<conio.h>
+	<iostream>
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<cstdlib>
+	<math.h>
+	<ctime>
+	<windows.h>
+	"OtherFunctions.h"
+	"Entita.h"
+	"Livello.h"
+	"Macchina.h"
+	"Tabellone.h"
+	"campo.h"
+
+1612636373 c:\users\letiz\desktop\progetto programm\game_hermes\include\otherfunctions.h
+
+1612636373 c:\users\letiz\desktop\progetto programm\game_hermes\include\entita.h
+	"OtherFunctions.h"
+	<windows.h>
+
+1612637942 c:\users\letiz\desktop\progetto programm\game_hermes\include\livello.h
+	"OtherFunctions.h"
+
+1612636373 c:\users\letiz\desktop\progetto programm\game_hermes\include\macchina.h
+	"Entita.h"
+
+1612636373 c:\users\letiz\desktop\progetto programm\game_hermes\include\tabellone.h
+	"OtherFunctions.h"
+
+1612636373 c:\users\letiz\desktop\progetto programm\game_hermes\include\campo.h
+	"Livello.h"
+	"Macchina.h"
+	"Tabellone.h"
+
+1612636373 source:c:\users\letiz\desktop\progetto programm\game_hermes\src\campo.cpp
+	"Campo.h"
+	<iostream>
+	<ctime>
+
+1612636373 source:c:\users\letiz\desktop\progetto programm\game_hermes\src\entita.cpp
+	"Entita.h"
+	<iostream>
+
+1612636543 source:c:\users\letiz\desktop\progetto programm\game_hermes\src\livello.cpp
+	"campo.h"
+	"Livello.h"
+	<time.h>
+	<iostream>
+
+1612636373 source:c:\users\letiz\desktop\progetto programm\game_hermes\src\macchina.cpp
+	"Macchina.h"
+	<iostream>
+
+1612636373 source:c:\users\letiz\desktop\progetto programm\game_hermes\src\otherfunctions.cpp
+	"OtherFunctions.h"
+	<iostream>
+	<windows.h>
+	<ctime>
+
+1612636373 source:c:\users\letiz\desktop\progetto programm\game_hermes\src\tabellone.cpp
+	"Tabellone.h"
 	<iostream>
 
