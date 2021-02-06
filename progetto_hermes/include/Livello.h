@@ -6,9 +6,9 @@
 class Livello
 {
     protected:
-        int vel;//velocit�
-        int num_livello;
-        int intervallo;//contiene il valore durante ogni quale deve essere creato un nuovo ostacolo o tanica
+        int vel;    //velocità
+        int num_livello;    //contiene il valore del livello corrente
+        int intervallo;     //contiene il valore dell'intervallo ogni quale deve essere creato un nuovo ostacolo o tanica
 
         int p_ost;  //quanti punti vale prendere l'ostacolo (valore in negativo)
         int p_tan;  //quanti punti vale prendere la tanica (valore in positivo)

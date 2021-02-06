@@ -16,8 +16,8 @@ class Tabellone
 
     protected:
         int tempo;      //contatore secondi di gioco
-        int punteggio; //contatore punteggio
-        ptr_list head;
+        int punteggio;  //contatore punteggio
+        ptr_list head;  //puntatore alla testa della lista dei punteggi
 
     public:
         Tabellone();            //costruttore

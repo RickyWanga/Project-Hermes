@@ -1,3 +1,14 @@
+## Table of contents
+1. [ Main.cpp ](#main)
+2. [ Campo.cpp ](#Campo)
+3. [ Livello.cpp ](#Livello)
+4. [ Macchina.cpp ](#Macchina)
+5. [ Ostacolo.cpp ](#Ostacolo)
+6. [ Tanica.cpp ](#Tanica)
+7. [ Tabellone.cpp ](#Tabellone)
+7. [ Otherfunctions.cpp ](#Otherfunctions)
+
+
 <a name="main"></a>
 ## Main.cpp
 Scrivere informazione riguardanti il main.cpp
@@ -23,10 +34,10 @@ La classe contiene le seguenti funzioni pubbliche:
  - **ins_car(int x)** : inserisco la macchina nel campo con (x,y) come coordinate dell' angolo sinisro in alto
  - **ins_enemy_car(int x)** : inserisco la macchina nemica nel campo con (x,y) come coordinate dell' angolo sinisro in alto
  - **control_collision(Livello level, int x, int y)** : funzione che data la posizione (x,y) della macchina ti restituisce:\
-                <ul>
-                <li>- 0 non ho sbattuto da nessuna parte</li>
-                <li>- ritorna il valore di cosa ho beccato</li>
-                </ul>
+        <ul>
+            <li>- 0 non ho sbattuto da nessuna parte</li>
+            <li>- ritorna il valore di cosa ho beccato</li>
+        </ul>
 - **control_collision_car( Livello level, int x, int y)** : 
 - **move_car_dx(Macchina* car, Livello level)** : controllo cosa è successo con la macchina spostata di una posizione a dx :\
         <ul>
@@ -54,11 +65,18 @@ La classe contiene le seguenti funzioni pubbliche:
         </ul>
 - **agg_entita()** : in base ad un numero randomico che può essere 0, 1 , 2 scelgo che entità aggiungere":
         <ul>
-                <li>se=0 nuova tanica</li>
-                <li>se essa=1 nuovo ostacolo di lunghezza "len"</li>    
-                <li>se essa=2 nuova macchina nemica</li>
-                <li>in ogni caso la posizione di partenza sarà m[1][x]</li>
+            <li>se=0 nuova tanica</li>
+            <li>se essa=1 nuovo ostacolo di lunghezza "len"</li>    
+            <li>se essa=2 nuova macchina nemica</li>
+            <li>in ogni caso la posizione di partenza sarà m[1][x]</li>
         </ul>
+
+Gli attributi protected sono : 
+
+- **larghezza** : 
+- **altezza** : 
+- **m[HMAX][GMAX]** : matrice sulla quale si metteranno le taniche di benzina ed ostacoli 
+- **bordo** : carattere che definisce il bordo del campo
 
 <a name="Entità"></a>
 ## Entità.cpp
@@ -71,6 +89,12 @@ La classe contiene le seguenti funzioni pubbliche:
 - **get_posx()** : ritorna posizione x
 - **get_posy()** : ritorna posizione y
 - **set_coo(int x, int y)** : imposta le coordinate dell'entità a position.X=x e position.Y=y
+
+Gli attributi protected sono : 
+
+- **position** : coordinate x e y dell'angolo sinistro in alto della mia entità
+- **larghezza** : larghezza shape, la mia entità occupa l colonne
+- **altezza** : altezza shape, la mia entità occupa h righe
 
 <a name="Livello"></a>
 ## Livello.cpp
@@ -90,6 +114,17 @@ La classe contiene le seguenti funzioni pubbliche:
 - **get_p_bar()** : ritorna valore barriera
 - **get_p_car()** : ritorna valore macchina
 - **info_lev(int x)** : 
+
+Gli attributi protected sono : 
+
+- **vel** : contiene il valore della velocità del livello
+- **num_livello** : contiene il valore del livello corrente
+- **intervallo** : contiene il valore dell'intervallo ogni quale deve essere creato un nuovo ostacolo o tanica
+- **p_ost** : quanti punti vale prendere l'ostacolo (valore in negativo)
+- **p_tan** : quanti punti vale prendere la tanica (valore in positivo)
+- **p_bar** : quanti punti vale prendere la barriera (valore in negativo)
+- **p_car** : quanti punti vale prendere un'altrea car (valore in negativo)
+- **levelBlocked** : indica il numero del livello dal quale la velocità è bloccata, ovvero non aumenterà più
 
 <a name="Macchina"></a>
 ## Macchina.cpp
@@ -141,6 +176,12 @@ La classe contiene le seguenti funzioni pubbliche:
 - **t_insert(int value,int livello)** : inserisce i valori value e livello nella lista
 - **stampa_lista(int x,int y)** : stampa la lista
 
+Gli attributi protected sono : 
+
+- **tempo** : contatore secondi di gioco
+- **punteggio** : contatore punteggio
+- **head** : puntatore alla testa della lista dei punteggi
+
 <a name="Otherfunctions"></a>
 ## Otherfunctions.cpp
 Descrizione del funzionamento della Classe
@@ -156,3 +197,8 @@ La classe contiene le seguenti funzioni pubbliche:
 - **print_downlevel(int larghezza, int lev)** : stampa la notifica di diminuzione di livello
 - **anc_upEdown_level(int larghezza, int altezza)** : cancella la notifica di aumento/dimuzione livello
 - **setColor(char color)** : setta il colore del carattere da stampare
+
+Le costanti globali sono : 
+
+- **GMAX** : 
+- **HMAX** : 
