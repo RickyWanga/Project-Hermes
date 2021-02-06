@@ -124,7 +124,8 @@ Gli attributi protected sono :
 - **p_tan** : quanti punti vale prendere la tanica (valore in positivo)
 - **p_bar** : quanti punti vale prendere la barriera (valore in negativo)
 - **p_car** : quanti punti vale prendere un'altrea car (valore in negativo)
-- **levelBlocked** : indica il numero del livello dal quale la velocità è bloccata, ovvero non aumenterà più
+- **levelBlocked** : indica il numero del livello dal quale l'intervallo è bloccato, ovvero non aumenterà più
+- **velBlocked** : indica il numero del livello dal quale la velocità è bloccata, ovvero non aumenterà più
 
 <a name="Macchina"></a>
 ## Macchina.cpp
