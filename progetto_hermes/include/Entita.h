@@ -8,12 +8,10 @@
 class Entita
 {
     protected:
-        COORD position;  //coordinate x y dell' angolo sinistro in alto della mia entità
-        int larghezza;   //larghezza shape, la mia entità occupa l colonne
-        int altezza;     //altezza shape, la mia entità occupa h righe
+        COORD position;  //coordinate dell' angolo sinistro in alto della mia entità
 
     public:
-        Entita(int x, int y, int width, int height);    //costruttore, creo nuova istanza e gli assegn come posizione (x,y) e lunghezza ed altezza passata
+        Entita(int x, int y);    //costruttore, gli assegno come posizione (x,y)
         virtual ~Entita();  //distruttore
 
         int get_posx();         //ritorna posizione x

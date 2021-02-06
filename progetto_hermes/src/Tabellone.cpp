@@ -1,7 +1,6 @@
 #include "Tabellone.h"
 
 #include <iostream>
-
 using namespace std;
 
     Tabellone::Tabellone()
@@ -12,11 +11,6 @@ using namespace std;
     }
 
     Tabellone::~Tabellone(){}
-
-    void Tabellone::set_tempo(int time){tempo = time;}
-
-    void Tabellone::inc_punt(int score){punteggio = punteggio + score;}
-    void Tabellone::inc_tempo(){tempo++;}
 
     int Tabellone::get_tempo(){return tempo;}
     int Tabellone::get_punt(){return punteggio;}
@@ -46,8 +40,8 @@ using namespace std;
         Tabellone::stampa_tab(x);
     }
 
-     void Tabellone::t_insert(int value,int livello)// t_insert inserisce in codo un nuovo nodo alla lista "head"
-     {
+    void Tabellone::t_insert(int value,int livello)// t_insert inserisce in codo un nuovo nodo alla lista "head"
+    {
         ptr_list tmp = head ;
 
         //creo nuovo elemento
@@ -62,7 +56,7 @@ using namespace std;
             //inseriamo il nuovo elemento in coda
             tmp->next = tail;
         }
-     }
+    }
 
 
     int Tabellone::stampa_lista(int x,int y)

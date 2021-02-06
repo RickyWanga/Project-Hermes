@@ -1,10 +1,9 @@
 #include "Macchina.h"
 
 #include <iostream>
-
 using namespace std;
 
-    Macchina::Macchina(int x, int y):Entita(x, y, 3, 3){}
+    Macchina::Macchina(int x, int y):Entita(x, y){}
     Macchina::~Macchina(){}
 
     void Macchina::inc_x(){position.X++;}
@@ -13,11 +12,11 @@ using namespace std;
     void Macchina::stampa_car()
     {
         gotoxy(position.X, position.Y);
-        cout<<"0-0";
+        cout<<"O-O";
         gotoxy(position.X, position.Y + 1);
         cout<<" H";
         gotoxy(position.X, position.Y + 2);
-        cout<<"0-0";
+        cout<<"O-O";
     }
 
     void Macchina::canc_car()

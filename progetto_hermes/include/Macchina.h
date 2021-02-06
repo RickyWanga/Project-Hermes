@@ -6,7 +6,7 @@
 class Macchina : public Entita{
     public:
         Macchina(int x, int y); //costruttore che setta la macchina nella posizione (x,y)
-        virtual ~Macchina();    //distruttore
+        virtual ~Macchina();    //distruttore della classe
 
         void inc_x();   //incremento di uno la position.X
         void dec_x();   //decremento di uno la position.X

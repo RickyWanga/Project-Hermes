@@ -1,9 +1,6 @@
-#include "campo.h"
 #include "Livello.h"
 
-#include <time.h>
 #include <iostream>
-
 using namespace std;
 
     Livello::Livello()
@@ -25,7 +22,8 @@ using namespace std;
     {   /*per aumentare livello e quindi incrementare la difficoltà:
             -aumento velocità
             -aumento i punti che ti vengono tolti quando urti gli ostacoli o la barriera o la macchina nemica
-            -diminuisco intervallo di creazione degli ostacoli e delle taniche(le creo più spesso)*/
+            -aumento i punti della tanica (di poco)
+            -diminuisco intervallo di creazione delle entita'(le creo più spesso)*/
         if(levelBlocked == -1){
             if(intervallo > 3)
             {
@@ -79,6 +77,7 @@ using namespace std;
         p_tan-= 2;
     }
 
+    //vari getter degli attributi
     int Livello::get_intervallo(){return intervallo;}
     int Livello::get_level(){return num_livello;}
     int Livello::get_vel(){return vel;}
@@ -87,7 +86,8 @@ using namespace std;
     int Livello::get_p_bar(){return p_bar;}
     int Livello::get_p_car(){return p_car;}
 
-    void Livello::info_lev ( int x){
+    void Livello::info_lev ( int x)
+    {//stampa tutte le informazioni relative al livello a video, sia il numero del livello che tutti i suoi parametri
         gotoxy(x, 20);
         cout<< "\t\t   !!INFO LIVELLO!!   ";
         gotoxy(x, 21);

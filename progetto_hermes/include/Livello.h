@@ -18,21 +18,21 @@ class Livello
         int velBlocked;   //indica il numero del livello dal quale la velocita' e' bloccata, ovvero non aumentera' piu'
 
     public:
-        Livello();          //inizializza un'istanza della classe livello con num_livello=1
-        virtual ~Livello(); //distruttore
+        Livello();          //costruttore che inizializza la classe livello con tutti iparametri del livello 1
+        virtual ~Livello(); //distruttore della classe
 
-        void uplevel();     //aumenta di un livello quindi aumenta la difficolta'
-        void downlevel();   //diminuisce di un livello quindi diminuisce la difficolta'
+        void uplevel();     //aumenta il livello e tutti i relativi parametri
+        void downlevel();   //diminuisce il livello e tutti i relativi parametri
 
-        int get_intervallo();//ritorna il valore di "intervallo"
-        int get_level();    //ritorna il numero del livello attuale
-        int get_vel();      //ritorna la velocita' attuale
-        int get_p_ost();    //ritorna valore ostacolo
-        int get_p_tan();    //...tanica
-        int get_p_bar();    //...barriera
-        int get_p_car();    //...car
+        int get_intervallo();   //ritorna il valore di "intervallo"
+        int get_level();        //ritorna il numero del livello attuale
+        int get_vel();          //ritorna la velocita' attuale
+        int get_p_ost();        //ritorna valore ostacolo
+        int get_p_tan();        //...tanica
+        int get_p_bar();        //...barriera
+        int get_p_car();        //...car
 
-        void info_lev(int x);
+        void info_lev(int x);   //stampa tutte le informazioni relative al livello a video, sia il numero del livello che tutti i suoi parametri
 };
 
 #endif // LIVELLO_H

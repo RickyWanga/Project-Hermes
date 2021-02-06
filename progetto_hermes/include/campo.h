@@ -8,52 +8,51 @@
 class Campo
 {
     protected:
-        int larghezza;
-        int altezza;
-        char m[HMAX][GMAX]; //matrice su cui mettero' taniche di benzina ed ostacoli
-        char bordo;     //carattere che definisce il bordo del mio campo
+        int larghezza;      //numero di colonne della matrice del campo da gioco
+        int altezza;        //numero di righe della matrice del campo da gioco
+        char m[HMAX][GMAX]; //matrice sulla quale salveremo le entità
+        char bordo;         //carattere che definisce il bordo del mio campo
 
     public:
-        Campo(int h, int l);//costruttore che setta il campo da gioco vuoto con larghezza "GMAX" e altezza "HMAX"
-        virtual ~Campo();   //distruttore
+        Campo(int h, int l);//costruttore che setta il campo da gioco vuoto con larghezza "l" e altezza "h"
+        virtual ~Campo();   //distruttore classe
 
         void stampa();      //stampa il campo da gioco da capo
-        void scroll();      //sposta tutti gli elementi della matrice di uno in basso
-        void gameover(Tabellone tab);    //stampa "game over" al centro
+        void scroll();      //sposta tutti gli elementi della matrice di una riga in basso
+        void gameover(Tabellone tab);    //stampa "game over" e le statistiche
 
         int get_larghezza();//ritorna la larghezza del campo
         int get_altezza();  //ritorna l'altezza del campo
 
-        void del_tan (int x, int y);   //cancella la tanica di benzina che inizia dall'angolo in alto a sinistra in posizione (x,y)
-        void del_ost(int x, int y);    //cancella l ostacolo con estremo sinistro in alto (x,y)
-        void del_car(int x, int y ); //cancello la macchina nel campo con (x,y) come coordinate dell' angolo sinisro in alto
-        void ins_tan(int x);            //inserisco una tanica nel campo con (x,y) come coordinate dell' angolo sinisro in alto
-        void ins_ost(int x, int len);   //inserisco un ostacolo di lunghezza "len" nel campo con (x,y) come coordinate dell' angolo sinisro in alto
-        void ins_car(int x);    //inserisco la macchina nel campo con (x,y) come coordinate dell' angolo sinisro in alto
-        void ins_enemy_car(int x);//inserisco la macchina nemica nel campo con (x,y) come coordinate dell' angolo sinisro in alto
+        void del_tan (int x, int y);    //cancella la tanica di benzina che ha l' angolo in alto a sinistra in posizione (x,y)
+        void del_ost(int x, int y);     //cancella l ostacolo che ha l' angolo in alto a sinistra in posizione (x,y)
+        void del_car(int x, int y );    //cancello la macchina che ha l' angolo in alto a sinistra in posizione (x,y)
+        void ins_tan(int x);            //inserisco una tanica avente come coordinate dell' angolo sinistro in alto (x,y) nella matrice
+        void ins_ost(int x, int len);   //inserisco un ostacolo di lunghezza "len" avente come coordinate dell' angolo sinistro in alto (x,y) nella matrice
+        void ins_enemy_car(int x);      //inserisco una macchina nemica avente come coordinate dell' angolo sinistro in alto (x,y) nella matrice
 
-        int control_collision(Livello level, int x, int y); /*funzione che data la posizione (x,y) della macchina ti restituisce:
-                -0 non ho sbattuto da nessuna parte
-                -ritorna il valore di cosa ho beccato */
+        int control_collision(Livello level, int x, int y); /*metodo che data una posizione (x,y) restituisce:
+                -0 se quella posizione nella matrice non corrisponde a nulla, quindi se in (x,y) ho il campo vuoto
+                - ritorna il valore dell'entità a cui appartiene il carattere nella posizione (x,y) e la elimina sia dalla matrice che dallo schermo */
 
-        int control_collision_car( Livello level, int x, int y);
+        int control_collision_car( Livello level, int x, int y);//metodo che richiama il precedente, ovvero control_collision(..), su tutto il contorno della macchinina del giocatore, ne controlla quindi le collisioni nel campo da gioco
 
-        int move_car_dx(Macchina* car, Livello level); /*controllo cosa è successo con la macchina spostata di una posizione a dx:
-                -se non urto niente, ne' i lati del campo da gioco, ne' ostacoli vari-> ritorna 0
+        int move_car_dx(Macchina* car, Livello level); /*controllo cosa è successo dopo aver spostato la macchina di una posizione a dx e la ristampo nella nuova posizione. Inoltre:\
+                -se non urto niente, ne' i lati del campo da gioco, ne' diverse entità-> ritorna 0
                 -se urto la barriera-> ritorna il valore della barriera ovvero level.get_p_bar()
                 -se urto un ostacolo-> ritorna il valore dell'ostacolo ovvero level.get_p_ost()
                 -se urto una macchina nemica-> ritorna il valore della macchina nemica ovvero level.get_p_car()
                 -se urto una tanica bonus-> ritorna il valore della tanica bonus ovvero level.get_p_tan() */
 
-        int move_car_sx(Macchina* car, Livello level); /*controllo cosa è successo con la macchina spostata di una posizione a sx:
-                -se non urto niente, ne' i lati del campo da gioco, ne' ostacoli vari-> ritorna 0
+        int move_car_sx(Macchina* car, Livello level); /*controllo cosa è successo dopo aver spostato la macchina di una posizione a sx e la ristampo nella nuova posizione. Inoltre:
+                -se non urto niente, ne' i lati del campo da gioco, ne' diverse entità-> ritorna 0
                 -se urto la barriera-> ritorna il valore della barriera ovvero level.get_p_bar()
                 -se urto un ostacolo-> ritorna il valore dell'ostacolo ovvero level.get_p_ost()
                 -se urto una macchina nemica-> ritorna il valore della macchina nemica ovvero level.get_p_car()
                 -se urto una tanica bonus-> ritorna il valore della tanica bonus ovvero level.get_p_tan() */
 
-        int move_car_wx(Macchina* car, Livello level);/*controllo cosa è successo con la macchina che va solo avanti:
-                -se non urto niente, ne' i lati del campo da gioco, ne' ostacoli vari-> ritorna 0
+        int move_car_wx(Macchina* car, Livello level);/*controllo cosa succede non muovendo la macchina (andando solo avanti):
+                -se non urto niente, ne' i lati del campo da gioco, ne' diverse entità-> ritorna 0
                 -se urto la barriera-> ritorna il valore della barriera ovvero level.get_p_bar()
                 -se urto un ostacolo-> ritorna il valore dell'ostacolo ovvero level.get_p_ost()
                 -se urto una macchina nemica-> ritorna il valore della macchina nemica ovvero level.get_p_car()
@@ -63,7 +62,7 @@ class Campo
                                 se=0 nuova tanica,
                                 se essa=1 nuovo ostacolo di lunghezza "len",
                                 se essa=2 nuova macchina nemica
-                                in ogni caso la posizione di partenza sara' m[1][x]
+                                in ogni caso la posizione di partenza sara' m[1][x], ovvero inizio campo
                             */
 };
 

@@ -1,12 +1,8 @@
-#include <conio.h>
 #include <iostream>
-#include <stdlib.h>
-#include <stdio.h>
 #include <string.h>
-#include <cstdlib>
-#include <math.h>
-#include <ctime>
+#include <time.h>
 #include <windows.h>
+#include <conio.h>
 
 #include "OtherFunctions.h"
 #include "Entita.h"
@@ -17,7 +13,10 @@
 
 using namespace std;
 
-void start_game();
+void caricamento();         //stampa la barra di caricamento
+void stampa_menu();         //stampa menu principale
+void stampa_info();         //stampa info relative al funzionamento del gioco
+void start_game();          //fa partire il gioco
 
 int main()
 {
@@ -70,6 +69,70 @@ int main()
         if(y == 3) {stampa_info();}
     }
     return 0;
+}
+
+void caricamento(){
+    setColor('g');
+    srand(time(0));
+    int x = 0;
+    for(int i = 0; i < 100; i++){
+
+        int r = rand()%1000;
+        x++;
+        cout<< "\r" << x << "%" << '|' <<flush;
+        cout<<string(x, '°')<<flush;
+        if(i<43){
+            Sleep(r/6);
+        }
+        else if(i > 43 && i < 74){
+            Sleep(r/7);
+        }
+        else if(i < 98){
+            Sleep(r/5);
+        }
+        else if(i > 97 && i != 99){
+            Sleep(2000);
+        }
+    }
+    cout<<endl<<endl<<"caricamento completato";
+}
+
+void stampa_menu(){
+    system("CLS");
+    setColor('p');
+    cout<<"\n!!HERMES GAME!!";
+    setColor('g');
+    cout<<"\n -->INIZIA IL GIOCO";
+    setColor('y');
+    cout<<"\n -->INFORMAZIONI";
+    setColor('r');
+    cout<<"\n -->ESCI ";
+}
+
+void stampa_info(){
+    setColor('y');
+    system("CLS");
+    cout<<" \n\tRegole: \n\tPremi 'a' per andare a sinistra, \n\tPremi 'd' per andare a destra, \n\tSe nessun tasto viene premuto la macchinina andra' avanti da sola. \n\tPremi 'ESC' in qualsiasi momento per uscire dal gioco.\n";
+    cout<<endl<<"\t-> Questa e' la tua macchina:";
+    setColor('p');
+    cout<<"\n\t   0-0\n\t    H\n\t   0-0"<<endl;
+    setColor('y');
+    cout<<"\n\t-> Macchina nemica:";
+    setColor('r');
+    cout<<"\n\t   0-0\n\t    @\n\t   0-0"<<endl;
+    setColor('y');
+    cout<<"\n\t-> Tanica di benzina:";
+    setColor('g');
+    cout<<"\n\t   ++\n\t   ++"<<endl;
+    setColor('y');
+    cout<<"\n\t-> Esempio ostacolo:";
+    setColor('b');
+    cout<<"\n\t   |***|"<<endl;
+    setColor('y');
+    cout<<"\n\tPer aumentare lo SCORE prendi piu' taniche possibili ed evita gli ostacoli (che ti toglieranno punti!!).\n\tRicorda che se il punteggio dovesse scendere sotto 0 perderai!!\n\tBUONA FORTUNA!"<<endl;
+    cout<<"\n\t\t\t\t\tCreated by: Alice Altena, Alice Guidi, Letizia Gorini, Ricky Wanga.\n\n\t";
+
+    system("pause");
 }
 
 void start_game(){

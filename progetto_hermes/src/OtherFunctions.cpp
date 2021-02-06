@@ -2,8 +2,6 @@
 
 #include <iostream>
 #include <windows.h>
-#include <ctime>
-
 using namespace std;
 
 void gotoxy(int x, int y)
@@ -16,81 +14,15 @@ void gotoxy(int x, int y)
 
 void ShowConsoleCursor(bool Show)
 {
-    int Size=25;
-    //The Size = the cursor height, by default 25. Size range: 1 - 100
-    _CONSOLE_CURSOR_INFO CurInfo; //Define the cursor size
+    int Size=25;//Size corrisponde all'altezza del cursore
 
-    CurInfo.dwSize = Size; //Define the visibility of the cursor
-    CurInfo.bVisible = Show;
+    _CONSOLE_CURSOR_INFO CurInfo;//creiamo una nuova variabile (del tipo adatto) per identificare il cursore
 
-    //Set parameters
-    SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE),&CurInfo);
+    CurInfo.dwSize = Size; //Definiamone la grandezza
+    CurInfo.bVisible = Show;//Rendiamolo true(=visibile) o false(=nascosto) in base al bool in input
+
+    SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), & CurInfo);
 }
-
-void caricamento(){
-    setColor('g');
-    srand(time(0));
-    int x = 0;
-    for(int i = 0; i < 100; i++){
-
-        int r = rand()%1000;
-        x++;
-        cout<< "\r" << x << "%" << '|' <<flush;
-        cout<<string(x, '°')<<flush;
-        if(i<43){
-            Sleep(r/6);
-        }
-        else if(i > 43 && i < 74){
-            Sleep(r/7);
-        }
-        else if(i < 98){
-            Sleep(r/5);
-        }
-        else if(i > 97 && i != 99){
-            Sleep(2000);
-        }
-    }
-    cout<<endl<<endl<<"caricamento completato";
-}
-
-void stampa_info(){
-    setColor('y');
-    system("CLS");
-    cout<<" \n\tRegole: \n\tPremi 'a' per andare a sinistra, \n\tPremi 'd' per andare a destra, \n\tSe nessun tasto viene premuto la macchinina andra' avanti da sola. \n\tPremi 'ESC' in qualsiasi momento per uscire dal gioco.\n";
-    cout<<endl<<"\t-> Questa e' la tua macchina:";
-    setColor('p');
-    cout<<"\n\t   0-0\n\t    H\n\t   0-0"<<endl;
-    setColor('y');
-    cout<<"\n\t-> Macchina nemica:";
-    setColor('r');
-    cout<<"\n\t   0-0\n\t    @\n\t   0-0"<<endl;
-    setColor('y');
-    cout<<"\n\t-> Tanica di benzina:";
-    setColor('g');
-    cout<<"\n\t   ++\n\t   ++"<<endl;
-    setColor('y');
-    cout<<"\n\t-> Esempio ostacolo:";
-    setColor('b');
-    cout<<"\n\t   |***|"<<endl;
-    setColor('y');
-    cout<<"\n\tPer aumentare lo SCORE prendi piu' taniche possibili ed evita gli ostacoli (che ti toglieranno punti!!).\n\tRicorda che se il punteggio dovesse scendere sotto 0 perderai!!\n\tBUONA FORTUNA!"<<endl;
-    cout<<"\n\t\t\t\t\tCreated by: Alice Altena, Alice Guidi, Letizia Gorini, Ricky Wanga.\n\n\t";
-
-    system("pause");
-}
-
-void stampa_menu(){
-    system("CLS");
-    setColor('p');
-    cout<<"\n!!HERMES GAME!!";
-    setColor('g');
-    cout<<"\n -->INIZIA IL GIOCO";
-    setColor('y');
-    cout<<"\n -->INFORMAZIONI";
-    setColor('r');
-    cout<<"\n -->ESCI ";
-}
-
 
 void print_uplevel(int larghezza, int lev){
     setColor('G');
@@ -135,23 +67,23 @@ void canc_upEdown_level(int larghezza, int altezza){
 }
 
 void setColor( char color){
-    if (color == 'r') //red
+    if (color == 'r') //rosso su nero
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 12);
-    if (color == 'b') //blue
+    if (color == 'b') //blu su nero
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 11);
-    if (color == 'g') //green
+    if (color == 'g') //verde su nero
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 10);
-    if (color == 'y') //yellow
+    if (color == 'y') //gialo su nero
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14);
-    if (color == 'p') //pink
+    if (color == 'p') //rosa su nero
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 13);
-    if (color == 'w') //white
+    if (color == 'w') //bianco su nero
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
     if (color == 'G') //nero su verde
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 160);
     if (color == 'R') //bianco su rosso
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 199);
-    if (color == 'Y') //black on white
+    if (color == 'Y') //nero su giallo
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 224);
 
 }

@@ -1,8 +1,7 @@
+#include "campo.h"
 
-#include "Campo.h"
 #include <iostream>
-#include <ctime>
-
+#include <time.h>
 using namespace std;
 
         Campo::Campo(int h, int l)//costruttore che setta il campo da gioco vuoto con larghezza "l" e altezza "h"
@@ -11,7 +10,7 @@ using namespace std;
             altezza = h;
             bordo = ':';
 
-            //creo il campo
+            //setto il campo vuoto
             for (int j = 0; j < altezza; j++)
             {
                 for (int i = 1; i < larghezza - 1; i++)
@@ -24,7 +23,8 @@ using namespace std;
 
         Campo::~Campo(){}
 
-        void Campo::stampa(){  //stampa il campo da gioco da capo
+        void Campo::stampa()
+        {  //stampa il campo da gioco da capo
             system("CLS");//pulisco tutto lo schermo
 
             //stampo matrice
@@ -35,7 +35,8 @@ using namespace std;
             }
         }
 
-        void Campo::scroll(){   //sposta tutti gli elementi della matrice di uno in basso
+        void Campo::scroll()
+        { //sposta tutti gli elementi della matrice di uno in basso e ristampa il campo da gioco su schermo
 
             for (int k = 1; k < larghezza; k++ ){m[0][k]= ' ';}//prima nuova riga tutta vuota
 
@@ -63,7 +64,8 @@ using namespace std;
             cout<<"                                                                                                                        ";
         }
 
-        void Campo::gameover(Tabellone tab){//stampa "game over" al centro
+        void Campo::gameover(Tabellone tab)
+        {//stampa "game over" e le statistiche della partita
             system("CLS");//pulisco tutto lo schermo
             gotoxy( (larghezza/ 2) -5, (altezza/ 2) );
             setColor('r');
@@ -72,6 +74,7 @@ using namespace std;
             setColor('w');
             cout<<"You survived for: "<<tab.get_tempo()<<" sec";
 
+            //chiamo il metodo del tabellone per stampare le statistiche della partita
             int tmp=tab.stampa_lista((larghezza/ 2) -10, (altezza/ 2) +5);
 
             gotoxy( (larghezza/ 2) -10, tmp++ );
@@ -83,7 +86,8 @@ using namespace std;
         int Campo::get_larghezza(){return larghezza;}//ritorna la larghezza del campo
         int Campo::get_altezza(){return altezza;}//ritorna l'altezza del campo
 
-         void Campo::del_tan (int x, int y){ //cancella la tanica di benziona con estremo sinistro in alto (x,y)
+         void Campo::del_tan (int x, int y)
+         { //cancella la tanica di benziona con estremo sinistro in alto (x,y)
             m[y][x] = ' ';
             m[y][x+1] = ' ';
             gotoxy(x, y);
@@ -94,7 +98,8 @@ using namespace std;
             cout << "  ";
         }
 
-        void Campo::del_ost(int x, int y){//cancella l ostacolo con estremo sinistro in alto (x,y)
+        void Campo::del_ost(int x, int y)
+        {//cancella l ostacolo con estremo sinistro in alto (x,y)
             int i = 1;
             m[y][x] = ' ';
             gotoxy(x, y);
@@ -111,14 +116,8 @@ using namespace std;
             cout << " ";
         }
 
-        void Campo::ins_tan(int x){//inserisco una tanica nel campo con (x,1) come coordinate dell' angolo sinisro in alto
-           m[1][x] = '+';
-           m[1][x+1] = '+';
-           m[2][x] = '+';
-           m[2][x+1] = '+';
-        }
-
-        void Campo::del_car(int x, int y ){//rimuovo la macchina dal campo con (x,y) come coordinate dell' angolo sinisro in alto
+        void Campo::del_car(int x, int y )
+        {//rimuovo la macchina dal campo con (x,y) come coordinate dell' angolo sinisro in alto
             m[y][x] = ' ';
             m[y+2][x] = ' ';
             m[y+2][x+2] = ' ';
@@ -134,7 +133,16 @@ using namespace std;
             cout << "   ";
         }
 
-        void Campo::ins_ost(int x, int len){//inserisco un ostacolo di lunghezza l nel campo con (x,y) come coordinate dell' angolo sinisro in alto
+        void Campo::ins_tan(int x)
+        {//inserisco una tanica nel campo con (x,1) come coordinate dell' angolo sinisro in alto
+           m[1][x] = '+';
+           m[1][x+1] = '+';
+           m[2][x] = '+';
+           m[2][x+1] = '+';
+        }
+
+        void Campo::ins_ost(int x, int len)
+        {//inserisco un ostacolo di lunghezza l nel campo con (x,y) come coordinate dell' angolo sinisro in alto
             m[1][x] = '|';
             m[1][x + len - 1] = '|';
 
@@ -142,17 +150,8 @@ using namespace std;
                 m[1][x+i] = '*';
         }
 
-        void Campo::ins_car(int x){//inserisco la macchina nel campo con (x,y) come coordinate dell' angolo sinisro in alto
-            m[1][x] = '0';
-            m[1][x+1] = '-';
-            m[1][x+2] = '0';
-            m[2][x+1] = 'H';
-            m[3][x] = '0';
-            m[3][x+1] = '-';
-            m[3][x+2] = '0';
-        }
-
-        void Campo::ins_enemy_car(int x){//inserisco la macchina nemica nel campo con (x,y) come coordinate dell' angolo sinisro in alto
+        void Campo::ins_enemy_car(int x)
+        {//inserisco la macchina nemica nel campo con (x,y) come coordinate dell' angolo sinisro in alto
             m[1][x] = '0';
             m[1][x+1] = '-';
             m[1][x+2] = '0';
@@ -162,7 +161,8 @@ using namespace std;
             m[3][x+2] = '0';
         }
 
-        int Campo::control_collision( Livello level, int x, int y){
+        int Campo::control_collision( Livello level, int x, int y)
+        {
             int tmp = 0;
             int xTrue = x, yTrue = y;
 
@@ -226,7 +226,8 @@ using namespace std;
             return tmp;
         }
 
-        int Campo::control_collision_car( Livello level, int x, int y){
+        int Campo::control_collision_car( Livello level, int x, int y)
+        {
             int tmp = 0;
             tmp+= control_collision(level, x, y);
             tmp+= control_collision(level, x, y+1);
@@ -239,16 +240,8 @@ using namespace std;
             return tmp;
         }
 
-        int Campo::move_car_dx(Macchina* car, Livello level){
-         /*controllo cosa è successo con la macchina spostata di una posizione a dx con il metodo control_collision_cas che :
-                -se non urto niente, ne' i lati del campo da gioco, ne' ostacoli vari-> ritorna 0
-                -se utro la barriera-> ritorna il valore della barriera ovvero level.get_p_bar()
-                -se urto un ostacolo-> ritorna il valore dell'ostacolo ovvero level.get_p_ost()
-                -se urto una macchina nemica-> ritorna il valore della macchina ovvero level.get_p_car()
-                -se urto una tanica bonus-> ritorna il valore della tanica bonus ovvero level.get_p_tan() */
-
-
-
+        int Campo::move_car_dx(Macchina* car, Livello level)
+        {
             //cancello la macchina dallo schermo per poi farla ricomparire spostata
             car->canc_car();
 
@@ -267,13 +260,8 @@ using namespace std;
             return tmp;
         }
 
-        int Campo::move_car_sx(Macchina* car, Livello level){
-            /*controllo cosa è successo con la macchina spostata di una posizione a sx:
-                -se non urto niente, ne' i lati del campo da gioco, ne' ostacoli vari-> ritorna 0
-                -se utro la barriera-> ritorna il valore della barriera ovvero level.get_p_bar()
-                -se urto un ostacolo-> ritorna il valore dell'ostacolo ovvero level.get_p_ost()
-                -se urto una tanica bonus-> ritorna il valore della tanica bonus ovvero level.get_p_tan() */
-
+        int Campo::move_car_sx(Macchina* car, Livello level)
+        {
             //cancello la macchina dallo schermo per poi farla ricomparire spostata
             car->canc_car();
 
@@ -292,14 +280,8 @@ using namespace std;
             return tmp;
         }
 
-
-        int Campo::move_car_wx(Macchina* car, Livello level){
-            /*controllo cosa è successo con la macchina ferma:
-                -se non urto niente, ne' i lati del campo da gioco, ne' ostacoli vari-> ritorna 0
-                -se utro la barriera-> ritorna il valore della barriera ovvero level.get_p_bar()
-                -se urto un ostacolo-> ritorna il valore dell'ostacolo ovvero level.get_p_ost()
-                -se urto una tanica bonus-> ritorna il valore della tanica bonus ovvero level.get_p_tan() */
-
+        int Campo::move_car_wx(Macchina* car, Livello level)
+        {
             int tmp = control_collision_car(level, car->get_posx(), car->get_posy());
 
             //ristampo la macchina di rosa
@@ -309,14 +291,8 @@ using namespace std;
             return tmp;
         }
 
-        void Campo::agg_entita(){
-            /*  in base ad un numero randomico che può essere 0, 1 , 2 scelgo che entità aggiungere",
-                se=0 nuova tanica,
-                se essa=1 nuovo ostacolo di lunghezza "len",
-                se essa=2 nuova macchina nemica
-                in ogni caso la posizione di partenza sara' m[1][x]
-            */
-
+        void Campo::agg_entita()
+        {
             int x = 2 + rand()% (larghezza - 3);    //la posizione puo' andare nel range [2,99], perche' a m[:][1] e m[:][100] abbiamo i bordi del campo
             int length_ost = 3 + rand()% 5;              //calcolo una lunghezza per l'ostacolo che pu� andare da 3 ad 8
 
