@@ -115,7 +115,7 @@ void stampa_info(){
     cout<<" \n\tRegole: \n\tPremi 'a' per andare a sinistra, \n\tPremi 'd' per andare a destra, \n\tSe nessun tasto viene premuto la macchinina andra' avanti da sola. \n\tPremi 'ESC' in qualsiasi momento per uscire dal gioco.\n";
     cout<<endl<<"\t-> Questa e' la tua macchina:";
     setColor('p');
-    cout<<"\n\t   0-0\n\t    H\n\t   0-0"<<endl;
+    cout<<"\n\t   O-O\n\t    H\n\t   O-O"<<endl;
     setColor('y');
     cout<<"\n\t-> Macchina nemica:";
     setColor('r');

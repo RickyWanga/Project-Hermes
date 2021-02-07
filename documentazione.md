@@ -36,7 +36,7 @@ Scelta la terza opzione il programma terminerà.
 	Ad ogni UPLEVEL abbiamo un incremento della difficoltà implementato attraverso l' aumento di tutti i parametri del gioco e viceversa ad ogni DOWNLEVEL il gioco diventerà più facile.
 	E' importante ricordare che in caso si ritorni a giocare lo stesso livello il grado di difficoltà sarà lo stesso quindi i parametri saranno gli stessi.
 	
-	In caso di uscita dal gioco (perdendo o premendo 'ESC') si chiamerà il metodo gameover(..) della classe Campo che stamperà su schermo quanti secondi abbiamo giocato e le statistiche
+	In caso di uscita dal gioco (perdendo o premendo 'ESC') si chiamerà il metodo '**gameover(..)**' della classe Campo che stamperà su schermo quanti secondi abbiamo giocato e le statistiche
 	di gioco ovvero tutti i momenti in cui siamo saliti o scesi di livello, precedentemente salvati in una lista nella classe Tabellone.
 	
 
@@ -44,8 +44,8 @@ Scelta la terza opzione il programma terminerà.
 
 <a name="Campo"></a>
 ## campo.cpp
-Classe contenente la matrice sulla quale si incentra l'intero gioco, infatti attraverso tutti i metodi elencati di seguito si implementa la sua gestione.
-Possiamo infatti far scorrere l' intera matrice e quindi far scorrere tutte le entità in essa salvate (taniche, ostacoli, macchine nemiche), crearne di nuove, inserirle nel nostro campo ed eliminarle quando opportuno.
+Classe contenente la matrice sulla quale si incentra l'intero gioco, infatti attraverso tutti i metodi elencati di seguito si implementa la sua gestione. 
+Possiamo infatti far scorrere l' intera matrice e quindi far scorrere tutte le entità in essa salvate (taniche, ostacoli, macchine nemiche), crearne di nuove, inserirle nel nostro campo ed eliminarle quando opportuno. 
 Questa classe è a tutti gli effetti il cuore del gioco perchè permette di spostare la macchinina del giocatore all'interno del campo e di controllare le possibili collisioni.
 
 La classe contiene le seguenti funzioni pubbliche:
@@ -65,8 +65,8 @@ La classe contiene le seguenti funzioni pubbliche:
  - **ins_enemy_car(int x)** : inserisco una macchina nemica avente come coordinate dell' angolo sinistro in alto (x,y) nella matrice 
  - **control_collision(Livello level, int x, int y)** : metodo che data una posizione (x,y) restituisce:\
             <ul>
-                <li>- 0 se quella posizione nella matrice non corrisponde a nulla, quindi se in (x,y) ho il campo vuoto</li>
-                <li>- ritorna il valore dell'entità a cui appartiene il carattere nella posizione (x,y) e la elimina sia dalla matrice che dallo schermo</li>
+                <li> 0 se quella posizione nella matrice non corrisponde a nulla, quindi se in (x,y) ho il campo vuoto</li>
+                <li> ritorna il valore dell'entità a cui appartiene il carattere nella posizione (x,y) e la elimina sia dalla matrice che dallo schermo</li>
             </ul>
 - **control_collision_car( Livello level, int x, int y)** : metodo che richiama il precedente, ovvero control_collision(..), su tutto il contorno della macchinina del giocatore, ne controlla quindi le collisioni nel campo da gioco 
 - **move_car_dx(Macchina* car, Livello level)** : controllo cosa è successo dopo aver spostato la macchina di una posizione a dx e la ristampo nella nuova posizione. Inoltre:\
@@ -139,11 +139,11 @@ La classe contiene le seguenti funzioni pubbliche:
 
 <a name="Livello"></a>
 ## Livello.cpp
-La classe Livello implementa la generazione infinita dei livelli e la loro gestione attraverso uplevel() e downlevel()
+La classe Livello implementa la generazione infinita dei livelli e la loro gestione attraverso uplevel() e downlevel(). 
 Contiene anche tutti i getter dei sui attributi quindi dei parametri che decretano la difficoltà del livello corrente e
-ed una funzione che durante la partita stampa su schermo tutte le informazioni necessarie.
+ed una funzione che durante la partita stampa su schermo tutte le informazioni necessarie. 
 Il gioco salirà di livello e quindi di difficoltà ogni 100 punti, infatti nell funzione start_game() all'interno del main
-si controlla il punteggio e se necessario si chiamano i metodi uplevel() e downlevel().    
+si controlla il punteggio e se necessario si chiamano i metodi '**uplevel()**' e '**downlevel()**'. 
 
 
 
@@ -177,7 +177,7 @@ Gli attributi protected sono :
 <a name="Tabellone"></a>
 ## Tabellone.cpp
 La classe Tabellone dopo aver inizializzato tutto al suo valore iniziale (tempo e punteggio pari a 0 e puntatore della lista pari a NULL) si occupa della 
-gestione del tempo e del punteggio, stampando inoltre a lato del campo da gioco da quanti secondi stiamo giocando e lo score raggiunto attraverso il metodo '**stampa_tab(..)**'.
+gestione del tempo e del punteggio, stampando inoltre a lato del campo da gioco da quanti secondi stiamo giocando e lo score raggiunto attraverso il metodo '**stampa_tab(..)**'. 
 Il metodo chiamato dalla funzione start_game() sarà '**aggiorna(..)**' che si occuperà di incrementare il tempo e di aggiornare il punteggio (aggingendogli il
 parametro 'score' ) e di stampare le informazioni su schermo chiamando '**stampa_tab(..)**'.
 
