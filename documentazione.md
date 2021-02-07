@@ -176,7 +176,13 @@ Gli attributi protected sono :
 
 <a name="Tabellone"></a>
 ## Tabellone.cpp
-Descrizione del funzionamento della Classe
+La classe Tabellone dopo aver inizializzato tutto al suo valore iniziale (tempo e punteggio pari a 0 e puntatore della lista pari a NULL) si occupa della 
+gestione del tempo e del punteggio, stampando inoltre a lato del campo da gioco da quanti secondi stiamo giocando e lo score raggiunto attraverso il metodo '**stampa_tab(..)**'.
+Il metodo chiamato dalla funzione start_game() sarà '**aggiorna(..)**' che si occuperà di incrementare il tempo e di aggiornare il punteggio (aggingendogli il
+parametro 'score' ) e di stampare le informazioni su schermo chiamando '**stampa_tab(..)**'.
+
+Sono presenti inoltre i getter di tutti gli attributi e due metodi per la gestione della lista delle statisctiche ovvero l'inserimento in
+coda '**t_insert(..)**' e la stampa '**stampa_lista(..)**'.
 
 La classe contiene le seguenti funzioni pubbliche:
 
@@ -198,14 +204,14 @@ Gli attributi protected sono :
 
 <a name="Otherfunctions"></a>
 ## Otherfunctions.cpp
-Descrizione del funzionamento della Classe
+Libreria di funzioni generali usate sia dalle classi che dal main per renderne più agevole la gestione.
 
 La classe contiene le seguenti funzioni pubbliche:
 
 - **gotoxy(int x, int y)** : funzione che ci permette di muoverci agevolmente nello schermo
-- **ShowConsoleCursor(bool Show)** : 
-- **print_uplevel(int larghezza, int lev)** : stampa il riquadro UPLEVEL
-- **print_downlevel(int larghezza, int lev)** : stampa il riquadro DOWNLEVEL
+- **ShowConsoleCursor(bool Show)** :  funzone per nascondere il cursore
+- **print_uplevel(int larghezza, int lev)** : stampa il riquadro UPLEVEL a lato del campo da gioco
+- **print_downlevel(int larghezza, int lev)** : stampa il riquadro DOWNLEVEL a lato del campo da gioco
 - **canc_upEdown_level(int larghezza, int altezza)** : cancella il riquadro di aumento/dimuzione livello
 - **setColor(char color)** : setta il colore del carattere da stampare
 
