@@ -110,7 +110,8 @@ Gli attributi protected sono :
 
 <a name="Entità"></a>
 ## Entità.cpp
-Descrizione del funzionamento della Classe
+La classe Entità attraverso il contruttore inizializza una nuova entità con le coordinat epassate come parametro ed implementa alcune funzioni base, 
+come '**get_posx()**', '**get_posy()**' e '**set_coo(..)**' che potranno essere usufruite dalle classi figlie, nel nostro caso da Macchina.
 
 La classe contiene le seguenti funzioni pubbliche:
 
@@ -126,7 +127,9 @@ Gli attributi protected sono :
 
 <a name="Macchina"></a>
 ## Macchina.cpp
-Descrizione del funzionamento della Classe
+La classe Macchina è una sottoclasse (detta anche classe figlia) di Entità infatti in quanto tale essa richiama il costrutttore di Entità e ne usa i metodi ereditati.
+Essa implementa sia il movimento della macchinina del giocatore all' interno della matrice di Campo attraverso i metodi '**inc_x()**' e '**dec_x()**', 
+sia all' interno dello schermo attraverso le funzioni '**canc_car()**' e '**stampa_car()**' che permettono di far scomparire e riapparire la macchinina.
 
 La classe contiene le seguenti funzioni pubbliche:
 
@@ -144,8 +147,6 @@ Contiene anche tutti i getter dei sui attributi quindi dei parametri che decreta
 ed una funzione che durante la partita stampa su schermo tutte le informazioni necessarie. 
 Il gioco salirà di livello e quindi di difficoltà ogni 100 punti, infatti nell funzione start_game() all'interno del main
 si controlla il punteggio e se necessario si chiamano i metodi '**uplevel()**' e '**downlevel()**'. 
-
-
 
 La classe contiene le seguenti funzioni pubbliche:
 
