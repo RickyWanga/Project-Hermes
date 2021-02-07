@@ -11,7 +11,32 @@
 
 <a name="main"></a>
 ## Main.cpp
-Scrivere informazione riguardanti il main.cpp
+Nel main vediamo la funzione che ci permette di nascondere il cursore, la chiamata di srand(..) per poter creare le nuove entità in modo randomico, la funzione che stampa sullo schermo il "caricamento del gioco"
+(aggiunta puramente estetica), la funzione per stampare il menù 'stampa_menu()' che presenta 3 opzioni 'INIZIA IL GIOCO', 'INFORMAZIONI' ed 'ESCI' nel quale si può navigare assraverso i comandi ‘w’ 
+per andare su e ‘s’ per andare giù (una volta scorso tutto il menù la freccia tornerà alla prima opzione).
+
+Scelta la prima opzione partirà il gioco vero e proprio attraverso la chiamata della funzione start_game().
+Scelta la seconda opzione verranno stampate tutte le informazioni attraverso la chiamata della funzione stampa_info().
+Scelta la terza opzione il programma terminerà.
+
+- start_game(): funzione in cui prima istanziamo le variabili e classi necessarie per il funzionamento del gioco, poi le usiamo per muoverci, aggiornare i punti, 
+	stampare a schermo le informazioni necessarie etc.
+	In questa fase la lettura dei comandi 'a' e 'd'  avviene attraverso due funzioni presenti in conio.h ovvero khbit() e getch() che ci permettono rispettivamente
+	di sapere su un tasto è stato premuto (è presente qualcosa nel buffer) e di salvare il valore di questo tasto in una variabile (ovvero 'cmd').
+	Una volta salvato il tasto premuto in questa variabile possiamo muoverci di conseguenza (a destra o a sinistra) e in caso non corrispondesse a nessuno dei comandi
+	possibili lasciamo andare la macchinina avanti.  
+	
+	Il controllo delle possibili collisoni lo fa già un metodo all'interno della classe 'Campo' (andare a vederla per maggiori dettagli) che ritorna il valore dell'entità urtata
+	da andare a sommare al puteggio corrente.
+	Salveremo questo valore in una variabile chiamata 'control_value' che poi useremo per l'aggiornamento del tabellone e del livello.
+
+	Il gioco è potenzialmente infinito, ciò significa che continuerà finchè il giocatore non perderà (ovvero il suo punteggio scenderà sotto 0) o premerà il tasto 'ESC' per
+	uscire (in entrambi i casi verrà visualizzata la schermata del 'GAMEOVER' con le statistiche di gioco). 
+	Ogni 100 punti si sale di livello e viene stampato un riquadro che ci informa dell' UPLEVEL e del DOWNLEVEL in caso invece si scenda di 100 punti.
+	Ad ogni UPLEVEL abbiamo un incremento della difficoltà implementato attraverso l' aumento di tutti i parametri del gioco e viceversa ad ogni DOWNLEVEL il gioco diventerà più facile.
+	E' importante ricordare che in caso si ritorni a giocare lo stesso livello il grado di difficoltà sarà lo stesso quindi i parametri saranno gli stessi.
+
+- stampa_info(): funzione che stampa tutte le informazioni necessarie, ovvero le regole del gioco, la legenda delle entità e i nomi degli autori del gioco.
 
 <a name="Campo"></a>
 ## campo.cpp
