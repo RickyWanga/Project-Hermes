@@ -19,7 +19,7 @@ Scelta la prima opzione partirà il gioco vero e proprio attraverso la chiamata 
 Scelta la seconda opzione verranno stampate tutte le informazioni attraverso la chiamata della funzione stampa_info().
 Scelta la terza opzione il programma terminerà.
 
-- start_game(): funzione in cui prima istanziamo le variabili e classi necessarie per il funzionamento del gioco, poi le usiamo per muoverci, aggiornare i punti, 
+- **start_game()** : funzione in cui prima istanziamo le variabili e classi necessarie per il funzionamento del gioco, poi le usiamo per muoverci, aggiornare i punti, 
 	stampare a schermo le informazioni necessarie etc.
 	In questa fase la lettura dei comandi 'a' e 'd'  avviene attraverso due funzioni presenti in conio.h ovvero khbit() e getch() che ci permettono rispettivamente
 	di sapere su un tasto è stato premuto (è presente qualcosa nel buffer) e di salvare il valore di questo tasto in una variabile (ovvero 'cmd').
@@ -36,7 +36,7 @@ Scelta la terza opzione il programma terminerà.
 	Ad ogni UPLEVEL abbiamo un incremento della difficoltà implementato attraverso l' aumento di tutti i parametri del gioco e viceversa ad ogni DOWNLEVEL il gioco diventerà più facile.
 	E' importante ricordare che in caso si ritorni a giocare lo stesso livello il grado di difficoltà sarà lo stesso quindi i parametri saranno gli stessi.
 
-- stampa_info(): funzione che stampa tutte le informazioni necessarie, ovvero le regole del gioco, la legenda delle entità e i nomi degli autori del gioco.
+- **stampa_info()** : funzione che stampa tutte le informazioni necessarie, ovvero le regole del gioco, la legenda delle entità e i nomi degli autori del gioco.
 
 <a name="Campo"></a>
 ## campo.cpp
