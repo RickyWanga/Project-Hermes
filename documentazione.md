@@ -12,14 +12,14 @@
 <a name="main"></a>
 ## Main.cpp
 Nel main vediamo la funzione che ci permette di nascondere il cursore, la chiamata di srand(..) per poter creare le nuove entità in modo randomico, la funzione che stampa sullo schermo il "caricamento del gioco"
-(aggiunta puramente estetica), la funzione per stampare il menù 'stampa_menu()' che presenta 3 opzioni 'INIZIA IL GIOCO', 'INFORMAZIONI' ed 'ESCI' nel quale si può navigare assraverso i comandi ‘w’ 
+(aggiunta puramente estetica), la funzione per stampare il menù **'stampa_menu()'** che presenta 3 opzioni 'INIZIA IL GIOCO', 'INFORMAZIONI' ed 'ESCI' nel quale si può navigare assraverso i comandi ‘w’ 
 per andare su e ‘s’ per andare giù (una volta scorso tutto il menù la freccia tornerà alla prima opzione).
 
 Scelta la prima opzione partirà il gioco vero e proprio attraverso la chiamata della funzione start_game().
 Scelta la seconda opzione verranno stampate tutte le informazioni attraverso la chiamata della funzione stampa_info().
 Scelta la terza opzione il programma terminerà.
 
-- **start_game()** : funzione in cui prima istanziamo le variabili e classi necessarie per il funzionamento del gioco, poi le usiamo per muoverci, aggiornare i punti, 
+- **start_game()**: funzione in cui prima istanziamo le variabili e classi necessarie per il funzionamento del gioco, poi le usiamo per muoverci, aggiornare i punti, 
 	stampare a schermo le informazioni necessarie etc.
 	In questa fase la lettura dei comandi 'a' e 'd'  avviene attraverso due funzioni presenti in conio.h ovvero khbit() e getch() che ci permettono rispettivamente
 	di sapere su un tasto è stato premuto (è presente qualcosa nel buffer) e di salvare il valore di questo tasto in una variabile (ovvero 'cmd').
@@ -35,8 +35,12 @@ Scelta la terza opzione il programma terminerà.
 	Ogni 100 punti si sale di livello e viene stampato un riquadro che ci informa dell' UPLEVEL e del DOWNLEVEL in caso invece si scenda di 100 punti.
 	Ad ogni UPLEVEL abbiamo un incremento della difficoltà implementato attraverso l' aumento di tutti i parametri del gioco e viceversa ad ogni DOWNLEVEL il gioco diventerà più facile.
 	E' importante ricordare che in caso si ritorni a giocare lo stesso livello il grado di difficoltà sarà lo stesso quindi i parametri saranno gli stessi.
+	
+	In caso di uscita dal gioco (perdendo o premendo 'ESC') si chiamerà il metodo gameover(..) della classe Campo che stamperà su schermo quanti secondi abbiamo giocato e le statistiche
+	di gioco ovvero tutti i momenti in cui siamo saliti o scesi di livello, precedentemente salvati in una lista nella classe Tabellone.
+	
 
-- **stampa_info()** : funzione che stampa tutte le informazioni necessarie, ovvero le regole del gioco, la legenda delle entità e i nomi degli autori del gioco.
+- **stampa_info()**: funzione che stampa tutte le informazioni necessarie, ovvero le regole del gioco, la legenda delle entità e i nomi degli autori del gioco.
 
 <a name="Campo"></a>
 ## campo.cpp
@@ -135,7 +139,13 @@ La classe contiene le seguenti funzioni pubbliche:
 
 <a name="Livello"></a>
 ## Livello.cpp
-Descrizione del funzionamento della Classe
+La classe Livello implementa la generazione infinita dei livelli e la loro gestione attraverso uplevel() e downlevel()
+Contiene anche tutti i getter dei sui attributi quindi dei parametri che decretano la difficoltà del livello corrente e
+ed una funzione che durante la partita stampa su schermo tutte le informazioni necessarie.
+Il gioco salirà di livello e quindi di difficoltà ogni 100 punti, infatti nell funzione start_game() all'interno del main
+si controlla il punteggio e se necessario si chiamano i metodi uplevel() e downlevel().    
+
+
 
 La classe contiene le seguenti funzioni pubbliche:
 
