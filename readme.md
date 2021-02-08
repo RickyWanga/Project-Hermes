@@ -1,9 +1,12 @@
 # Hermes Game
 ---------------------------------------
+## How to start:
+Compilare il codice sorgente aprendo il file .cbp (Codeblocks Project) con Codeblocks oppure far partire l'eseguibile Hermes.exe
+---------------------------------------
 ## Comandi:
 	-Premi 'a' per andare a sinistra,
 	-Premi 'd' per andare a destra,
-	-Se nessun tasto viene premuto la macchinina andra' avanti da sola.
+	-Se nessun tasto viene premuto la macchinina andrà avanti da sola.
 	-Premi 'ESC' in qualsiasi momento per uscire dal gioco.
 ---------------------------------------
 ## Legenda entità:
