@@ -10,12 +10,12 @@ class Campo
     protected:
         int larghezza;      //numero di colonne della matrice del campo da gioco
         int altezza;        //numero di righe della matrice del campo da gioco
-        char m[HMAX][GMAX]; //matrice sulla quale salveremo le entità
+        char** m;           //matrice sulla quale salveremo le entità
         char bordo;         //carattere che definisce il bordo del mio campo
 
     public:
         Campo(int h, int l);//costruttore che setta il campo da gioco vuoto con larghezza "l" e altezza "h"
-        virtual ~Campo();   //distruttore classe
+        virtual ~Campo();   //distruttore classe che mi libera lo spazio dedicato alla matrice
 
         void stampa();      //stampa il campo da gioco da capo
         void scroll();      //sposta tutti gli elementi della matrice di una riga in basso

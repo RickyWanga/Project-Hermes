@@ -4,7 +4,6 @@
 using namespace std;
 
     Macchina::Macchina(int x, int y):Entita(x, y){}
-    Macchina::~Macchina(){}
 
     void Macchina::inc_x(){position.X++;}
     void Macchina::dec_x(){position.X--;}

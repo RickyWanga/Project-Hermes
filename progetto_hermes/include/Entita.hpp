@@ -12,7 +12,6 @@ class Entita
 
     public:
         Entita(int x, int y);    //costruttore, gli assegno come posizione (x,y)
-        virtual ~Entita();  //distruttore
 
         int get_posx(); //ritorna posizione x
         int get_posy(); //ritona posizione y

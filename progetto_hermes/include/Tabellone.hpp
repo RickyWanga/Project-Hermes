@@ -21,7 +21,6 @@ class Tabellone
 
     public:
         Tabellone();            //costruttore che setta tutti gli attributi della classe al valore iniziale
-        virtual ~Tabellone();   //distruttore della classe
 
         int get_tempo();    //ritorna i secondi giocati fino ad ora
         int get_punt();     //ritorna il punteggio al quale sono arrivato fino ad ora
@@ -31,7 +30,6 @@ class Tabellone
         void aggiorna(int score, int x);     //incrementa il punteggio di "score", aumenta il tempo di uno e stampa tabellone dalla colonna x in poi
         void t_insert(int value,int livello);//inserisce un nuovo nodo nella lista con valori "value" e "livello"
         int stampa_lista(int x,int y);       //stampa la lista dei UPLEVEL & DOWNLEVEL, ovvero le statistiche di gioco
-
 
 };
 

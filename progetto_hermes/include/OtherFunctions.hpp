@@ -1,9 +1,6 @@
 #ifndef OTHERFUNCTIONS_HPP_INCLUDED
 #define OTHERFUNCTIONS_HPP_INCLUDED
 
-#define GMAX 100
-#define HMAX 30
-
 void gotoxy(int x, int y); //setto il cursore nella posizione (x,y) dello schermo
 void ShowConsoleCursor(bool Show);  //funzone per nascondere il cursore
 void print_uplevel(int larghezza, int lev); //stampa notifica di aumento livello

@@ -10,8 +10,6 @@ using namespace std;
         head = NULL;
     }
 
-    Tabellone::~Tabellone(){}
-
     int Tabellone::get_tempo(){return tempo;}
     int Tabellone::get_punt(){return punteggio;}
     ptr_list Tabellone::get_list(){return head;}

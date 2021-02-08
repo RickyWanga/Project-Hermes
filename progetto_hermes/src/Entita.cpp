@@ -9,8 +9,6 @@ using namespace std;
         position.Y = y;
     }
 
-    Entita::~Entita(){}
-
     int Entita::get_posx(){return position.X;}
     int Entita::get_posy(){return position.Y;}
 

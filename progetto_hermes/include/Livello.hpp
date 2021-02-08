@@ -19,7 +19,6 @@ class Livello
 
     public:
         Livello();          //costruttore che inizializza la classe livello con tutti i sparametri del livello 1
-        virtual ~Livello(); //distruttore della classe
 
         void uplevel();     //aumenta il livello e tutti i relativi parametri
         void downlevel();   //diminuisce il livello e tutti i relativi parametri

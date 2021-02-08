@@ -13,6 +13,18 @@ using namespace std;
             altezza = h;
             bordo = ':';
 
+            //creo la matrice in modo dinamico usando malloc
+            m = (char**) malloc( altezza*sizeof(char*) );
+            if ( m == NULL ) {
+                    system("CLS");//pulisco tutto lo schermo
+                    cout<<"ERROR"; //se non posso allocarla do errore
+                    return;
+            }else{
+                    for (int j = 0; j < altezza; j++){
+                        m[j] = (char*) malloc ( larghezza*sizeof(char) );
+                    }
+                }
+
             //setto il campo vuoto
             for (int j = 0; j < altezza; j++)
             {
@@ -24,7 +36,7 @@ using namespace std;
             }
         }
 
-        Campo::~Campo(){}
+        Campo::~Campo() { free(m);} //libero la memoria riservata alla matrice
 
         void Campo::stampa()
         {  //stampa il campo da gioco da capo
@@ -43,8 +55,7 @@ using namespace std;
 
             for (int k = 1; k < larghezza; k++ ){m[0][k]= ' ';}//prima nuova riga tutta vuota
 
-            for (int i = altezza; i > 0; i--)
-            {
+            for (int i = altezza - 1; i > 0; i--)
                 for (int j = larghezza - 2; j > 0; j--)
                 {
                     m[i][j] = m[i-1][j];
@@ -59,7 +70,6 @@ using namespace std;
                         cout<<m[i][j];
                     }
                 }
-            }
 
             gotoxy(0, altezza - 1);
             cout<<"                                                                                                                        ";

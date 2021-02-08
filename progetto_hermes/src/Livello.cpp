@@ -16,8 +16,6 @@ using namespace std;
         velBlocked = -1;
     }
 
-    Livello::~Livello(){}
-
     void Livello::uplevel()
     {   /*per aumentare livello e quindi incrementare la difficoltà:
             -aumento velocità

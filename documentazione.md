@@ -51,7 +51,7 @@ Questa classe è a tutti gli effetti il cuore del gioco perchè permette di spos
 La classe contiene le seguenti funzioni pubbliche:
 
  - **Campo(int h, int l)** : Costruttore che setta il campo da gioco vuoto con larghezza "l" e altezza "h"
- - **~Campo()** : distruttore della classe
+ - **~Campo()** : distruttore della classe che libera lo spazio dedicato alla matrice
  - **stampa()** : stampa il campo da gioco vuoto
  - **scroll()** : sposta tutti gli elementi della matrice di una riga più in basso e ne implementa lo scorrimento anche sullo schermo stesso
  - **gameover(tabellone tab)** : stampa "game over" al centro dello schermo stampando anche le statistiche di gioco
@@ -105,7 +105,7 @@ Gli attributi protected sono :
 
 - **larghezza** : numero di colonne della matrice del campo da gioco
 - **altezza** : numero di righe della matrice del campo da gioco
-- **m[HMAX][GMAX]** : matrice sulla quale salveremo le entità
+- **m** : matrice sulla quale salveremo le entità
 - **bordo** : carattere che definisce il bordo del campo
 
 <a name="Entità"></a>
@@ -116,7 +116,6 @@ come '**get_posx()**', '**get_posy()**' e '**set_coo(..)**' che potranno essere 
 La classe contiene le seguenti funzioni pubbliche:
 
 - **Entita(int x, int y)** : costruttore della classe che gli assegna come posizione (x,y)
-- **~Entita()** : distruttore della classe
 - **get_posx()** : ritorna posizione x
 - **get_posy()** : ritorna posizione y
 - **set_coo(int x, int y)** : imposta le coordinate dell'entità a position.X=x e position.Y=y
@@ -134,7 +133,6 @@ sia all' interno dello schermo attraverso le funzioni '**canc_car()**' e '**stam
 La classe contiene le seguenti funzioni pubbliche:
 
 - **Macchina(int x, int y)** : costruttore che setta la macchina nella posizione (x,y)
-- **~Macchina()** : distruttore della classe
 - **inc_x()** : incremento di uno la position.X
 - **dec_x()** : decremento di uno la position.X
 - **stampa_car()** : stampo la macchina sullo schermo con angolo sinistro in alto in posizione "position"
@@ -151,7 +149,6 @@ si controlla il punteggio e se necessario si chiamano i metodi '**uplevel()**' e
 La classe contiene le seguenti funzioni pubbliche:
 
 - **Livello()** : costruttore che inizializza la classe livello con tutti i parametri del livello 1
-- **~Livello()** : distruttore della classe
 - **uplevel()** : aumenta il livello e tutti i parametri (quindi aumenta la difficoltà)
 - **downlevel()** : diminuisce il livello e diminuisce tutti i parametri (quindi diminuisce la difficoltà)
 - **get_intervallo()** : ritorna il valore di "intervallo"
@@ -188,7 +185,6 @@ coda '**t_insert(..)**' e la stampa '**stampa_lista(..)**'.
 La classe contiene le seguenti funzioni pubbliche:
 
 - **Tabellone()** : costruttore che setta tutti gli attributi della classe al valore iniziale
-- **~Tabellone()** : distruttore della classe
 - **get_tempo()** : ritorna i secondi giocati fino ad ora
 - **get_punt()** : ritorna il punteggio al quale sono arrivato fino ad ora
 - **get_list()** : ritorna la lista dei UPLEVEL & DOWNLEVEL
@@ -215,8 +211,3 @@ La classe contiene le seguenti funzioni pubbliche:
 - **print_downlevel(int larghezza, int lev)** : stampa il riquadro DOWNLEVEL a lato del campo da gioco
 - **canc_upEdown_level(int larghezza, int altezza)** : cancella il riquadro di aumento/dimuzione livello
 - **setColor(char color)** : setta il colore del carattere da stampare
-
-Le costanti globali sono : 
-
-- **GMAX** : massime colonne della matrice del campo da gioco
-- **HMAX** : massime righe della matrice del campo da gioco

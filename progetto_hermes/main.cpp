@@ -179,25 +179,21 @@ void start_game(){
         //controllo se e' stato premuto un tasto
         if(kbhit()) cmd = getch(); //leggo comando
         else cmd = 0; //imposto che vada avanti
+        //faccio scorrere il campo da gioco
+        camp.scroll();
 
         //in base al comando scelgo uno dei casi
         if (cmd == 'd' || cmd == 'D'){  //se e' 'd' va a destra
-            //faccio scorrere il campo da gioco
-            camp.scroll();
 
             //salvo il valore di ritorno in control_value, in base ad esso capisco se e cosa ha urtato, visionare la funzione per info
             control_value = camp.move_car_dx( &car, level );
 
         }else if (cmd == 'a'|| cmd == 'A'){//se e' 'a' va a sinistra
-                    //faccio scorrere il campo da gioco
-                    camp.scroll();
 
                     //salvo il valore di ritorno in control_value, in base ad esso capisco se e cosa ha urtato, visionare la funzione per info
                     control_value = camp.move_car_sx( &car, level );
 
                 }else {//se non premo nulla va avanti da solo
-                            //faccio scorrere il campo da gioco
-                            camp.scroll();
 
                             //salvo il valore di ritorno in control_value, in base ad esso capisco se e cosa ha urtato, visionare la funzione per info
                             control_value = camp.move_car_wx( &car, level );
@@ -232,7 +228,7 @@ void start_game(){
             tab.t_insert(t_downlev,level.get_level());
         }
     }
-
+    camp.~Campo();
     if( !gameOver ){ camp.gameover(tab);  } //se la variabile gameOver sara' ancora false significa che avro' premuto 'ESC' senza aver perso
     cmd = 0;
     while (cmd != ''){ cmd = getch(); } //quando premo esc esco dal gioco e torno al menù
