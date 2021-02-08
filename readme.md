@@ -27,7 +27,7 @@ Compilare il codice sorgente aprendo il file .cbp (Codeblocks Project) con Codeb
 		++
 								
 	- Esempio ostacolo:	
-	     |****|
+	      |****|
 
 ## Regole generali:
 	- Le taniche ti faranno aumentare il punteggio;
