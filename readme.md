@@ -12,7 +12,7 @@ Compilare il codice sorgente aprendo il file .cbp (Codeblocks Project) con Codeb
 	-Premi 'ESC' in qualsiasi momento per uscire dal gioco.
 
 ## Legenda entità:
-	- Questa e' la tua macchina:	
+	- Questa è la tua macchina:	
 		O-O			
 		 H
 		O-O
