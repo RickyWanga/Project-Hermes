@@ -1,5 +1,5 @@
-#ifndef OTHERFUNCTIONS_H_INCLUDED
-#define OTHERFUNCTIONS_H_INCLUDED
+#ifndef OTHERFUNCTIONS_HPP_INCLUDED
+#define OTHERFUNCTIONS_HPP_INCLUDED
 
 #define GMAX 100
 #define HMAX 30
@@ -11,4 +11,4 @@ void print_downlevel(int larghezza, int lev); //stampa notifica di diminuzione l
 void canc_upEdown_level(int larghezza, int altezza); //cancella la notifica di aumento/dimuzione livello
 void setColor(char color); //setta il colore del carattere da stampare
 
-#endif // OTHERFUNCTIONS_H_INCLUDED
+#endif // OTHERFUNCTIONS_HPP_INCLUDED

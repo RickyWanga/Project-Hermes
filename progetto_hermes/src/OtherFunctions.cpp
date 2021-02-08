@@ -1,4 +1,4 @@
-#include "OtherFunctions.h"
+#include "OtherFunctions.hpp"
 
 #include <iostream>
 #include <windows.h>

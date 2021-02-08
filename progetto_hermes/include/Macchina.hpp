@@ -1,7 +1,7 @@
-#ifndef MACCHINA_H
-#define MACCHINA_H
+#ifndef MACCHINA_HPP
+#define MACCHINA_HPP
 
-#include "Entita.h"
+#include "Entita.hpp"
 
 class Macchina : public Entita{
     public:
@@ -14,4 +14,4 @@ class Macchina : public Entita{
         void canc_car();    //cancello la macchina dallo schermo con angolo sinistro in alto in posizione "position"
 };
 
-#endif // MACCHINA_H
+#endif // MACCHINA_HPP

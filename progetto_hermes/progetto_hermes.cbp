@@ -34,12 +34,12 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="include/Entita.h" />
-		<Unit filename="include/Livello.h" />
-		<Unit filename="include/Macchina.h" />
-		<Unit filename="include/OtherFunctions.h" />
-		<Unit filename="include/Tabellone.h" />
-		<Unit filename="include/campo.h" />
+		<Unit filename="include/Entita.hpp" />
+		<Unit filename="include/Livello.hpp" />
+		<Unit filename="include/Macchina.hpp" />
+		<Unit filename="include/OtherFunctions.hpp" />
+		<Unit filename="include/Tabellone.hpp" />
+		<Unit filename="include/campo.hpp" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Entita.cpp" />
 		<Unit filename="src/Livello.cpp" />

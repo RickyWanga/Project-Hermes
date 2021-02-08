@@ -1,4 +1,4 @@
-#include "Livello.h"
+#include "Livello.hpp"
 
 #include <iostream>
 using namespace std;
@@ -24,14 +24,15 @@ using namespace std;
             -aumento i punti che ti vengono tolti quando urti gli ostacoli o la barriera o la macchina nemica
             -aumento i punti della tanica (di poco)
             -diminuisco intervallo di creazione delle entita'(le creo più spesso)*/
-        if(levelBlocked == -1){
+
+        if(levelBlocked == -1){ //se e' -1 posso diminuire l'intervallo senza problemi
             if(intervallo > 3)
             {
                 intervallo--;
             }else levelBlocked = num_livello;
         }
 
-        if(velBlocked == -1){
+        if(velBlocked == -1){//se e' -1 posso diminuire la velocita' senza problemi
             if(vel > 20)
             {
                 vel-= 20;
@@ -48,7 +49,7 @@ using namespace std;
     void Livello::downlevel()
     {   //per tornare al livello precedente ripristino i parametri e quindi la difficoltà del livello precedente
 
-        if(levelBlocked != -1){
+        if(levelBlocked != -1){//se e' -1 posso aumentare l'intervallo senza problemi
 
             if(num_livello == levelBlocked)
             {
@@ -59,7 +60,7 @@ using namespace std;
             intervallo ++;
         }
 
-        if(velBlocked != -1){
+        if(velBlocked != -1){//se e' -1 posso aumentare la velocita' senza problemi
 
             if(num_livello == velBlocked)
             {

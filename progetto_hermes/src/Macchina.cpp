@@ -1,4 +1,4 @@
-#include "Macchina.h"
+#include "Macchina.hpp"
 
 #include <iostream>
 using namespace std;

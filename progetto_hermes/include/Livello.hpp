@@ -1,24 +1,24 @@
-#ifndef LIVELLO_H
-#define LIVELLO_H
+#ifndef LIVELLO_HPP
+#define LIVELLO_HPP
 
-#include "OtherFunctions.h"
+#include "OtherFunctions.hpp"
 
 class Livello
 {
     protected:
-        int vel;    //velocità
+        int vel;    //velocità livello corrente
         int num_livello;    //contiene il valore del livello corrente
-        int intervallo;     //contiene il valore dell'intervallo ogni quale deve essere creato un nuovo ostacolo o tanica
+        int intervallo;     //intervallo ogni quale deve essere creato un nuovo ostacolo o tanica
 
         int p_ost;  //quanti punti vale prendere l'ostacolo (valore in negativo)
         int p_tan;  //quanti punti vale prendere la tanica (valore in positivo)
         int p_bar;  //quanti punti vale prendere la barriera (valore in negativo)
-        int p_car;  //quanti punti vale prendere un'altrea car (valore in negativo)
+        int p_car;  //quanti punti vale prendere un'altra macchina (valore in negativo)
         int levelBlocked;  //indica il numero del livello dal quale l'intervallo e' bloccato, ovvero non aumentera' piu'
         int velBlocked;   //indica il numero del livello dal quale la velocita' e' bloccata, ovvero non aumentera' piu'
 
     public:
-        Livello();          //costruttore che inizializza la classe livello con tutti iparametri del livello 1
+        Livello();          //costruttore che inizializza la classe livello con tutti i sparametri del livello 1
         virtual ~Livello(); //distruttore della classe
 
         void uplevel();     //aumenta il livello e tutti i relativi parametri
@@ -35,4 +35,4 @@ class Livello
         void info_lev(int x);   //stampa tutte le informazioni relative al livello a video, sia il numero del livello che tutti i suoi parametri
 };
 
-#endif // LIVELLO_H
+#endif // LIVELLO_HPP

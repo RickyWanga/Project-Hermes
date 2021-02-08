@@ -1,15 +1,15 @@
-#ifndef TABELLONE_H
-#define TABELLONE_H
+#ifndef TABELLONE_HPP
+#define TABELLONE_HPP
 
-#include "OtherFunctions.h"
+#include "OtherFunctions.hpp"
 
-    //struttura che useremo per implementare la lista
-   struct nodo{
+//struttura che useremo per implementare la lista
+struct nodo{
        int value;
        int livello;
        nodo* next;
    };
-   typedef nodo*ptr_list;
+typedef nodo* ptr_list;
 
 class Tabellone
 {
@@ -35,4 +35,4 @@ class Tabellone
 
 };
 
-#endif // TABELLONE_H
+#endif // TABELLONE_HPP

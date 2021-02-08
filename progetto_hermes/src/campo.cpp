@@ -1,4 +1,4 @@
-#include "campo.h"
+#include "campo.hpp"
 
 #include <iostream>
 #include <time.h>
@@ -6,6 +6,9 @@ using namespace std;
 
         Campo::Campo(int h, int l)//costruttore che setta il campo da gioco vuoto con larghezza "l" e altezza "h"
         {
+            if (l > 100) l = 100;
+            if (h > 30) h = 30;
+
             larghezza = l;
             altezza = h;
             bordo = ':';
@@ -36,7 +39,7 @@ using namespace std;
         }
 
         void Campo::scroll()
-        { //sposta tutti gli elementi della matrice di uno in basso e ristampa il campo da gioco su schermo
+        { //sposta tutti gli elementi della matrice di una riga piu' in basso e ristampa il campo da gioco su schermo
 
             for (int k = 1; k < larghezza; k++ ){m[0][k]= ' ';}//prima nuova riga tutta vuota
 
@@ -67,15 +70,15 @@ using namespace std;
         void Campo::gameover(Tabellone tab)
         {//stampa "game over" e le statistiche della partita
             system("CLS");//pulisco tutto lo schermo
-            gotoxy( (larghezza/ 2) -5, (altezza/ 2) );
+            gotoxy( (larghezza/ 2) -5, 15 );
             setColor('r');
             cout<<"!GAME OVER!";
-            gotoxy( (larghezza/ 2) -10, (altezza/ 2) +3 );
+            gotoxy( (larghezza/ 2) -10, 18 );
             setColor('w');
             cout<<"You survived for: "<<tab.get_tempo()<<" sec";
 
             //chiamo il metodo del tabellone per stampare le statistiche della partita
-            int tmp=tab.stampa_lista((larghezza/ 2) -10, (altezza/ 2) +5);
+            int tmp=tab.stampa_lista((larghezza/ 2) -10, 20);
 
             gotoxy( (larghezza/ 2) -10, tmp++ );
             setColor('w');
@@ -87,7 +90,7 @@ using namespace std;
         int Campo::get_altezza(){return altezza;}//ritorna l'altezza del campo
 
          void Campo::del_tan (int x, int y)
-         { //cancella la tanica di benziona con estremo sinistro in alto (x,y)
+         { //cancella la tanica di benziona con estremo sinistro in alto (x,y) dalla matrice e dallo schermo
             m[y][x] = ' ';
             m[y][x+1] = ' ';
             gotoxy(x, y);
@@ -99,7 +102,7 @@ using namespace std;
         }
 
         void Campo::del_ost(int x, int y)
-        {//cancella l ostacolo con estremo sinistro in alto (x,y)
+        {//cancella l' ostacolo con estremo sinistro in alto (x,y) dalla matrice e dallo schermo
             int i = 1;
             m[y][x] = ' ';
             gotoxy(x, y);
@@ -117,7 +120,7 @@ using namespace std;
         }
 
         void Campo::del_car(int x, int y )
-        {//rimuovo la macchina dal campo con (x,y) come coordinate dell' angolo sinisro in alto
+        {//cancella la macchina nemica  con estremo sinistro in alto (x,y) dalla matrice e dallo schermo
             m[y][x] = ' ';
             m[y+2][x] = ' ';
             m[y+2][x+2] = ' ';
@@ -134,7 +137,7 @@ using namespace std;
         }
 
         void Campo::ins_tan(int x)
-        {//inserisco una tanica nel campo con (x,1) come coordinate dell' angolo sinisro in alto
+        {//inserisco una tanica nel campo con (x,1) come coordinate dell' angolo sinistro in alto
            m[1][x] = '+';
            m[1][x+1] = '+';
            m[2][x] = '+';
@@ -142,7 +145,7 @@ using namespace std;
         }
 
         void Campo::ins_ost(int x, int len)
-        {//inserisco un ostacolo di lunghezza l nel campo con (x,y) come coordinate dell' angolo sinisro in alto
+        {//inserisco un ostacolo di lunghezza 'len' nel campo con (x,y) come coordinate dell' angolo sinistro in alto
             m[1][x] = '|';
             m[1][x + len - 1] = '|';
 
@@ -151,7 +154,7 @@ using namespace std;
         }
 
         void Campo::ins_enemy_car(int x)
-        {//inserisco la macchina nemica nel campo con (x,y) come coordinate dell' angolo sinisro in alto
+        {//inserisco la macchina nemica nel campo con (x,y) come coordinate dell' angolo sinistro in alto
             m[1][x] = '0';
             m[1][x+1] = '-';
             m[1][x+2] = '0';
@@ -250,8 +253,8 @@ using namespace std;
             int tmp = control_collision_car(level, car->get_posx(), car->get_posy());
 
             //in caso di urto con la barriera "contengo" la macchina per non farla uscire dal campo
-            if ( larghezza-3 == car->get_posx() )
-                car->set_coo(larghezza-5, car->get_posy());
+            if ( larghezza - 3 == car->get_posx() )
+                car->set_coo(larghezza - 5, car->get_posy());
 
             //ristampo la macchina spostata a dx di rosa
             setColor('p');
@@ -293,24 +296,24 @@ using namespace std;
 
         void Campo::agg_entita()
         {
-            int x = 2 + rand()% (larghezza - 3);    //la posizione puo' andare nel range [2,99], perche' a m[:][1] e m[:][100] abbiamo i bordi del campo
-            int length_ost = 3 + rand()% 5;              //calcolo una lunghezza per l'ostacolo che pu� andare da 3 ad 8
+            int x = 1 + rand()% (larghezza - 2); //la posizione puo' andare nel range [1,larghezza - 1], perche' a m[:][0] e m[:][larghezza] abbiamo i bordi del campo
 
             //attraverso un numero random scelgo se creare una tanica o un ostacolo
             int type_obj = rand()% 3;
 
             if(type_obj == 0){ //nuova tanica
-                if ( x >= larghezza - 3 ) {x = x - 4;} //se la nuova entità andrebbe a finore sul bordo destro la sposto
+                if ( x >= larghezza - 3 ) {x = x - 4;}//se la nuova tanica dovesse a finire sul bordo destro, la sposto
                 ins_tan(x);
             }
 
            if(type_obj == 1){ //nuovo ostacolo
-                if( x > (larghezza - length_ost - 1) ) {x = x - length_ost - 2;} //se la nuova entità andrebbe a finore sul bordo destro la sposto
+                int length_ost = 3 + rand()% 5;//calcolo la lunghezza del mio nuovo ostacolo in modo random (puo' andare da 3 ad 8)
+                if( x > (larghezza - length_ost - 1) ) {x = x - length_ost - 2;} //se il nuovo ostacolo dovesse a finire sul bordo destro, la sposto
                 ins_ost(x, length_ost);
             }
 
            if(type_obj == 2){ //nuova macchina nemica
-                if( x > larghezza - 4 ) {x = x - 5;} //se la nuova entità andrebbe a finore sul bordo destro la sposto
+                if( x > larghezza - 4 ) {x = x - 5;} //se la nuova macchina nemica dovesse a finire sul bordo destro, la sposto
                 ins_enemy_car(x);
             }
         }

@@ -1,837 +1,115 @@
 # depslib dependency file v1.0
-1604836996 source:c:\users\letiz\documents\università\programmazione\programmi codeblocks\progetto_hermes\src\livello.cpp
-	"campo.h"
-	"Livello.h"
-	<time.h>
-	<iostream>
-
-1604837010 c:\users\letiz\documents\università\programmazione\programmi codeblocks\progetto_hermes\include\livello.h
-	"OtherFunctions.h"
-
-1604446406 source:c:\users\letiz\documents\università\programmazione\programmi codeblocks\progetto_hermes\src\ostacolo.cpp
-	"Ostacolo.h"
-	<iostream>
-
-1604450090 c:\users\letiz\documents\università\programmazione\programmi codeblocks\progetto_hermes\include\ostacolo.h
-	<Entita.h>
-
-1604449905 c:\users\letiz\documents\università\programmazione\programmi codeblocks\progetto_hermes\include\entita.h
-	"OtherFunctions.h"
-	<windows.h>
-
-1604446397 source:c:\users\letiz\documents\università\programmazione\programmi codeblocks\progetto_hermes\src\tanica.cpp
-	"Tanica.h"
-	<iostream>
-
-1604450364 c:\users\letiz\documents\università\programmazione\programmi codeblocks\progetto_hermes\include\tanica.h
-	<Entita.h>
-
-1604838630 source:c:\users\letiz\documents\università\programmazione\programmi codeblocks\progetto_hermes\main.cpp
-	<conio.h>
-	<iostream>
-	<stdlib.h>
-	<stdio.h>
-	<string.h>
-	<cstdlib>
-	<math.h>
-	<ctime>
-	<windows.h>
-	"OtherFunctions.h"
-	"Entita.h"
-	"Livello.h"
-	"Macchina.h"
-	"Ostacolo.h"
-	"Tabellone.h"
-	"Tanica.h"
-	"campo.h"
-
-1604450066 c:\users\letiz\documents\università\programmazione\programmi codeblocks\progetto_hermes\include\macchina.h
-	<Entita.h>
-
-1604796883 c:\users\letiz\documents\università\programmazione\programmi codeblocks\progetto_hermes\include\tabellone.h
-	"OtherFunctions.h"
-
-1604836027 c:\users\letiz\documents\università\programmazione\programmi codeblocks\progetto_hermes\include\campo.h
-	"Livello.h"
-	"Macchina.h"
-	"Tabellone.h"
-
-1604450449 c:\users\letiz\documents\università\programmazione\programmi codeblocks\progetto_hermes\include\otherfunctions.h
-
-1604834663 source:c:\users\letiz\documents\università\programmazione\programmi codeblocks\progetto_hermes\src\tabellone.cpp
-	"Tabellone.h"
-	<iostream>
-
-1604835872 source:c:\users\letiz\documents\università\programmazione\programmi codeblocks\progetto_hermes\src\otherfunctions.cpp
-	<OtherFunctions.h>
-	<iostream>
-	<windows.h>
-
-1604446743 source:c:\users\letiz\documents\università\programmazione\programmi codeblocks\progetto_hermes\src\entita.cpp
-	"Entita.h"
-	<iostream>
-
-1604836328 source:c:\users\letiz\documents\università\programmazione\programmi codeblocks\progetto_hermes\src\campo.cpp
-	"Campo.h"
-	<iostream>
-
-1604448307 source:c:\users\letiz\documents\università\programmazione\programmi codeblocks\progetto_hermes\src\macchina.cpp
-	"Macchina.h"
-	<iostream>
-
-1610894987 source:c:\users\letiz\desktop\progetto hermes\project-hermes\progetto_hermes\main.cpp
-	"OtherFunctions.h"
-	"Entita.h"
-	"Livello.h"
-	"Macchina.h"
-	"Ostacolo.h"
-	"Tabellone.h"
-	"Tanica.h"
-	"campo.h"
-	<conio.h>
-	<iostream>
-	<stdlib.h>
-	<stdio.h>
-	<string.h>
-	<cstdlib>
-	<math.h>
-	<ctime>
-	<windows.h>
-
-1610739493 c:\users\letiz\desktop\progetto hermes\project-hermes\progetto_hermes\include\otherfunctions.h
-
-1604449905 c:\users\letiz\desktop\progetto hermes\project-hermes\progetto_hermes\include\entita.h
-	"OtherFunctions.h"
-	<windows.h>
-
-1610753925 c:\users\letiz\desktop\progetto hermes\project-hermes\progetto_hermes\include\livello.h
-	"OtherFunctions.h"
-
-1604450066 c:\users\letiz\desktop\progetto hermes\project-hermes\progetto_hermes\include\macchina.h
-	<Entita.h>
-
-1604450090 c:\users\letiz\desktop\progetto hermes\project-hermes\progetto_hermes\include\ostacolo.h
-	<Entita.h>
-
-1604796883 c:\users\letiz\desktop\progetto hermes\project-hermes\progetto_hermes\include\tabellone.h
-	"OtherFunctions.h"
-
-1604450364 c:\users\letiz\desktop\progetto hermes\project-hermes\progetto_hermes\include\tanica.h
-	<Entita.h>
-
-1606124821 c:\users\letiz\desktop\progetto hermes\project-hermes\progetto_hermes\include\campo.h
-	"Livello.h"
-	"Macchina.h"
-	"Tabellone.h"
-
-1610895165 source:c:\users\letiz\desktop\progetto hermes\project-hermes\progetto_hermes\src\campo.cpp
-	"Campo.h"
-	<iostream>
-
-1604446743 source:c:\users\letiz\desktop\progetto hermes\project-hermes\progetto_hermes\src\entita.cpp
-	"Entita.h"
-	<iostream>
-
-1610753964 source:c:\users\letiz\desktop\progetto hermes\project-hermes\progetto_hermes\src\livello.cpp
-	"campo.h"
-	"Livello.h"
-	<time.h>
-	<iostream>
-
-1604448307 source:c:\users\letiz\desktop\progetto hermes\project-hermes\progetto_hermes\src\macchina.cpp
-	"Macchina.h"
-	<iostream>
-
-1604446406 source:c:\users\letiz\desktop\progetto hermes\project-hermes\progetto_hermes\src\ostacolo.cpp
-	"Ostacolo.h"
-	<iostream>
-
-1610739468 source:c:\users\letiz\desktop\progetto hermes\project-hermes\progetto_hermes\src\otherfunctions.cpp
-	<OtherFunctions.h>
-	<iostream>
-	<windows.h>
-	<ctime>
-
-1604834663 source:c:\users\letiz\desktop\progetto hermes\project-hermes\progetto_hermes\src\tabellone.cpp
-	"Tabellone.h"
-	<iostream>
-
-1604446397 source:c:\users\letiz\desktop\progetto hermes\project-hermes\progetto_hermes\src\tanica.cpp
-	"Tanica.h"
-	<iostream>
-
-1611054862 source:c:\users\ricky\documents\projects\programmazione 2019-20\project-hermes\progetto_hermes\src\campo.cpp
-	"Campo.h"
-	<iostream>
-
-1610047798 c:\users\ricky\documents\projects\programmazione 2019-20\project-hermes\progetto_hermes\include\campo.h
-	"Livello.h"
-	"Macchina.h"
-	"Tabellone.h"
-
-1611054862 c:\users\ricky\documents\projects\programmazione 2019-20\project-hermes\progetto_hermes\include\livello.h
-	"OtherFunctions.h"
-
-1611054862 c:\users\ricky\documents\projects\programmazione 2019-20\project-hermes\progetto_hermes\include\otherfunctions.h
-
-1611661948 c:\users\ricky\documents\projects\programmazione 2019-20\project-hermes\progetto_hermes\include\macchina.h
-	<Entita.h>
-
-1610047798 c:\users\ricky\documents\projects\programmazione 2019-20\project-hermes\progetto_hermes\include\entita.h
-	"OtherFunctions.h"
-	<windows.h>
-
-1610047798 c:\users\ricky\documents\projects\programmazione 2019-20\project-hermes\progetto_hermes\include\tabellone.h
-	"OtherFunctions.h"
-
-1610047798 source:c:\users\ricky\documents\projects\programmazione 2019-20\project-hermes\progetto_hermes\src\entita.cpp
-	"Entita.h"
-	<iostream>
-
-1611054862 source:c:\users\ricky\documents\projects\programmazione 2019-20\project-hermes\progetto_hermes\src\livello.cpp
-	"campo.h"
-	"Livello.h"
-	<time.h>
-	<iostream>
-
-1611661902 source:c:\users\ricky\documents\projects\programmazione 2019-20\project-hermes\progetto_hermes\src\macchina.cpp
-	"Macchina.h"
-	<iostream>
-
-1610047798 source:c:\users\ricky\documents\projects\programmazione 2019-20\project-hermes\progetto_hermes\src\ostacolo.cpp
-	"Ostacolo.h"
-	<iostream>
-
-1610047798 c:\users\ricky\documents\projects\programmazione 2019-20\project-hermes\progetto_hermes\include\ostacolo.h
-	<Entita.h>
-
-1611054862 source:c:\users\ricky\documents\projects\programmazione 2019-20\project-hermes\progetto_hermes\src\otherfunctions.cpp
-	<OtherFunctions.h>
-	<iostream>
-	<windows.h>
-	<ctime>
-
-1610047798 source:c:\users\ricky\documents\projects\programmazione 2019-20\project-hermes\progetto_hermes\src\tabellone.cpp
-	"Tabellone.h"
-	<iostream>
-
-1610047798 source:c:\users\ricky\documents\projects\programmazione 2019-20\project-hermes\progetto_hermes\src\tanica.cpp
-	"Tanica.h"
-	<iostream>
-
-1610047798 c:\users\ricky\documents\projects\programmazione 2019-20\project-hermes\progetto_hermes\include\tanica.h
-	<Entita.h>
-
-1611661717 source:c:\users\ricky\documents\projects\programmazione 2019-20\project-hermes\progetto_hermes\main.cpp
-	"OtherFunctions.h"
-	"Entita.h"
-	"Livello.h"
-	"Macchina.h"
-	"Ostacolo.h"
-	"Tabellone.h"
-	"Tanica.h"
-	"campo.h"
-	<conio.h>
-	<iostream>
-	<stdlib.h>
-	<stdio.h>
-	<string.h>
-	<cstdlib>
-	<math.h>
-	<ctime>
-	<windows.h>
-
-1611759319 source:c:\users\letiz\desktop\progetto hermes\progetto\project-hermes\progetto_hermes\main.cpp
-	"OtherFunctions.h"
-	"Entita.h"
-	"Livello.h"
-	"Macchina.h"
-	"Ostacolo.h"
-	"Tabellone.h"
-	"Tanica.h"
-	"campo.h"
-	<conio.h>
-	<iostream>
-	<stdlib.h>
-	<stdio.h>
-	<string.h>
-	<cstdlib>
-	<math.h>
-	<ctime>
-	<windows.h>
-
-1611667542 c:\users\letiz\desktop\progetto hermes\progetto\project-hermes\progetto_hermes\include\otherfunctions.h
-
-1611667542 c:\users\letiz\desktop\progetto hermes\progetto\project-hermes\progetto_hermes\include\entita.h
-	"OtherFunctions.h"
-	<windows.h>
-
-1611667542 c:\users\letiz\desktop\progetto hermes\progetto\project-hermes\progetto_hermes\include\livello.h
-	"OtherFunctions.h"
-
-1611667542 c:\users\letiz\desktop\progetto hermes\progetto\project-hermes\progetto_hermes\include\macchina.h
-	<Entita.h>
-
-1611667542 c:\users\letiz\desktop\progetto hermes\progetto\project-hermes\progetto_hermes\include\ostacolo.h
-	<Entita.h>
-
-1611667542 c:\users\letiz\desktop\progetto hermes\progetto\project-hermes\progetto_hermes\include\tabellone.h
-	"OtherFunctions.h"
-
-1611667542 c:\users\letiz\desktop\progetto hermes\progetto\project-hermes\progetto_hermes\include\tanica.h
-	<Entita.h>
-
-1611757795 c:\users\letiz\desktop\progetto hermes\progetto\project-hermes\progetto_hermes\include\campo.h
-	"Livello.h"
-	"Macchina.h"
-	"Tabellone.h"
-
-1611759794 source:c:\users\letiz\desktop\progetto hermes\progetto\project-hermes\progetto_hermes\src\campo.cpp
-	"Campo.h"
-	<iostream>
-
-1611667542 source:c:\users\letiz\desktop\progetto hermes\progetto\project-hermes\progetto_hermes\src\entita.cpp
-	"Entita.h"
-	<iostream>
-
-1611757007 source:c:\users\letiz\desktop\progetto hermes\progetto\project-hermes\progetto_hermes\src\livello.cpp
-	"campo.h"
-	"Livello.h"
-	<time.h>
-	<iostream>
-
-1611667542 source:c:\users\letiz\desktop\progetto hermes\progetto\project-hermes\progetto_hermes\src\macchina.cpp
-	"Macchina.h"
-	<iostream>
-
-1611667542 source:c:\users\letiz\desktop\progetto hermes\progetto\project-hermes\progetto_hermes\src\ostacolo.cpp
-	"Ostacolo.h"
-	<iostream>
-
-1611667542 source:c:\users\letiz\desktop\progetto hermes\progetto\project-hermes\progetto_hermes\src\otherfunctions.cpp
-	<OtherFunctions.h>
-	<iostream>
-	<windows.h>
-	<ctime>
-
-1611667542 source:c:\users\letiz\desktop\progetto hermes\progetto\project-hermes\progetto_hermes\src\tabellone.cpp
-	"Tabellone.h"
-	<iostream>
-
-1611667542 source:c:\users\letiz\desktop\progetto hermes\progetto\project-hermes\progetto_hermes\src\tanica.cpp
-	"Tanica.h"
-	<iostream>
-
-1611760155 source:c:\users\letiz\desktop\ce la afro\project-hermes\progetto_hermes\main.cpp
-	"OtherFunctions.h"
-	"Entita.h"
-	"Livello.h"
-	"Macchina.h"
-	"Ostacolo.h"
-	"Tabellone.h"
-	"Tanica.h"
-	"campo.h"
-	<conio.h>
-	<iostream>
-	<stdlib.h>
-	<stdio.h>
-	<string.h>
-	<cstdlib>
-	<math.h>
-	<ctime>
-	<windows.h>
-
-1611667542 c:\users\letiz\desktop\ce la afro\project-hermes\progetto_hermes\include\otherfunctions.h
-
-1611667542 c:\users\letiz\desktop\ce la afro\project-hermes\progetto_hermes\include\entita.h
-	"OtherFunctions.h"
-	<windows.h>
-
-1611667542 c:\users\letiz\desktop\ce la afro\project-hermes\progetto_hermes\include\livello.h
-	"OtherFunctions.h"
-
-1611667542 c:\users\letiz\desktop\ce la afro\project-hermes\progetto_hermes\include\macchina.h
-	<Entita.h>
-
-1611667542 c:\users\letiz\desktop\ce la afro\project-hermes\progetto_hermes\include\ostacolo.h
-	<Entita.h>
-
-1611667542 c:\users\letiz\desktop\ce la afro\project-hermes\progetto_hermes\include\tabellone.h
-	"OtherFunctions.h"
-
-1611667542 c:\users\letiz\desktop\ce la afro\project-hermes\progetto_hermes\include\tanica.h
-	<Entita.h>
-
-1611757795 c:\users\letiz\desktop\ce la afro\project-hermes\progetto_hermes\include\campo.h
-	"Livello.h"
-	"Macchina.h"
-	"Tabellone.h"
-
-1611862913 source:c:\users\letiz\desktop\ce la afro\project-hermes\progetto_hermes\src\campo.cpp
-	"Campo.h"
-	<iostream>
-
-1611667542 source:c:\users\letiz\desktop\ce la afro\project-hermes\progetto_hermes\src\entita.cpp
-	"Entita.h"
-	<iostream>
-
-1611757007 source:c:\users\letiz\desktop\ce la afro\project-hermes\progetto_hermes\src\livello.cpp
-	"campo.h"
-	"Livello.h"
-	<time.h>
-	<iostream>
-
-1611667542 source:c:\users\letiz\desktop\ce la afro\project-hermes\progetto_hermes\src\macchina.cpp
-	"Macchina.h"
-	<iostream>
-
-1611667542 source:c:\users\letiz\desktop\ce la afro\project-hermes\progetto_hermes\src\ostacolo.cpp
-	"Ostacolo.h"
-	<iostream>
-
-1611667542 source:c:\users\letiz\desktop\ce la afro\project-hermes\progetto_hermes\src\otherfunctions.cpp
-	<OtherFunctions.h>
-	<iostream>
-	<windows.h>
-	<ctime>
-
-1611667542 source:c:\users\letiz\desktop\ce la afro\project-hermes\progetto_hermes\src\tabellone.cpp
-	"Tabellone.h"
-	<iostream>
-
-1611667542 source:c:\users\letiz\desktop\ce la afro\project-hermes\progetto_hermes\src\tanica.cpp
-	"Tanica.h"
-	<iostream>
-
-1611944784 source:c:\users\acer\downloads\pojecthermes\progetto_hermes\main.cpp
-	<conio.h>
-	<iostream>
-	<stdlib.h>
-	<stdio.h>
-	<string.h>
-	<cstdlib>
-	<math.h>
-	<ctime>
-	<windows.h>
-	"OtherFunctions.h"
-	"Entita.h"
-	"Livello.h"
-	"Macchina.h"
-	"Ostacolo.h"
-	"Tabellone.h"
-	"Tanica.h"
-	"campo.h"
-
-1611863916 c:\users\acer\downloads\pojecthermes\progetto_hermes\include\otherfunctions.h
-
-1611863916 c:\users\acer\downloads\pojecthermes\progetto_hermes\include\entita.h
-	"OtherFunctions.h"
-	<windows.h>
-
-1611863916 c:\users\acer\downloads\pojecthermes\progetto_hermes\include\livello.h
-	"OtherFunctions.h"
-
-1611863916 c:\users\acer\downloads\pojecthermes\progetto_hermes\include\macchina.h
-	<Entita.h>
-
-1611863916 c:\users\acer\downloads\pojecthermes\progetto_hermes\include\ostacolo.h
-	<Entita.h>
-
-1611945489 c:\users\acer\downloads\pojecthermes\progetto_hermes\include\tabellone.h
-	"OtherFunctions.h"
-
-1611863916 c:\users\acer\downloads\pojecthermes\progetto_hermes\include\tanica.h
-	<Entita.h>
-
-1611863916 c:\users\acer\downloads\pojecthermes\progetto_hermes\include\campo.h
-	"Livello.h"
-	"Macchina.h"
-	"Tabellone.h"
-
-1611943915 source:c:\users\acer\downloads\pojecthermes\progetto_hermes\src\campo.cpp
-	"Campo.h"
-	<iostream>
-
-1611863916 source:c:\users\acer\downloads\pojecthermes\progetto_hermes\src\entita.cpp
-	"Entita.h"
-	<iostream>
-
-1611863916 source:c:\users\acer\downloads\pojecthermes\progetto_hermes\src\livello.cpp
-	"campo.h"
-	"Livello.h"
-	<time.h>
-	<iostream>
-
-1611863916 source:c:\users\acer\downloads\pojecthermes\progetto_hermes\src\macchina.cpp
-	"Macchina.h"
-	<iostream>
-
-1611863916 source:c:\users\acer\downloads\pojecthermes\progetto_hermes\src\ostacolo.cpp
-	"Ostacolo.h"
-	<iostream>
-
-1611954765 source:c:\users\acer\downloads\pojecthermes\progetto_hermes\src\otherfunctions.cpp
-	<OtherFunctions.h>
-	<iostream>
-	<windows.h>
-	<ctime>
-
-1611945517 source:c:\users\acer\downloads\pojecthermes\progetto_hermes\src\tabellone.cpp
-	"Tabellone.h"
-	<iostream>
-
-1611863916 source:c:\users\acer\downloads\pojecthermes\progetto_hermes\src\tanica.cpp
-	"Tanica.h"
-	<iostream>
-
-1612646844 source:c:\users\letiz\desktop\progetto programm\project-hermes\progetto_hermes\src\entita.cpp
-	"Entita.h"
-	<iostream>
-
-1612646862 c:\users\letiz\desktop\progetto programm\project-hermes\progetto_hermes\include\entita.h
-	"OtherFunctions.h"
-	<windows.h>
-
-1612648703 c:\users\letiz\desktop\progetto programm\project-hermes\progetto_hermes\include\otherfunctions.h
-
-1612647588 source:c:\users\letiz\desktop\progetto programm\project-hermes\progetto_hermes\src\livello.cpp
-	"Livello.h"
-	<iostream>
-
-1612646202 c:\users\letiz\desktop\progetto programm\project-hermes\progetto_hermes\include\campo.h
-	"Livello.h"
-	"Macchina.h"
-	"Tabellone.h"
-
-1612647641 c:\users\letiz\desktop\progetto programm\project-hermes\progetto_hermes\include\livello.h
-	"OtherFunctions.h"
-
-1612648094 c:\users\letiz\desktop\progetto programm\project-hermes\progetto_hermes\include\macchina.h
-	"Entita.h"
-
-1612648590 c:\users\letiz\desktop\progetto programm\project-hermes\progetto_hermes\include\tabellone.h
-	"OtherFunctions.h"
-
-1612646858 source:c:\users\letiz\desktop\progetto programm\project-hermes\progetto_hermes\src\macchina.cpp
-	"Macchina.h"
-	<iostream>
-
-1611667542 source:c:\users\letiz\desktop\progetto programm\project-hermes\progetto_hermes\src\ostacolo.cpp
-	"Ostacolo.h"
-	<iostream>
-
-1611667542 c:\users\letiz\desktop\progetto programm\project-hermes\progetto_hermes\include\ostacolo.h
-	<Entita.h>
-
-1611667542 source:c:\users\letiz\desktop\progetto programm\project-hermes\progetto_hermes\src\tanica.cpp
-	"Tanica.h"
-	<iostream>
-
-1611667542 c:\users\letiz\desktop\progetto programm\project-hermes\progetto_hermes\include\tanica.h
-	<Entita.h>
-
-1612701772 source:c:\users\letiz\desktop\progetto programm\project-hermes\progetto_hermes\main.cpp
+1612734099 source:c:\users\letiz\desktop\progetto_hermes\main.cpp
 	<iostream>
 	<string.h>
 	<time.h>
 	<windows.h>
 	<conio.h>
-	"OtherFunctions.h"
-	"Entita.h"
-	"Livello.h"
-	"Macchina.h"
-	"Tabellone.h"
-	"campo.h"
+	"OtherFunctions.hpp"
+	"Entita.hpp"
+	"Livello.hpp"
+	"Macchina.hpp"
+	"Tabellone.hpp"
+	"campo.hpp"
 
-1612645029 source:c:\users\letiz\desktop\progetto programm\project-hermes\progetto_hermes\src\otherfunctions.cpp
-	"OtherFunctions.h"
-	<iostream>
+1612734416 c:\users\letiz\desktop\progetto_hermes\include\otherfunctions.hpp
+
+1612734471 c:\users\letiz\desktop\progetto_hermes\include\entita.hpp
+	"OtherFunctions.hpp"
 	<windows.h>
 
-1612646490 source:c:\users\letiz\desktop\progetto programm\project-hermes\progetto_hermes\src\campo.cpp
-	"campo.h"
+1612734454 c:\users\letiz\desktop\progetto_hermes\include\livello.hpp
+	"OtherFunctions.hpp"
+
+1612734436 c:\users\letiz\desktop\progetto_hermes\include\macchina.hpp
+	"Entita.hpp"
+
+1612734188 c:\users\letiz\desktop\progetto_hermes\include\tabellone.hpp
+	"OtherFunctions.hpp"
+
+1612734495 c:\users\letiz\desktop\progetto_hermes\include\campo.hpp
+	"Livello.hpp"
+	"Macchina.hpp"
+	"Tabellone.hpp"
+
+1612734536 source:c:\users\letiz\desktop\progetto_hermes\src\campo.cpp
+	"campo.hpp"
 	<iostream>
 	<time.h>
 
-1612648667 source:c:\users\letiz\desktop\progetto programm\project-hermes\progetto_hermes\src\tabellone.cpp
-	"Tabellone.h"
+1612734526 source:c:\users\letiz\desktop\progetto_hermes\src\entita.cpp
+	"Entita.hpp"
 	<iostream>
 
-1612363416 source:c:\users\letiz\desktop\versione git\project-hermes\progetto_hermes\src\entita.cpp
-	"Entita.h"
+1612734506 source:c:\users\letiz\desktop\progetto_hermes\src\macchina.cpp
+	"Macchina.hpp"
 	<iostream>
 
-1612363424 c:\users\letiz\desktop\versione git\project-hermes\progetto_hermes\include\entita.h
-	"OtherFunctions.h"
-	<windows.h>
-
-1612363112 c:\users\letiz\desktop\versione git\project-hermes\progetto_hermes\include\otherfunctions.h
-
-1612365078 source:c:\users\letiz\desktop\versione git\project-hermes\progetto_hermes\src\livello.cpp
-	"campo.h"
-	"Livello.h"
-	<time.h>
-	<iostream>
-
-1612363112 c:\users\letiz\desktop\versione git\project-hermes\progetto_hermes\include\campo.h
-	"Livello.h"
-	"Macchina.h"
-	"Tabellone.h"
-
-1612363112 c:\users\letiz\desktop\versione git\project-hermes\progetto_hermes\include\livello.h
-	"OtherFunctions.h"
-
-1612363478 c:\users\letiz\desktop\versione git\project-hermes\progetto_hermes\include\macchina.h
-	"Entita.h"
-
-1612363112 c:\users\letiz\desktop\versione git\project-hermes\progetto_hermes\include\tabellone.h
-	"OtherFunctions.h"
-
-1612363486 source:c:\users\letiz\desktop\versione git\project-hermes\progetto_hermes\src\macchina.cpp
-	"Macchina.h"
-	<iostream>
-
-1612358987 source:c:\users\letiz\desktop\versione git\project-hermes\progetto_hermes\src\ostacolo.cpp
-	"Ostacolo.h"
-	<iostream>
-
-1612358987 c:\users\letiz\desktop\versione git\project-hermes\progetto_hermes\include\ostacolo.h
-	<Entita.h>
-
-1612363852 source:c:\users\letiz\desktop\versione git\project-hermes\progetto_hermes\src\otherfunctions.cpp
-	"OtherFunctions.h"
+1612734551 source:c:\users\letiz\desktop\progetto_hermes\src\otherfunctions.cpp
+	"OtherFunctions.hpp"
 	<iostream>
 	<windows.h>
-	<ctime>
 
-1612363112 source:c:\users\letiz\desktop\versione git\project-hermes\progetto_hermes\src\tabellone.cpp
-	"Tabellone.h"
+1612734545 source:c:\users\letiz\desktop\progetto_hermes\src\tabellone.cpp
+	"Tabellone.hpp"
 	<iostream>
 
-1612358987 source:c:\users\letiz\desktop\versione git\project-hermes\progetto_hermes\src\tanica.cpp
-	"Tanica.h"
+1612744306 source:c:\users\letiz\desktop\progetto programm\project-hermes\progetto_hermes\main.cpp
 	<iostream>
-
-1612358987 c:\users\letiz\desktop\versione git\project-hermes\progetto_hermes\include\tanica.h
-	<Entita.h>
-
-1612365825 source:c:\users\letiz\desktop\versione git\project-hermes\progetto_hermes\src\campo.cpp
-	"Campo.h"
-	<iostream>
-	<ctime>
-
-1612365864 source:c:\users\letiz\desktop\versione git\project-hermes\progetto_hermes\main.cpp
-	<conio.h>
-	<iostream>
-	<stdlib.h>
-	<stdio.h>
 	<string.h>
-	<cstdlib>
-	<math.h>
-	<ctime>
-	<windows.h>
-	"OtherFunctions.h"
-	"Entita.h"
-	"Livello.h"
-	"Macchina.h"
-	"Tabellone.h"
-	"campo.h"
-
-1612636373 source:c:\users\letiz\desktop\nuova cartella\project-hermes\progetto_hermes\main.cpp
-	<conio.h>
-	<iostream>
-	<stdlib.h>
-	<stdio.h>
-	<string.h>
-	<cstdlib>
-	<math.h>
-	<ctime>
-	<windows.h>
-	"OtherFunctions.h"
-	"Entita.h"
-	"Livello.h"
-	"Macchina.h"
-	"Tabellone.h"
-	"campo.h"
-
-1612636373 c:\users\letiz\desktop\nuova cartella\project-hermes\progetto_hermes\include\otherfunctions.h
-
-1612636373 c:\users\letiz\desktop\nuova cartella\project-hermes\progetto_hermes\include\entita.h
-	"OtherFunctions.h"
-	<windows.h>
-
-1612636664 c:\users\letiz\desktop\nuova cartella\project-hermes\progetto_hermes\include\livello.h
-	"OtherFunctions.h"
-
-1612636373 c:\users\letiz\desktop\nuova cartella\project-hermes\progetto_hermes\include\macchina.h
-	"Entita.h"
-
-1612636373 c:\users\letiz\desktop\nuova cartella\project-hermes\progetto_hermes\include\tabellone.h
-	"OtherFunctions.h"
-
-1612636373 c:\users\letiz\desktop\nuova cartella\project-hermes\progetto_hermes\include\campo.h
-	"Livello.h"
-	"Macchina.h"
-	"Tabellone.h"
-
-1612636373 source:c:\users\letiz\desktop\nuova cartella\project-hermes\progetto_hermes\src\campo.cpp
-	"Campo.h"
-	<iostream>
-	<ctime>
-
-1612636373 source:c:\users\letiz\desktop\nuova cartella\project-hermes\progetto_hermes\src\livello.cpp
-	"campo.h"
-	"Livello.h"
 	<time.h>
-	<iostream>
-
-1612636373 source:c:\users\letiz\desktop\nuova cartella\project-hermes\progetto_hermes\src\otherfunctions.cpp
-	"OtherFunctions.h"
-	<iostream>
 	<windows.h>
-	<ctime>
-
-1612636373 source:c:\users\letiz\desktop\nuova cartella\project-hermes\progetto_hermes\src\tabellone.cpp
-	"Tabellone.h"
-	<iostream>
-
-1612636373 source:c:\users\letiz\desktop\nuova cartella\project-hermes\progetto_hermes\src\entita.cpp
-	"Entita.h"
-	<iostream>
-
-1612636373 source:c:\users\letiz\desktop\nuova cartella\project-hermes\progetto_hermes\src\macchina.cpp
-	"Macchina.h"
-	<iostream>
-
-1612636373 source:c:\users\letiz\desktop\progetto programm\progetto_hermes\main.cpp
 	<conio.h>
-	<iostream>
-	<stdlib.h>
-	<stdio.h>
-	<string.h>
-	<cstdlib>
-	<math.h>
-	<ctime>
-	<windows.h>
-	"OtherFunctions.h"
-	"Entita.h"
-	"Livello.h"
-	"Macchina.h"
-	"Tabellone.h"
-	"campo.h"
+	"OtherFunctions.hpp"
+	"Entita.hpp"
+	"Livello.hpp"
+	"Macchina.hpp"
+	"Tabellone.hpp"
+	"campo.hpp"
 
-1612636373 c:\users\letiz\desktop\progetto programm\progetto_hermes\include\otherfunctions.h
+1612734416 c:\users\letiz\desktop\progetto programm\project-hermes\progetto_hermes\include\otherfunctions.hpp
 
-1612636373 c:\users\letiz\desktop\progetto programm\progetto_hermes\include\entita.h
-	"OtherFunctions.h"
+1612740331 c:\users\letiz\desktop\progetto programm\project-hermes\progetto_hermes\include\entita.hpp
+	"OtherFunctions.hpp"
 	<windows.h>
 
-1612637271 c:\users\letiz\desktop\progetto programm\progetto_hermes\include\livello.h
-	"OtherFunctions.h"
+1612740414 c:\users\letiz\desktop\progetto programm\project-hermes\progetto_hermes\include\livello.hpp
+	"OtherFunctions.hpp"
 
-1612636373 c:\users\letiz\desktop\progetto programm\progetto_hermes\include\macchina.h
-	"Entita.h"
+1612734436 c:\users\letiz\desktop\progetto programm\project-hermes\progetto_hermes\include\macchina.hpp
+	"Entita.hpp"
 
-1612636373 c:\users\letiz\desktop\progetto programm\progetto_hermes\include\tabellone.h
-	"OtherFunctions.h"
+1612740485 c:\users\letiz\desktop\progetto programm\project-hermes\progetto_hermes\include\tabellone.hpp
+	"OtherFunctions.hpp"
 
-1612636373 c:\users\letiz\desktop\progetto programm\progetto_hermes\include\campo.h
-	"Livello.h"
-	"Macchina.h"
-	"Tabellone.h"
+1612749640 c:\users\letiz\desktop\progetto programm\project-hermes\progetto_hermes\include\campo.hpp
+	"Livello.hpp"
+	"Macchina.hpp"
+	"Tabellone.hpp"
 
-1612636373 source:c:\users\letiz\desktop\progetto programm\progetto_hermes\src\campo.cpp
-	"Campo.h"
-	<iostream>
-	<ctime>
-
-1612636373 source:c:\users\letiz\desktop\progetto programm\progetto_hermes\src\entita.cpp
-	"Entita.h"
+1612734526 source:c:\users\letiz\desktop\progetto programm\project-hermes\progetto_hermes\src\entita.cpp
+	"Entita.hpp"
 	<iostream>
 
-1612636543 source:c:\users\letiz\desktop\progetto programm\progetto_hermes\src\livello.cpp
-	"campo.h"
-	"Livello.h"
+1612734506 source:c:\users\letiz\desktop\progetto programm\project-hermes\progetto_hermes\src\macchina.cpp
+	"Macchina.hpp"
+	<iostream>
+
+1612734551 source:c:\users\letiz\desktop\progetto programm\project-hermes\progetto_hermes\src\otherfunctions.cpp
+	"OtherFunctions.hpp"
+	<iostream>
+	<windows.h>
+
+1612739811 source:c:\users\letiz\desktop\progetto programm\project-hermes\progetto_hermes\src\campo.cpp
+	"campo.hpp"
+	<iostream>
 	<time.h>
+
+1612740018 source:c:\users\letiz\desktop\progetto programm\project-hermes\progetto_hermes\src\livello.cpp
+	"Livello.hpp"
 	<iostream>
 
-1612636373 source:c:\users\letiz\desktop\progetto programm\progetto_hermes\src\macchina.cpp
-	"Macchina.h"
-	<iostream>
-
-1612636373 source:c:\users\letiz\desktop\progetto programm\progetto_hermes\src\otherfunctions.cpp
-	"OtherFunctions.h"
-	<iostream>
-	<windows.h>
-	<ctime>
-
-1612636373 source:c:\users\letiz\desktop\progetto programm\progetto_hermes\src\tabellone.cpp
-	"Tabellone.h"
-	<iostream>
-
-1612636373 source:c:\users\letiz\desktop\progetto programm\game_hermes\main.cpp
-	<conio.h>
-	<iostream>
-	<stdlib.h>
-	<stdio.h>
-	<string.h>
-	<cstdlib>
-	<math.h>
-	<ctime>
-	<windows.h>
-	"OtherFunctions.h"
-	"Entita.h"
-	"Livello.h"
-	"Macchina.h"
-	"Tabellone.h"
-	"campo.h"
-
-1612636373 c:\users\letiz\desktop\progetto programm\game_hermes\include\otherfunctions.h
-
-1612636373 c:\users\letiz\desktop\progetto programm\game_hermes\include\entita.h
-	"OtherFunctions.h"
-	<windows.h>
-
-1612637942 c:\users\letiz\desktop\progetto programm\game_hermes\include\livello.h
-	"OtherFunctions.h"
-
-1612636373 c:\users\letiz\desktop\progetto programm\game_hermes\include\macchina.h
-	"Entita.h"
-
-1612636373 c:\users\letiz\desktop\progetto programm\game_hermes\include\tabellone.h
-	"OtherFunctions.h"
-
-1612636373 c:\users\letiz\desktop\progetto programm\game_hermes\include\campo.h
-	"Livello.h"
-	"Macchina.h"
-	"Tabellone.h"
-
-1612636373 source:c:\users\letiz\desktop\progetto programm\game_hermes\src\campo.cpp
-	"Campo.h"
-	<iostream>
-	<ctime>
-
-1612636373 source:c:\users\letiz\desktop\progetto programm\game_hermes\src\entita.cpp
-	"Entita.h"
-	<iostream>
-
-1612636543 source:c:\users\letiz\desktop\progetto programm\game_hermes\src\livello.cpp
-	"campo.h"
-	"Livello.h"
-	<time.h>
-	<iostream>
-
-1612636373 source:c:\users\letiz\desktop\progetto programm\game_hermes\src\macchina.cpp
-	"Macchina.h"
-	<iostream>
-
-1612636373 source:c:\users\letiz\desktop\progetto programm\game_hermes\src\otherfunctions.cpp
-	"OtherFunctions.h"
-	<iostream>
-	<windows.h>
-	<ctime>
-
-1612636373 source:c:\users\letiz\desktop\progetto programm\game_hermes\src\tabellone.cpp
-	"Tabellone.h"
+1612740144 source:c:\users\letiz\desktop\progetto programm\project-hermes\progetto_hermes\src\tabellone.cpp
+	"Tabellone.hpp"
 	<iostream>
 

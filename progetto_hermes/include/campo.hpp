@@ -1,9 +1,9 @@
-#ifndef CAMPO_H
-#define CAMPO_H
+#ifndef CAMPO_HPP
+#define CAMPO_HPP
 
-#include "Livello.h"
-#include "Macchina.h"
-#include "Tabellone.h"
+#include "Livello.hpp"
+#include "Macchina.hpp"
+#include "Tabellone.hpp"
 
 class Campo
 {
@@ -27,9 +27,9 @@ class Campo
         void del_tan (int x, int y);    //cancella la tanica di benzina che ha l' angolo in alto a sinistra in posizione (x,y)
         void del_ost(int x, int y);     //cancella l ostacolo che ha l' angolo in alto a sinistra in posizione (x,y)
         void del_car(int x, int y );    //cancello la macchina che ha l' angolo in alto a sinistra in posizione (x,y)
-        void ins_tan(int x);            //inserisco una tanica avente come coordinate dell' angolo sinistro in alto (x,y) nella matrice
-        void ins_ost(int x, int len);   //inserisco un ostacolo di lunghezza "len" avente come coordinate dell' angolo sinistro in alto (x,y) nella matrice
-        void ins_enemy_car(int x);      //inserisco una macchina nemica avente come coordinate dell' angolo sinistro in alto (x,y) nella matrice
+        void ins_tan(int x);            //inserisco una tanica avente come coordinate dell' angolo sinistro in alto (x,1) nella matrice
+        void ins_ost(int x, int len);   //inserisco un ostacolo di lunghezza "len" avente come coordinate dell' angolo sinistro in alto (x,1) nella matrice
+        void ins_enemy_car(int x);      //inserisco una macchina nemica avente come coordinate dell' angolo sinistro in alto (x,1) nella matrice
 
         int control_collision(Livello level, int x, int y); /*metodo che data una posizione (x,y) restituisce:
                 -0 se quella posizione nella matrice non corrisponde a nulla, quindi se in (x,y) ho il campo vuoto
@@ -66,4 +66,4 @@ class Campo
                             */
 };
 
-#endif // CAMPO_H
+#endif // CAMPO_HPP

@@ -1,4 +1,4 @@
-#include "Entita.h"
+#include "Entita.hpp"
 
 #include <iostream>
 using namespace std;

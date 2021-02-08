@@ -1,4 +1,4 @@
-#include "Tabellone.h"
+#include "Tabellone.hpp"
 
 #include <iostream>
 using namespace std;
@@ -37,7 +37,7 @@ using namespace std;
     {
         punteggio = punteggio + score;
         tempo++;
-        Tabellone::stampa_tab(x);
+        stampa_tab(x);
     }
 
     void Tabellone::t_insert(int value,int livello)// t_insert inserisce in codo un nuovo nodo alla lista "head"
@@ -60,7 +60,7 @@ using namespace std;
 
 
     int Tabellone::stampa_lista(int x,int y)
-    {
+    {//stampa la lista degli UPLEVEL & DOWNLEVEL (ovvero le statistiche di gioco) dalla colonna x e dalla riga y
         ptr_list tmp = head;
         int oldlev = 0;
 

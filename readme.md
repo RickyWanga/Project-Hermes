@@ -24,9 +24,10 @@
 	- Esempio ostacolo:	
 		|****|
 ---------------------------------------
-## Regole:
-Per aumentare lo SCORE prendi piu' taniche possibili ed evita gli ostacoli (che ti toglieranno punti!!).
-Ricorda che se il punteggio dovesse scendere sotto 0 perderai!!
-  BUONA FORTUNA!
+## Regole generali:
+	- Le taniche ti faranno aumentare il punteggio;
+	- Gli ostacoli, le macchine nemiche e sbattere contro la barriera ti farà perdere punti.
+Ogni 100 punti salirai di livello, ma ricorda, se il punteggio dovesse scendere sotto 0 perderai!!  
+BUONA FORTUNA!
 	
 Created by: Alice Altena, Alice Guidi, Letizia Gorini, Ricky Wanga.
