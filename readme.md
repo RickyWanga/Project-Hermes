@@ -1,7 +1,9 @@
 # Hermes Game
 ---------------------------------------
 ## How to start:
+
 Compilare il codice sorgente aprendo il file .cbp (Codeblocks Project) con Codeblocks oppure far partire l'eseguibile Hermes.exe
+
 ---------------------------------------
 ## Comandi:
 	-Premi 'a' per andare a sinistra,
